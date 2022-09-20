@@ -1,0 +1,38 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	text-decoration: none;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+ul {
+	list-style: none;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    background-color: $color-white;
+}
+
+body {
+    height: 100%;
+    font-size: 16px;
+    line-height: 22.4px;
+	font-family: 'Roboto', Arial, Verdana, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    font-size: 19.01px;
+    line-height: 22.82px;
+    text-align: center;
+    font-weight: 300;
+    
+}
+
