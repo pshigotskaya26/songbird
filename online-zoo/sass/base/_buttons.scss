@@ -1,0 +1,28 @@
+.button {
+    display: inline-block;
+    width: 298px;
+    height: 54px;
+    padding: 0 2px 0 12px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    text-transform: uppercase;
+    color: $color-white;
+    background-color: $color-primery;
+    //background: linear-gradient(113.96deg, $color-primery 1.49%, $color-primery-light 101.44%);
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+    cursor: pointer;
+
+    &:hover {
+        //background: linear-gradient(113.96deg, $color-primery-dark 1.49%, $color-primery-dark 101.44%);
+        background-color: $color-primery-dark;
+        transition: 0.5s;
+    }
+
+    &:active {
+        background-color: $color-link-activ;
+        
+    }
+}

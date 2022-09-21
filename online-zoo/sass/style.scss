@@ -1,6 +1,12 @@
 @import "abstract/constants";
 @import "base/base";
+@import "base/buttons";
 @import "layouts/container";
 @import "layouts/header";
+@import "components/main/watch-block";
+
+.main {
+    margin-top: -80px;
+}
 
 
