@@ -1,0 +1,34 @@
+.backstage {
+    padding-top: 140px;
+    padding-bottom: 100px;
+    background-image: url(../images/flower-foto-1.png);
+    background-repeat: no-repeat;
+    background-position: right 12px;
+    //height: 500px;
+    //background-image: url(../images/flower-foto-1.png);
+}
+
+.backstage__content {
+    display: flex;
+}
+
+.backstage__image {
+    flex: 0 1 52.5%;
+}
+
+.backstage__text {
+    flex: 0 1 47.5%;
+    padding-left: 86px;
+}
+
+.backstage__title {
+    padding-bottom: 22px;
+}
+
+.backstage__subtitle {
+    padding: 53px 0 32px;
+    font-size: 24px;
+    line-height: 28.8px;
+}
+
+

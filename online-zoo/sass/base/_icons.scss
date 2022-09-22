@@ -1,0 +1,44 @@
+.icon {
+    display: inline-block;
+
+    &_prev {
+        width: 16px;
+        height: 8px;
+        background-image: url(../icons/arrow-prev_icon.svg);
+        background-repeat: no-repeat;
+    }
+
+    &_next {
+        width: 16px;
+        height: 8px;
+        background-image: url(../icons/arrow-next_icon.svg);
+        background-repeat: no-repeat;
+    }
+}
+
+.icon-circle {
+    width: 62px;
+    height: 62px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.icon-cicrcle_orange {
+    background-color: $color-primery-light;
+    //background: linear-gradient(113.96deg, $color-primery 1.49%, $color-primery-light 101.44%);
+}
+
+
+.icon-cicrcle_orange:hover {
+    background-color: $color-primery-dark;
+    transition: all 0.3s ease-out;
+}
+
+.icon-cicrcle_orange:active {
+    background-color: $color-link-activ;
+    transition: all 0.3s ease-out;
+}
