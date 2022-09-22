@@ -7,10 +7,17 @@
 @import "components/main/watch-block";
 @import "components/main/backstage";
 @import "components/main/pets";
+@import "components/main/pick-feed";
 @import "base/icons";
 
 .main {
     margin-top: -80px;
+}
+
+.backstage,
+.pets,
+.peek-feed {
+    padding-bottom: 100px;
 }
 
 
