@@ -38,6 +38,34 @@
         background-repeat: no-repeat;
         z-index: 5;
     }
+
+    &_facebook {
+        width: 8px;
+        height: 16px;
+        background-image: url(../icons/facebook_icon.svg);
+        background-repeat: no-repeat;
+    }
+
+    &_twitter {
+        width: 16px;
+        height: 14px;
+        background-image: url(../icons/twitter_icon.svg);
+        background-repeat: no-repeat;
+    }
+
+    &_instagram {
+        width: 16px;
+        height: 16px;
+        background-image: url(../icons/instagram_icon.svg);
+        background-repeat: no-repeat;
+    }
+
+    &_youtube {
+        width: 18px;
+        height: 12.99px;
+        background-image: url(../icons/youtube_icon.svg);
+        background-repeat: no-repeat;
+    }
 }
 
 .icon-circle {
@@ -56,7 +84,6 @@
     //background: linear-gradient(113.96deg, $color-primery 1.49%, $color-primery-light 101.44%);
 }
 
-
 .icon-cicrcle_orange:hover {
     background-color: $color-primery-dark;
     transition: all 0.3s ease-out;
@@ -66,6 +93,16 @@
     background-color: $color-link-activ;
     transition: all 0.3s ease-out;
 }
+
+.icon-circle_gray {
+    background: rgba(196, 196, 196, 0.5);
+}
+
+.social .icon-circle {
+    width: 26px;
+    height: 26px;
+}
+
 
 .icon-square_white {
     position: relative;
