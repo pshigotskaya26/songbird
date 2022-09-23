@@ -416,7 +416,7 @@ h5 {
 
 .peek-feed__title {
   padding-right: 46px;
-  padding-bottom: 32px;
+  padding-bottom: 33px;
   color: #FE9013;
 }
 
@@ -439,7 +439,7 @@ h5 {
 }
 
 .peek-feed__text-bold {
-  padding-bottom: 10px;
+  padding-bottom: 9px;
   font-weight: 500;
 }
 
