@@ -80,12 +80,14 @@
 }
 
 .icon-cicrcle_orange {
-    background-color: $color-primery-light;
+    background: $color-primery-light linear-gradient(113.96deg, $color-primery 1.49%, $color-primery-light 101.44%);
+    //background-color: $color-primery-light;
     //background: linear-gradient(113.96deg, $color-primery 1.49%, $color-primery-light 101.44%);
 }
 
 .icon-cicrcle_orange:hover {
-    background-color: $color-primery-dark;
+    background: $color-primery-dark;
+    //background-color: $color-primery-dark;
     transition: all 0.3s ease-out;
 }
 
