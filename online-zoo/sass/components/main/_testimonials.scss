@@ -84,6 +84,21 @@
     color: $color-black;
 }
 
+.user__location {
+    position: relative;
+    padding-right: 17px;
+    &::after {
+        content: '';
+        position: absolute;
+        right: 6px;
+        top: 6px;
+        width: 3px;
+        height: 3px;
+        background-color: $color-gray-light;
+
+    }
+}
+
 .user__location.smallParagraph,
 .day.smallParagraph {
     color: $color-gray-light;

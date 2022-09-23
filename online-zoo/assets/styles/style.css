@@ -575,6 +575,20 @@ h5 {
   color: #000000;
 }
 
+.user__location {
+  position: relative;
+  padding-right: 17px;
+}
+.user__location::after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  width: 3px;
+  height: 3px;
+  background-color: #BDBDBD;
+}
+
 .user__location.smallParagraph,
 .day.smallParagraph {
   color: #BDBDBD;
