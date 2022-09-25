@@ -629,7 +629,6 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   font-size: 15px;
   line-height: 18px;
   color: #000000;
-  text-transform: capitalize;
 }
 
 .pets__button {
