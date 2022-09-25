@@ -1054,6 +1054,18 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   color: #000000;
 }
 
+.animal-block__close {
+  position: absolute;
+  right: -25px;
+  bottom: 53px;
+}
+
+.close {
+  width: 14px;
+  height: 14px;
+  background-image: url(../icons/x_icon.svg);
+}
+
 .animal-block__image {
   position: relative;
   padding-top: 18px;

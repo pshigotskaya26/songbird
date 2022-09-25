@@ -59,13 +59,25 @@
 }
 
 .animal-block__number {
-    
     font-style: normal;
     font-weight: 500;
     font-size: 72px;
     line-height: 57.6px;
     color: $color-black;
 }
+
+.animal-block__close {
+    position: absolute;
+    right: -25px;
+    bottom: 53px;
+}
+
+.close {
+    width: 14px;
+    height: 14px;
+    background-image: url(../icons/x_icon.svg);
+}
+
 
 .animal-block__image {
     position: relative;
