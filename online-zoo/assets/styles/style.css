@@ -471,6 +471,7 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 
 .backstage {
   padding-top: 140px;
+  padding-bottom: 100px;
   background-image: url(../images/flower-foto-1.png);
   background-repeat: no-repeat;
   background-position: right 12px;
@@ -499,6 +500,7 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 
 .pets {
   padding-top: 74px;
+  padding-bottom: 100px;
   background-image: url(../images/palm-bg-foto.png), url(../images/strelitzia-bg-foto.png);
   background-position: left bottom, right bottom;
   background-repeat: no-repeat;
@@ -637,6 +639,7 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 
 .peek-feed {
   padding-top: 69px;
+  padding-bottom: 100px;
   background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
 }
 
@@ -987,6 +990,7 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 
 .peek-feed-donate {
   padding-top: 43px;
+  padding-bottom: 179px;
 }
 
 .peek-feed-donate__title {
@@ -1221,12 +1225,6 @@ input[type=radio].choice-group__input:checked {
 
 .main-donate {
   margin-top: 0px;
-}
-
-.backstage,
-.pets,
-.peek-feed {
-  padding-bottom: 100px;
 }
 
 /*# sourceMappingURL=style.css.map */
