@@ -12,7 +12,7 @@
 }
 
 .peek-feed__content {
-    padding: 40px 51px 59px 99px;
+    //padding: 40px 51px 59px 99px;
     background: rgba(253, 253, 255, 0.52);
     backdrop-filter: blur(2px);
     -moz-border-radius: 20px;
@@ -22,8 +22,9 @@
 }
 
 .peek-feed__title {
-    padding-right: 46px;
+    padding-right: 39px;
     padding-bottom: 33px;
+    padding-top: 40px;
     color: $color-primery-light;
 }
 
@@ -55,7 +56,7 @@
 }
 
 .payment__title {
-    padding-right: 50px;
+    padding-right: 42px;
     padding-bottom: 40px;
 }
 
@@ -71,10 +72,10 @@
 }
 
 .payment__item_left {
-    padding-left: 34px;
+    padding-left: 36px;
 }
 .payment__item_right {
-    padding-right: 34px;
+    padding-right: 26px;
 }
 
 .payment__text {
@@ -94,6 +95,6 @@
 }
 
 .payment__button {
-    padding-right: 51px;
+    padding-right: 40px;
 }
 
