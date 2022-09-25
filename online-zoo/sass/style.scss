@@ -14,11 +14,18 @@
 
 @import "layouts/footer";
 
+@import "components/donate/watch-block";
+@import "components/donate/pick-feed";
+
 
 
 
 .main {
     margin-top: -80px;
+}
+
+.main-donate {
+    margin-top: 0px;
 }
 
 .backstage,

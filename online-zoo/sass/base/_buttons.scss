@@ -47,3 +47,98 @@
     }
 }
 
+input[type="email"] {
+    margin-right: 10px;
+    padding: 10px 21px 10px 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22.4px;
+    border: 0.7px solid $color-primery;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+input[type="email"]:focus {
+    border: 0.7px solid $color-link-activ;
+}
+
+input[type="number"]:focus {
+    border: 1px solid $color-link-activ;
+}
+
+input[type="email"]:not(:focus):not(:placeholder-shown):invalid {
+	border: 0.7px solid $color-mistake;
+}
+
+input[type="number"]:not(:focus):not(:placeholder-shown):invalid {
+	border: 1px solid $color-mistake;
+    color: $color-mistake;
+}
+
+input[type="email"]:not(:focus):not(:placeholder-shown):invalid + button {
+	border: 1px solid $color-mistake;
+    color: $color-mistake;
+}
+
+input[type="email"]:not(:focus):not(:placeholder-shown):valid {
+	border: 0.7px solid $color-primery;
+}
+
+input[type="number"]:not(:focus):not(:placeholder-shown):valid {
+    color: $color-link-activ;
+	border: 1px solid $color-border-gray;
+}
+
+input[type="email"]:not(:focus):not(:placeholder-shown):valid + button {
+	border: 1px solid $color-link-activ;
+    color: $color-link-activ;
+}
+
+.input {
+    &::placeholder {
+        color: $color-gray-light;
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $color-gray-light;
+    }
+
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: $color-gray-light;
+    }
+}
+
+.input-default {
+    position: relative;
+    padding: 14px 21px 15px 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22.4px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+
+    &_width-270 {
+        width: 270px;
+    }
+
+    &_gray {
+        border: 1px solid $color-border-gray;
+    }
+}
+
+.inputwrapper {
+    position: relative;
+}
+
+.inputwrapper::after {
+    content: '$';
+    position: absolute;
+    right: 9px;
+    top: 17px;
+    font-size: 24px;
+    color: $color-border-gray;
+}
+
+
