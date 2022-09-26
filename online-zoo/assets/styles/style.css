@@ -215,64 +215,64 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 .icon_prev {
   width: 16px;
   height: 8px;
-  background-image: url(../icons/arrow-prev_icon.svg);
+  background-image: url(../../assets/icons/arrow-prev_icon.svg);
   background-repeat: no-repeat;
 }
 .icon_next {
   width: 16px;
   height: 8px;
-  background-image: url(../icons/arrow-next_icon.svg);
+  background-image: url(../../assets/icons/arrow-next_icon.svg);
   background-repeat: no-repeat;
 }
 .icon_pay {
   width: 108px;
   height: 60px;
-  background-image: url(../icons/pay_icon.svg);
+  background-image: url(../../assets/icons/pay_icon.svg);
   background-repeat: no-repeat;
   z-index: 5;
 }
 .icon_zoo {
   width: 85.77px;
   height: 96px;
-  background-image: url(../icons/zoo_icon.svg);
+  background-image: url(../../assets/icons/zoo_icon.svg);
   background-repeat: no-repeat;
   z-index: 5;
 }
 .icon_monkey {
   width: 124.75px;
   height: 73px;
-  background-image: url(../icons/monkey_icon.svg);
+  background-image: url(../../assets/icons/monkey_icon.svg);
   background-repeat: no-repeat;
   z-index: 5;
 }
 .icon_facebook {
   width: 8px;
   height: 16px;
-  background-image: url(../icons/facebook_icon.svg);
+  background-image: url(../../assets/icons/facebook_icon.svg);
   background-repeat: no-repeat;
 }
 .icon_twitter {
   width: 16px;
   height: 14px;
-  background-image: url(../icons/twitter_icon.svg);
+  background-image: url(../../assets/icons/twitter_icon.svg);
   background-repeat: no-repeat;
 }
 .icon_instagram {
   width: 16px;
   height: 16px;
-  background-image: url(../icons/instagram_icon.svg);
+  background-image: url(../../assets/icons/instagram_icon.svg);
   background-repeat: no-repeat;
 }
 .icon_youtube {
   width: 18px;
   height: 12.99px;
-  background-image: url(../icons/youtube_icon.svg);
+  background-image: url(../../assets/icons/youtube_icon.svg);
   background-repeat: no-repeat;
 }
 .icon_panda-donate {
   width: 284px;
   height: 246px;
-  background-image: url(../icons/panda-donate_icon.svg);
+  background-image: url(../../assets/icons/panda-donate_icon.svg);
   background-repeat: no-repeat;
 }
 
