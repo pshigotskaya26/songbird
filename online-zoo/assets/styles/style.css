@@ -337,6 +337,27 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   border-radius: 5px;
 }
 
+.logo {
+  position: relative;
+  padding: 3.55px 4.75px;
+  border: 1px solid #FFFFFF;
+}
+.logo:hover {
+  border: 1px solid #F9804B;
+}
+.logo::after {
+  content: url(../../assets/icons/bamboo.svg);
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}
+.logo:hover::after {
+  content: url(../../assets/icons/bamboo_hover.svg);
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}
+
 .container {
   width: 1160px;
   margin: 0 auto;
