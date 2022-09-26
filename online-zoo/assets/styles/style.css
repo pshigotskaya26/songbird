@@ -706,7 +706,7 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 }
 .payment__item_arrow::after {
   position: absolute;
-  content: url(../icons/arrow_icon.svg);
+  content: url(../../assets/icons/arrow_icon.svg);
   top: 59px;
   right: -100px;
 }
