@@ -1,0 +1,100 @@
+.peek-feed {
+    padding-top: 69px;
+    padding-bottom: 100px;
+    background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+}
+
+.peek-feed a {
+    display: inline-block;
+    border-bottom: 1px solid $color-primery;
+    color: $color-black;
+    
+}
+
+.peek-feed__content {
+    //padding: 40px 51px 59px 99px;
+    background: rgba(253, 253, 255, 0.52);
+    backdrop-filter: blur(2px);
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.peek-feed__title {
+    padding-right: 39px;
+    padding-bottom: 33px;
+    padding-top: 40px;
+    color: $color-primery-light;
+}
+
+.peek-feed__subtitle {
+    padding-bottom: 41px;
+}
+
+.peek-feed__subtitle,
+.peek-feed__text,
+.peek-feed__text-bold {
+    text-align: justify;
+}
+
+.peek-feed__text,
+.peek-feed__text-bold {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20.8px;
+}
+
+.peek-feed__text-bold {
+    padding-bottom: 9px;
+    font-weight: 500;
+}
+
+.payment {
+    padding-top: 60px;
+}
+
+.payment__title {
+    padding-right: 42px;
+    padding-bottom: 40px;
+}
+
+.payment__content {
+    display: flex;
+    justify-content: space-around;
+    padding-right: 48px;
+    padding-bottom: 61px;
+}
+
+.payment__item {
+    flex: 0 1 168px;
+}
+
+.payment__item_left {
+    padding-left: 36px;
+}
+.payment__item_right {
+    padding-right: 26px;
+}
+
+.payment__text {
+    text-align: left;
+    padding-top: 29px;
+}
+
+.payment__item_arrow {
+    position: relative;
+
+    &::after {
+        position: absolute;
+        content: url(../../assets/icons/arrow_icon.svg);
+        top: 59px;
+        right: -100px;
+    }
+}
+
+.payment__button {
+    padding-right: 40px;
+}
+

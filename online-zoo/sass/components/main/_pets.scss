@@ -1,0 +1,153 @@
+.pets {
+    padding-top: 74px;
+    padding-bottom: 100px;
+    background-image: url(../../assets/images/palm-bg-foto.png), url(../../assets/images/strelitzia-bg-foto.png);
+    background-position: left bottom, right bottom;
+    background-repeat: no-repeat;
+}
+
+//-----slider----
+
+.pets__slider {
+    padding-bottom:  80px;
+}
+
+.slider__wrapper {
+    position: relative;
+    //overflow: hidden;
+}
+
+.slider__nav {
+    position: absolute;
+    top: -2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 872px;
+    
+    &_prev {
+        left: -82px;
+    }
+
+    &_prev span {
+        cursor: pointer;
+    }
+
+    &_next {
+        right: -80px;
+    }
+
+    &_next span {
+        cursor: pointer;
+    }
+}
+
+.slider__body {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider__content {
+    position: relative;
+    display: flex;
+    column-gap: 30px;
+    row-gap: 21px;
+    flex-wrap: wrap;
+    width: 1556px;    
+}
+
+.slider__item {
+    position: relative;
+    width: 366px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid $color-primery-light;
+    overflow: hidden;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:hover .info__name, &:hover .info__location {
+        top: -350px;
+        color: $color-white;
+        transition: all 0.5s ease-out;
+    }
+
+    &:hover .slider__image::after {
+        opacity: 1;
+        transition: all 0.3s ease-out;
+    }
+
+    &:hover .slider__image img {
+        transform: scale(1.05);
+        transition: all 0.5s ease-out;
+    }
+}
+
+.slider__image {
+    position: relative;
+    overflow: hidden;
+    
+}
+.slider__image::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    //z-index: 2;
+}
+
+.slider__image img {
+    
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.slider__info {
+    position: relative;
+    padding: 9px 55px 12px 15px;
+    background-repeat: no-repeat; 
+}
+
+.slider__info_eat-banana {
+    background-image: url(../../assets/icons/eat-banana_icon.svg);
+    background-position: top 11px right 11px;
+}
+
+.slider__info_eat-meat {
+    background-image: url(../../assets/icons/eat-meat_icon.svg);
+    background-position: top 9px right 7px;
+}
+
+.info__name {
+    position: relative;
+    top: 0;
+}
+
+.info__location {
+    position: relative;
+    top: 0;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 18px;
+    color: $color-black;
+    //text-transform: capitalize;
+}
+
+//-------end slider
+
+.pets__button {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,33 @@
+@import "abstract/constants";
+@import "base/base";
+@import "base/buttons";
+@import "base/icons";
+@import "base/logo";
+
+@import "layouts/container";
+@import "layouts/header";
+
+@import "components/main/watch-block";
+@import "components/main/backstage";
+@import "components/main/pets";
+@import "components/main/pick-feed";
+@import "components/main/testimonials";
+
+@import "layouts/footer";
+
+@import "components/donate/watch-block";
+@import "components/donate/pick-feed";
+
+
+
+
+.main {
+    margin-top: -80px;
+}
+
+.main-donate {
+    margin-top: 0px;
+}
+
+
+
