@@ -81,7 +81,7 @@ h5 {
   display: inline-block;
   width: 298px;
   height: 55px;
-  padding: 0 0 0 7px;
+  padding: 0px 0px 0px 7px;
   font-weight: 500;
   font-size: 16px;
   font-family: "Roboto", Arial, Verdana, sans-serif;
@@ -641,7 +641,7 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 }
 
 .pets .button {
-  padding: 0 0 0 3px;
+  padding: 0px 0px 0px 3px;
 }
 
 .peek-feed {
@@ -756,7 +756,7 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 }
 
 .testimonials__button .button {
-  padding: 0 0 0 1px;
+  padding: 0px 0px 0px 1px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -942,7 +942,7 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 }
 
 .footer__button .button {
-  padding: 0 0 0 1px;
+  padding: 0px 0px 0px 1px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
