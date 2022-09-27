@@ -919,8 +919,10 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 }
 
 .footer .logo {
+  padding: 2.55px 4.75px 2.55px 6px;
   height: 52px;
-  padding: 2.55px 4.75px;
+  text-align: center;
+  font-size: 18px;
 }
 
 .block-form__title {
