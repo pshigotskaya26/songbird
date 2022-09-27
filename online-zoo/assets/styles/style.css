@@ -1194,6 +1194,47 @@ input[type=radio].progress-bar__input:checked::after {
   font-weight: 500;
   font-size: 26px;
   line-height: 36.4px;
+  color: #333B41;
+}
+
+input[type=radio].progress-bar__input:checked ~ label[for=amount-5000] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+
+input[type=radio].progress-bar__input:checked ~ label[for=amount-2000] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+
+input[type=radio].progress-bar__input:checked ~ label[for=amount-1000] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+
+input[type=radio].progress-bar__input:checked ~ label[for=amount-500] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+
+input[type=radio].progress-bar__input:checked ~ label[for=amount-250] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+
+input[type=radio].progress-bar__input:checked ~ label[for=amount-100] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+
+input[type=radio].progress-bar__input:checked ~ label[for=amount-50] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+
+input[type=radio].progress-bar__input:checked ~ label[for=amount-25] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
 }
 
 .amount__input {
