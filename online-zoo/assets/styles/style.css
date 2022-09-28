@@ -1169,6 +1169,10 @@ input[type=radio].progress-bar__input:checked::before {
   transform: scale(1);
 }
 
+input[type=radio].progress-bar__input:hover::before {
+  transform: scale(1);
+}
+
 input[type=radio].progress-bar__input::after {
   content: "";
   position: absolute;
@@ -1184,6 +1188,10 @@ input[type=radio].progress-bar__input::after {
 }
 
 input[type=radio].progress-bar__input:checked::after {
+  transform: scale(1);
+}
+
+input[type=radio].progress-bar__input:hover::after {
   transform: scale(1);
 }
 
@@ -1204,7 +1212,17 @@ input[type=radio].progress-bar__input:checked ~ label[for=amount-5000] {
   color: #FE9013;
 }
 
+input[type=radio].progress-bar__input:hover ~ label[for=amount-5000] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+
 input[type=radio].progress-bar__input:checked ~ label[for=amount-2000] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+
+input[type=radio].progress-bar__input:hover ~ label[for=amount-2000] {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
@@ -1214,7 +1232,17 @@ input[type=radio].progress-bar__input:checked ~ label[for=amount-1000] {
   color: #FE9013;
 }
 
+input[type=radio].progress-bar__input:hover ~ label[for=amount-1000] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+
 input[type=radio].progress-bar__input:checked ~ label[for=amount-500] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+
+input[type=radio].progress-bar__input:hover ~ label[for=amount-500] {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
@@ -1224,7 +1252,17 @@ input[type=radio].progress-bar__input:checked ~ label[for=amount-250] {
   color: #FE9013;
 }
 
+input[type=radio].progress-bar__input:hover ~ label[for=amount-250] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+
 input[type=radio].progress-bar__input:checked ~ label[for=amount-100] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+
+input[type=radio].progress-bar__input:hover ~ label[for=amount-100] {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
@@ -1234,7 +1272,17 @@ input[type=radio].progress-bar__input:checked ~ label[for=amount-50] {
   color: #FE9013;
 }
 
+input[type=radio].progress-bar__input:hover ~ label[for=amount-50] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+
 input[type=radio].progress-bar__input:checked ~ label[for=amount-25] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+
+input[type=radio].progress-bar__input:hover ~ label[for=amount-25] {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
