@@ -34,6 +34,11 @@ h1 {
     line-height: 22.82px;
     text-align: center;
     font-weight: 300; 
+    @media (max-width: $tablet-width) {
+        font-size: 12.29px;
+        line-height: 14.75px;
+		font-weight: 400;
+	}
 }
 
 h2 {
