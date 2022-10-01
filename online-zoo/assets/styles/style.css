@@ -546,6 +546,46 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   background-size: contain;
   z-index: 1;
 }
+@media (max-width: 1000px) {
+  .watch-block {
+    padding-top: 58.4%;
+    background-size: cover;
+    background-position: center;
+  }
+}
+@media (max-width: 768px) {
+  .watch-block {
+    padding-top: 63.4%;
+  }
+}
+@media (max-width: 640px) {
+  .watch-block {
+    padding-top: 65.4%;
+    background-position: -103px 27px;
+  }
+}
+@media (max-width: 552px) {
+  .watch-block {
+    padding-top: 76.4%;
+  }
+}
+@media (max-width: 440px) {
+  .watch-block {
+    padding-top: 86.4%;
+  }
+}
+@media (max-width: 363px) {
+  .watch-block {
+    padding-top: 96.4%;
+  }
+}
+@media (max-width: 320px) {
+  .watch-block {
+    padding-top: 83.4%;
+    background-position: -32px 80px;
+    background-size: 120%;
+  }
+}
 
 .watch-block__container {
   position: absolute;
@@ -554,25 +594,61 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   right: 0;
   bottom: 0;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .watch-block__content {
   position: relative;
-  width: 500px;
   padding-top: 86px;
+  padding-right: 10px;
   z-index: 10;
+}
+@media (max-width: 1600px) {
+  .watch-block__content {
+    padding-top: calc(48px + 38 * (100vw - 1001px) / 599);
+    padding-right: calc(100px + -90 * (100vw - 1001px) / 599);
+  }
+}
+@media (max-width: 1000px) {
+  .watch-block__content {
+    padding-top: calc(49px + -7 * (100vw - 640px) / 360);
+    padding-right: calc(1px + 64 * (100vw - 640px) / 360);
+  }
+}
+@media (max-width: 320px) {
+  .watch-block__content {
+    padding-top: 43px;
+  }
 }
 
 .watch-block__text {
   position: relative;
   font-weight: 700;
-  font-size: 106.496px;
-  line-height: 75%;
+  font-size: 106.5px;
+  line-height: 79.87px;
   color: #FFFFFF;
   text-transform: uppercase;
   text-align: center;
   z-index: 10;
+}
+@media (max-width: 1600px) {
+  .watch-block__text {
+    font-size: calc(72.5px + 34 * (100vw - 1001px) / 599);
+    line-height: calc(55.87px + 24 * (100vw - 1001px) / 599);
+  }
+}
+@media (max-width: 1000px) {
+  .watch-block__text {
+    font-size: calc(54.4px + 30.6 * (100vw - 640px) / 360);
+    line-height: calc(40.8px + 23.2 * (100vw - 640px) / 360);
+  }
+}
+@media (max-width: 320px) {
+  .watch-block__text {
+    font-size: 28px;
+    line-height: 21px;
+  }
 }
 
 .watch-block__text span {
@@ -581,13 +657,49 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 
 .watch-block__button {
   padding-top: 61px;
+  padding-right: 100px;
   text-align: center;
+}
+@media (max-width: 1600px) {
+  .watch-block__button {
+    padding-top: calc(15px + 46 * (100vw - 1001px) / 599);
+    padding-right: calc(115px + -15 * (100vw - 1001px) / 599);
+  }
+}
+@media (max-width: 1000px) {
+  .watch-block__button {
+    padding-top: 40px;
+    padding-right: 106px;
+  }
+}
+@media (max-width: 980px) {
+  .watch-block__button {
+    padding-top: 0px;
+    padding-right: 0px;
+    align-self: flex-start;
+  }
+}
+@media (max-width: 640px) {
+  .watch-block__button {
+    margin-top: -10px;
+  }
+}
+@media (max-width: 552px) {
+  .watch-block__button {
+    margin-top: 0px;
+    padding-top: 5px;
+  }
+}
+@media (max-width: 320px) {
+  .watch-block__button {
+    padding-top: 59px;
+  }
 }
 
 .circle {
   position: absolute;
   top: 12px;
-  left: -73px;
+  left: -81px;
   width: 465px;
   height: 465px;
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
@@ -595,6 +707,27 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   -webkit-border-radius: 50%;
   border-radius: 50%;
   z-index: 9;
+}
+@media (max-width: 1600px) {
+  .circle {
+    width: calc(320px + 145 * (100vw - 1001px) / 599);
+    height: calc(320px + 145 * (100vw - 1001px) / 599);
+    top: calc(10px + 2 * (100vw - 1001px) / 599);
+    left: calc(-55px + -26 * (100vw - 1001px) / 599);
+  }
+}
+@media (max-width: 1000px) {
+  .circle {
+    top: calc(12px + -23 * (100vw - 640px) / 360);
+    left: calc(-41px + -22 * (100vw - 640px) / 360);
+    width: calc(237px + 130 * (100vw - 640px) / 360);
+    height: calc(237px + 130 * (100vw - 640px) / 360);
+  }
+}
+@media (max-width: 320px) {
+  .circle {
+    top: 21px;
+  }
 }
 
 .backstage {
