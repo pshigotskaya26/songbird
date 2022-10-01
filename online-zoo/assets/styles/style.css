@@ -471,6 +471,14 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   color: #FFFFFF;
   z-index: 100;
 }
+@media (max-width: 640px) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}
 
 .header__container {
   min-height: 80px;
@@ -1598,6 +1606,11 @@ input[type=radio].choice-group__input:checked {
 
 .main {
   margin-top: -80px;
+}
+@media (max-width: 640px) {
+  .main {
+    margin-top: -46px;
+  }
 }
 
 .main-donate {

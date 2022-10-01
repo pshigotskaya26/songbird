@@ -24,6 +24,9 @@
 
 .main {
     margin-top: -80px;
+    @media (max-width: $tablet-width) {
+		margin-top: -46px;
+	}
 }
 
 .main-donate {
