@@ -3,30 +3,100 @@
     padding-bottom: 100px;
     background-image: url(../../assets/images/flower-foto-1.png);
     background-repeat: no-repeat;
-    background-position: right 12px;
+    background-position: right 0px top 12px;
     //height: 500px;
     //background-image: url(../images/flower-foto-1.png);
+    @media (max-width: 1600px) {
+		background-position: right calc(-180px + (0 - (-180)) * ((100vw - 1000px) / (1600 - 1000))) top 12px;
+	}
+    @media (max-width: $small-width) {
+        padding-top: 109px;
+		background-position: right -200px top 12px;
+	}
+
+    @media (max-width: $tablet-width) {
+        //padding-top: 70px;
+        padding-top: calc(115px + (70 - 115) * ((100vw - 320px) / (640 - 320)));
+        background-image: url(../../assets/images/flower-foto-1-640.png);
+        background-position: right 0px top -5px;
+	}
+    @media (max-width: 480px) {
+        background-size: 19%;
+        background-position: right -28px top 38px;
+	}
 }
 
 .backstage__content {
     display: flex;
+    @media (max-width: 768px) {
+		flex-direction: column;
+        row-gap: 10px;
+	}
 }
 
 .backstage__image {
     flex: 0 1 52.5%;
+    @media (max-width: $small-width) {
+        flex: 0 1 48.5%;
+	}
+    @media (max-width: $tablet-width) {
+		display: none;
+	}
+}
+
+.backstage__image img {
+    width: 100%;
+    height: auto;
+}
+
+.backstage-image_active {
+    display: block;
+    @media (max-width: $small-width) {
+		display: none;
+	}
+}
+
+.backstage-image_hidden {
+    display: none;
+    @media (max-width: $small-width) {
+		display: block;
+	}
 }
 
 .backstage__text {
     flex: 0 1 47.5%;
     padding-left: 86px;
+    @media (max-width: 1600px) {
+		padding-left: calc(31px + (86 - 31) * ((100vw - 1000px) / (1600 - 1000)));
+        padding-right: calc(40px + (0 - 40) * ((100vw - 1001px) / (1600 - 1001)));
+	}
+    @media (max-width: $small-width) {
+		padding-right: 0px;
+        flex: 0 1 51.5%;
+	}
+    @media (max-width: $tablet-width) {
+        padding-right: 110px;
+	}
+    @media (max-width: 480px) {
+        padding-right: calc(5px + (110 - 5) * ((100vw - 320px) / (480 - 320)));
+	}
 }
 
 .backstage__title {
     padding-bottom: 22px;
+    @media (max-width: $tablet-width) {
+        font-size: calc(24px + (48 - 24) * ((100vw - 320px) / (640 - 320)));
+        line-height: calc(28.8px + (57.6 - 28.8) * ((100vw - 320px) / (640 - 320)));
+        padding-bottom: calc(10px + (22 - 10) * ((100vw - 320px) / (640 - 320)));
+	}
 }
 
 .backstage__subtitle {
     padding: 53px 0 32px;
+
+    @media (max-width: $tablet-width) {
+        padding: calc(17px + (27 - 17) * ((100vw - 320px) / (640 - 320))) 0 calc(7px + (18 - 7) * ((100vw - 320px) / (640 - 320)));
+	}
 }
 
 

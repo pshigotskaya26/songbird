@@ -47,8 +47,13 @@ h2 {
   font-size: 48px;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%;
+  line-height: 57.6px;
   color: #333B41;
+}
+@media (max-width: 1000px) {
+  h2 {
+    margin-top: -10px;
+  }
 }
 
 h3 {
@@ -743,28 +748,125 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   padding-bottom: 100px;
   background-image: url(../../assets/images/flower-foto-1.png);
   background-repeat: no-repeat;
-  background-position: right 12px;
+  background-position: right 0px top 12px;
+}
+@media (max-width: 1600px) {
+  .backstage {
+    background-position: right calc(-180px + 180 * (100vw - 1000px) / 600) top 12px;
+  }
+}
+@media (max-width: 1000px) {
+  .backstage {
+    padding-top: 109px;
+    background-position: right -200px top 12px;
+  }
+}
+@media (max-width: 640px) {
+  .backstage {
+    padding-top: calc(115px + -45 * (100vw - 320px) / 320);
+    background-image: url(../../assets/images/flower-foto-1-640.png);
+    background-position: right 0px top -5px;
+  }
+}
+@media (max-width: 480px) {
+  .backstage {
+    background-size: 19%;
+    background-position: right -28px top 38px;
+  }
 }
 
 .backstage__content {
   display: flex;
 }
+@media (max-width: 768px) {
+  .backstage__content {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+}
 
 .backstage__image {
   flex: 0 1 52.5%;
+}
+@media (max-width: 1000px) {
+  .backstage__image {
+    flex: 0 1 48.5%;
+  }
+}
+@media (max-width: 640px) {
+  .backstage__image {
+    display: none;
+  }
+}
+
+.backstage__image img {
+  width: 100%;
+  height: auto;
+}
+
+.backstage-image_active {
+  display: block;
+}
+@media (max-width: 1000px) {
+  .backstage-image_active {
+    display: none;
+  }
+}
+
+.backstage-image_hidden {
+  display: none;
+}
+@media (max-width: 1000px) {
+  .backstage-image_hidden {
+    display: block;
+  }
 }
 
 .backstage__text {
   flex: 0 1 47.5%;
   padding-left: 86px;
 }
+@media (max-width: 1600px) {
+  .backstage__text {
+    padding-left: calc(31px + 55 * (100vw - 1000px) / 600);
+    padding-right: calc(40px + -40 * (100vw - 1001px) / 599);
+  }
+}
+@media (max-width: 1000px) {
+  .backstage__text {
+    padding-right: 0px;
+    flex: 0 1 51.5%;
+  }
+}
+@media (max-width: 640px) {
+  .backstage__text {
+    padding-right: 110px;
+  }
+}
+@media (max-width: 480px) {
+  .backstage__text {
+    padding-right: calc(5px + 105 * (100vw - 320px) / 160);
+  }
+}
 
 .backstage__title {
   padding-bottom: 22px;
 }
+@media (max-width: 640px) {
+  .backstage__title {
+    font-size: calc(24px + 24 * (100vw - 320px) / 320);
+    line-height: calc(28.8px + 28.8 * (100vw - 320px) / 320);
+    padding-bottom: calc(10px + 12 * (100vw - 320px) / 320);
+  }
+}
 
 .backstage__subtitle {
   padding: 53px 0 32px;
+}
+@media (max-width: 640px) {
+  .backstage__subtitle {
+    padding: calc(17px + 10 * (100vw - 320px) / 320) 0 calc(7px + 11 * (100vw - 320px) / 320);
+  }
 }
 
 .pets {

@@ -45,8 +45,11 @@ h2 {
     font-size: 48px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%;
+    line-height: 57.6px;
     color: $color-black-light;
+    @media (max-width: $small-width) {
+		margin-top: -10px;
+	}
 }
 
 h3 {
