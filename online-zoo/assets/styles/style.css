@@ -1226,6 +1226,11 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   background-image: url(../../assets/icons/eat-banana_icon.svg);
   background-position: top 11px right 11px;
 }
+@media (max-width: 1000px) {
+  .slider__info_eat-banana {
+    background-position: top 7px right 14px;
+  }
+}
 @media (max-width: 640px) {
   .slider__info_eat-banana {
     background-size: 10%;

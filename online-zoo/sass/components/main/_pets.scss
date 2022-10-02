@@ -267,6 +267,9 @@
 .slider__info_eat-banana {
     background-image: url(../../assets/icons/eat-banana_icon.svg);
     background-position: top 11px right 11px;
+    @media (max-width: $small-width) {
+        background-position: top 7px right 14px;
+	}
     @media (max-width: $tablet-width) {
 		background-size: 10%;
         background-position: top 6px right 11px;
