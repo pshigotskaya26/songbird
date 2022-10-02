@@ -19,10 +19,14 @@
         padding-top: calc(115px + (70 - 115) * ((100vw - 320px) / (640 - 320)));
         background-image: url(../../assets/images/flower-foto-1-640.png);
         background-position: right 0px top -5px;
+        padding-bottom: 75px;
 	}
     @media (max-width: 480px) {
         background-size: 19%;
         background-position: right -28px top 38px;
+	}
+    @media (max-width: $mobile-width) {
+        padding-bottom: 38px;
 	}
 }
 

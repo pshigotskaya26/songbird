@@ -74,6 +74,14 @@ h5 {
     line-height: 20px;
     color: $color-black;
     text-transform: uppercase;
+    @media (max-width: $small-width) {
+		font-size: calc(12.5px + (16 - 12.5) * ((100vw - 640px) / (1000 - 640)));
+        line-height: calc(17.5px + (20 - 17.5) * ((100vw - 640px) / (1000 - 640)));
+	}
+    @media (max-width: $mobile-width) {
+		font-size: 12.5px;
+        line-height: 17.5px;
+	}
 }
 
 .smallParagraph {

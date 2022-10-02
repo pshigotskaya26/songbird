@@ -13,7 +13,7 @@
 }
 
 .subcontainer {
-    width: $subcontainer-width;
+    max-width: $subcontainer-width;
     margin: 0 auto;
     padding-bottom: 59px;
     padding-left: 39px;
