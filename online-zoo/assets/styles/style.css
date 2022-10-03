@@ -368,10 +368,14 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 .logo {
   position: relative;
   padding: 3.55px 4.75px;
+  width: 82px;
+  height: 50px;
   border: 1px solid #FFFFFF;
 }
 @media (max-width: 640px) {
   .logo {
+    width: 49px;
+    height: auto;
     padding: 0;
     border: 0;
   }
@@ -1972,6 +1976,11 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
     padding-bottom: 10px;
   }
 }
+@media (max-width: 320px) {
+  .footer {
+    padding-bottom: 20px;
+  }
+}
 
 @media (max-width: 390px) {
   .footer .container {
@@ -1993,6 +2002,14 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   justify-content: space-between;
   padding-bottom: 35px;
 }
+@media (max-width: 320px) {
+  .up-block {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 29px;
+    text-align: center;
+  }
+}
 
 .footer .logo {
   padding: 2.55px 4.75px 2.55px 6px;
@@ -2002,10 +2019,21 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 }
 @media (max-width: 640px) {
   .footer .logo {
+    width: 82px;
+    height: 52px;
     border: 0.5px solid #FFFFFF;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
+  }
+}
+@media (max-width: 320px) {
+  .footer .logo {
+    width: auto;
+    height: auto;
+    font-size: 19.01px;
+    line-height: 22.82px;
+    border: none;
   }
 }
 @media (max-width: 640px) {
@@ -2013,6 +2041,11 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
     content: url(../../assets/icons/bamboo.svg);
     bottom: 0;
     left: 11px;
+  }
+}
+@media (max-width: 320px) {
+  .footer .logo::after {
+    left: 78px;
   }
 }
 
@@ -2046,6 +2079,11 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 @media (max-width: 390px) {
   .middle-block {
     flex-direction: column;
+  }
+}
+@media (max-width: 320px) {
+  .middle-block {
+    padding-bottom: 30px;
   }
 }
 
@@ -2117,9 +2155,19 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
     order: 3;
   }
 }
+@media (max-width: 320px) {
+  .down-block__column:nth-child(2) {
+    padding-top: 32px;
+  }
+}
 @media (max-width: 390px) {
   .down-block__column:nth-child(3) {
     order: 2;
+  }
+}
+@media (max-width: 320px) {
+  .down-block__column:nth-child(3) {
+    align-self: flex-end;
   }
 }
 .down-block__column_second {
@@ -2183,6 +2231,12 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   color: #FFFFFF;
   font-weight: 100;
   padding-bottom: 9px;
+}
+@media (max-width: 320px) {
+  .down-block p {
+    font-size: 15px;
+    line-height: 18px;
+  }
 }
 .down-block p:last-child {
   padding-bottom: 0;

@@ -1,8 +1,12 @@
 .logo {
     position: relative;
     padding:  3.55px 4.75px;
+    width: 82px;
+    height: 50px;
     border: 1px solid $color-white;
     @media (max-width: $tablet-width) {
+        width: 49px;
+        height: auto;
 		padding: 0;
         border: 0;
 	}
