@@ -125,6 +125,10 @@ input[type="email"]:not(:focus):not(:placeholder-shown):valid + button {
 
     &_width-270 {
         width: 270px;
+        @media (max-width: $tablet-width) {
+            padding: 10px 21px 7px 7px;
+            width: 182px;
+        }
     }
 
     &_gray {
@@ -143,6 +147,9 @@ input[type="email"]:not(:focus):not(:placeholder-shown):valid + button {
     top: 17px;
     font-size: 24px;
     color: $color-border-gray;
+    @media (max-width: $tablet-width) {
+        top: 11px;
+    }
 }
 
 
