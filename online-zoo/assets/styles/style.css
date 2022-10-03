@@ -1656,25 +1656,29 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   .testimonials {
     padding-top: 101px;
     padding-bottom: 139px;
-    background-position: right 0px bottom -90px;
-    background-size: 20%;
+    background-image: url(../../assets/images/leav-foto-1000.png);
+    background-position: right bottom -87px;
   }
 }
 @media (max-width: 640px) {
   .testimonials {
     padding-top: 61px;
     padding-bottom: 79px;
-    background-position: right -6px bottom -67px;
-    background-size: 19%;
+    background-image: url(../../assets/images/leav-foto-640.png);
+    background-position: right bottom -70px;
+  }
+}
+@media (max-width: 375px) {
+  .testimonials {
+    background-image: url(../../assets/images/leav-foto-320.png);
+    background-position: right -1px bottom -30px;
+    background-size: 16%;
   }
 }
 @media (max-width: 320px) {
   .testimonials {
     padding-top: 31px;
     padding-bottom: 59px;
-    background-image: url(../../assets/images/leav-foto-320.png);
-    background-position: right -1px bottom -30px;
-    background-size: 16%;
   }
 }
 
