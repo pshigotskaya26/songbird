@@ -1053,11 +1053,6 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
     justify-content: center;
   }
 }
-@media (max-width: 320px) {
-  .slider__content {
-    justify-content: flex-start;
-  }
-}
 
 .slider__block {
   display: flex;

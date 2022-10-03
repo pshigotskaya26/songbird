@@ -117,9 +117,6 @@
     @media (max-width: 639px) {
 		justify-content: center;
 	}
-    @media (max-width: $mobile-width) {
-		justify-content: flex-start;
-	}
 }
 
 .slider__block {
