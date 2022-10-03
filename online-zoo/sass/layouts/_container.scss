@@ -1,11 +1,31 @@
 .container {
-    width: $container-width;
+    max-width: $container-width;
     margin: 0 auto;
+    @media (max-width: 1160px) {
+		margin: 0 30px;
+	}
+    @media (max-width: $tablet-width) {
+		margin: 0 20px 0 20.07px;
+	}
+    @media (max-width: $mobile-width) {
+		margin: 0 10px 0 10.07px;
+	}
 }
 
 .subcontainer {
-    width: $subcontainer-width;
+    max-width: $subcontainer-width;
     margin: 0 auto;
     padding-bottom: 59px;
     padding-left: 39px;
+    @media (max-width: $small-width) {
+      padding-bottom: 49px;
+    }
+    @media (max-width: $tablet-width) {
+      padding-left: 20px;
+      padding-bottom: 59px;
+    }
+    @media (max-width: $mobile-width) {
+      padding-left: 0;
+      padding-bottom: 40px;
+    }
 }

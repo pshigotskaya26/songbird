@@ -2,6 +2,26 @@
     padding-top: 69px;
     padding-bottom: 100px;
     background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+    @media (max-width: $small-width) {
+        padding-top: 40px;
+        padding-bottom: 50px;
+    }
+    @media (max-width: $tablet-width) {
+        padding-top: 29px;
+        padding-bottom: 20px;
+    }
+    @media (max-width: $mobile-width) {
+        padding-top: 30px;
+    }
+}
+
+.peek-feed .container {
+    @media (max-width: $tablet-width) {
+        margin: 0;
+    }
+    @media (max-width: $mobile-width) {
+        margin: 0 11px 0 10px;
+    }
 }
 
 .peek-feed a {
@@ -9,6 +29,12 @@
     border-bottom: 1px solid $color-primery;
     color: $color-black;
     
+}
+
+.peek-feed__subtitle,
+.peek-feed__text,
+.peek-feed__text-bold {
+    text-align: justify;
 }
 
 .peek-feed__content {
@@ -26,16 +52,47 @@
     padding-bottom: 33px;
     padding-top: 40px;
     color: $color-primery-light;
+    @media (max-width: $small-width) {
+        padding-top: 30px;
+        padding-bottom: 21px;
+    }
+    @media (max-width: $tablet-width) {
+        padding-top: 11px;
+        padding-left: 20px;
+        font-size: 42px;
+        line-height: 50.4px;
+    }
+    @media (max-width: $mobile-width) {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 21px;
+        padding-bottom: 11px;
+        font-size: 24px;
+        line-height: 28.8px;
+        text-align: center;
+    }
 }
 
 .peek-feed__subtitle {
     padding-bottom: 41px;
-}
-
-.peek-feed__subtitle,
-.peek-feed__text,
-.peek-feed__text-bold {
-    text-align: justify;
+    @media (max-width: $small-width) {
+        padding-left: 10px;
+        padding-bottom: 21px;
+    }
+    @media (max-width: $tablet-width) {
+        padding-left: 0;
+        padding-bottom: 19px;
+        font-size: 22px;
+        line-height: 26.4px;
+        text-align: left;
+    }
+    @media (max-width: $mobile-width) {
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 18px;
+        line-height: 21.6px;
+        text-align: center;
+    }
 }
 
 .peek-feed__text,
@@ -46,18 +103,62 @@
     line-height: 20.8px;
 }
 
+.peek-feed__text {
+    padding-right: 140px;
+    @media (max-width: $small-width) {
+        padding-left: 10px;
+        padding-right: 95px;
+    }
+    @media (max-width: $tablet-width) {
+        padding-left: 0px;
+        padding-right: 28px;
+    }
+    @media (max-width: $mobile-width) {
+        display: none;
+    }
+}
+
 .peek-feed__text-bold {
     padding-bottom: 9px;
     font-weight: 500;
+    @media (max-width: $small-width) {
+        padding-left: 10px;
+        padding-right: 101px;
+    }
+    @media (max-width: $tablet-width) {
+        padding-left: 0px;
+        padding-right: 33px;
+    }
+    @media (max-width: $mobile-width) {
+        display: none;
+    }
 }
 
 .payment {
     padding-top: 60px;
+    @media (max-width: $small-width) {
+        padding-top: 40px;
+    }
+    @media (max-width: $tablet-width) {
+        padding-top: 30px;
+    }
+    @media (max-width: $mobile-width) {
+        padding-top: 0;
+    }
 }
 
 .payment__title {
     padding-right: 42px;
     padding-bottom: 40px;
+    @media (max-width: $tablet-width) {
+        padding-right: 22px;
+        padding-bottom: 19px;
+    }
+    @media (max-width: $mobile-width) {
+        padding-right: 0;
+        font-size: 24px;
+        line-height: 28.8px;
+    }
 }
 
 .payment__content {
@@ -65,6 +166,24 @@
     justify-content: space-around;
     padding-right: 48px;
     padding-bottom: 61px;
+    @media (max-width: $small-width) {
+        padding-right: 25px;
+        padding-bottom: 72px;
+    }
+    @media (max-width: $tablet-width) {
+        padding-right: 13px;
+        padding-bottom: 42px;
+    }
+    @media (max-width: 564px) {
+        flex-direction: column;
+        padding-right: 0px;
+        width: 168px;
+        margin: 0 auto;
+    }
+    @media (max-width: $mobile-width) {
+        row-gap: 38px;
+        padding-bottom: 36px;
+    }
 }
 
 .payment__item {
@@ -73,14 +192,37 @@
 
 .payment__item_left {
     padding-left: 36px;
+    @media (max-width: $small-width) {
+        padding-left: 0px;
+        margin-left: -14px;
+    } 
+    @media (max-width: $tablet-width) {
+        margin-left: -20px;
+    }
+    @media (max-width: 564px) {
+        margin-left: 0px;
+    }
 }
 .payment__item_right {
     padding-right: 26px;
+    @media (max-width: $small-width) {
+        padding-right: 0px;
+        margin-left: 0px;
+    }
+    @media (max-width: 564px) {
+        margin-left: 0px;
+    }
+    @media (max-width: $mobile-width) {
+        margin-top: -12px;
+    }
 }
 
 .payment__text {
     text-align: left;
     padding-top: 29px;
+    @media (max-width: $mobile-width) {
+        padding-top: 13px;
+    }
 }
 
 .payment__item_arrow {
@@ -91,10 +233,33 @@
         content: url(../../assets/icons/arrow_icon.svg);
         top: 59px;
         right: -100px;
+        @media (max-width: 920px) {
+            right: -80px;
+        }
+        @media (max-width: 862px) {
+            content: url(../../assets/icons/arrow-green_icon.svg);
+            right: -65px;
+            top: -17px;
+            z-index: 5;
+        }
+        @media (max-width: $tablet-width) {
+            right: -57px;
+        }
+        @media (max-width: 564px) {
+            content: url(../../assets/icons/arrow-green-vertical_icon.svg);
+            top: 168px;
+            right: -30px;
+        }
+        @media (max-width: $mobile-width) {
+            right: -31px;
+        }
     }
 }
 
 .payment__button {
     padding-right: 40px;
+    @media (max-width: $tablet-width) {
+        padding-right: 20px;
+    }
 }
 

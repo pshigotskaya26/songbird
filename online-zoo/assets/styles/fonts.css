@@ -44,16 +44,7 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'Roboto';
-    src: url('../fonts/roboto/Roboto-Medium.eot');
-    src: local('Roboto Medium'), local('Roboto-Medium'),
-        url('../fonts/roboto/Roboto-Medium.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/roboto/Roboto-Medium.woff') format('woff'),
-        url('../fonts/roboto/Roboto-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-}
+
 
 @font-face {
     font-family: 'Roboto';
@@ -131,3 +122,16 @@
     font-weight: 100;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Roboto Medium';
+    src: url('../fonts/roboto/Roboto-Medium.eot');
+    src: local('Roboto Medium'), local('Roboto-Medium'),
+        url('../fonts/roboto/Roboto-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/roboto/Roboto-Medium.woff') format('woff'),
+        url('../fonts/roboto/Roboto-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+

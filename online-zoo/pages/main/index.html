@@ -12,7 +12,7 @@
     <header class="header">
         <div class="header__container container">
             <div class="header-navigation">
-                <a href="../../pages/main/index.html" class="logo header-link"><h1>PetStory<br>online</h1></a>
+                <a href="../../pages/main/index.html" class="logo header-link"><h1>PetStory online</h1></a>
                 <nav class="header__navigation">
                     <ul class="navigation">
                         <li class="navigation__item"><a href="../../pages/main/index.html" class="header-link header-link_activ">About</a></li>
@@ -22,28 +22,36 @@
                         <li class="navigation__item"><a href="" class="header-link">Contact us</a></li>
                     </ul>
                 </nav>
+                <div class="header__burger">
+                    <div class="burger"><span></span></div>
+                </div>
             </div>
             
-            <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" target="_blank" class="header-link link">Designed by &copy;</a>
+            <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" target="_blank" class="header-link designed-link">Designed by &copy;</a>
         </div>
     </header>
+    
     <main class="main">
         <section class="watch-block">
             <div class="watch-block__container container">
                 <div class="watch-block__content">
-                    <p class="watch-block__text">Watch your <span>favorite</span> animal online</p>
-                    <div class="watch-block__button">
-                        <button class="button">wath online</button>
-                    </div>
+                    <p class="watch-block__text">Watch<br>your<br><span>favorite</span><br>animal<br>online</p>
+                    
                     <div class="circle"></div>
+                </div>
+                <div class="watch-block__button">
+                    <button class="button">watch online</button>
                 </div>
             </div>
         </section>
+
+        
         <section class="backstage">
             <div class="container">
                 <div class="backstage__content">
                     <div class="backstage__image">
-                        <img src="../../assets/images/bamboo-cap.jpg" alt="photo bamboo-cap">
+                        <img class="backstage-image backstage-image_active" src="../../assets/images/bamboo-cap.jpg" alt="photo bamboo-cap">
+                        <img class="backstage-image backstage-image_hidden" src="../../assets/images/bamboo-cap-640.jpg" alt="photo bamboo-cap">
                     </div>
                     <div class="backstage__text">
                         <h2 class="backstage__title">The Backstage of the Wilderness World.</h2>
@@ -54,6 +62,7 @@
                 </div>
             </div>
         </section>
+
         <section class="pets">
             <div class="container">
                 <div class="pets__slider slider">
@@ -69,82 +78,90 @@
                             </span>
                         </div>
                         <div class="slider__body">
-                            <div class="slider__content">
-                                <div class="slider__item">
-                                    <div class="slider__image">
-                                        <img src="../../assets/images/slider-img-1.jpg" alt="photo 1 for slider">
+                            <div class="slider__content ">
+                                <div class="slider__block">
+                                    <div class="block-one">
+                                        <div class="slider__item slider__item_1">
+                                            <div class="slider__image">
+                                                <img src="../../assets/images/slider-img-1.jpg" alt="photo 1 for slider">
+                                            </div>
+                                            <div class="slider__info slider__info_eat-banana">
+                                                <h5 class="info__name">giant Pandas</h5>
+                                                <p class="info__location">Native to Southwest China</p>
+                                            </div>
+                                        </div>
+                                        <div class="slider__item slider__item_2">
+                                            <div class="slider__image">
+                                                <img src="../../assets/images/slider-img-2.jpg" alt="photo 2 for slider">
+                                            </div>
+                                            <div class="slider__info slider__info_eat-meat">
+                                                <h5 class="info__name">Eagles</h5>
+                                                <p class="info__location">Native to South America</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="slider__info slider__info_eat-banana">
-                                        <h5 class="info__name">giant Pandas</h5>
-                                        <p class="info__location">Native to Southwest China</p>
-                                    </div>
-                                </div>
-                                <div class="slider__item">
-                                    <div class="slider__image">
-                                        <img src="../../assets/images/slider-img-2.jpg" alt="photo 2 for slider">
-                                    </div>
-                                    <div class="slider__info slider__info_eat-meat">
-                                        <h5 class="info__name">Eagles</h5>
-                                        <p class="info__location">Native to South America</p>
-                                    </div>
-                                </div>
-
-                                
-                                <div class="slider__item">
-                                    <div class="slider__image">
-                                        <img src="../../assets/images/slider-img-3.jpg" alt="photo 3 for slider">
-                                    </div>
-                                    <div class="slider__info slider__info_eat-banana">
-                                        <h5 class="info__name">Gorillas</h5>
-                                        <p class="info__location">Native to Congo</p>
-                                    </div>
-                                </div>
-
-                                <div class="slider__item">
-                                    <div class="slider__image">
-                                        <img src="../../assets/images/slider-img-3.jpg" alt="photo 3 for slider">
-                                    </div>
-                                    <div class="slider__info slider__info_eat-banana">
-                                        <h5 class="info__name">Gorillas</h5>
-                                        <p class="info__location">Native to Congo</p>
-                                    </div>
-                                </div>
-
-                                <div class="slider__item">
-                                    <div class="slider__image">
-                                        <img src="../../assets/images/slider-img-5.jpg" alt="photo 5 for slider">
-                                    </div>
-                                    <div class="slider__info slider__info_eat-banana">
-                                        <h5 class="info__name">Two-toed Sloth</h5>
-                                        <p class="info__location">Mesoamerica, South America</p>
+                                    <div class="block-two">
+                                        <div class="slider__item slider__item_3">
+                                            <div class="slider__image">
+                                                <img src="../../assets/images/slider-img-3.jpg" alt="photo 3 for slider">
+                                            </div>
+                                            <div class="slider__info slider__info_eat-banana">
+                                                <h5 class="info__name">Gorillas</h5>
+                                                <p class="info__location">Native to Congo</p>
+                                            </div>
+                                        </div>
+                                        <div class="slider__item slider__item_4">
+                                            <div class="slider__image">
+                                                <img src="../../assets/images/slider-img-4-new.jpg" alt="photo 4 for slider">
+                                            </div>
+                                            <div class="slider__info slider__info_eat-meat">
+                                                <h5 class="info__name">Alligators</h5>
+                                                <p class="info__location info__location_activ">Native to Southeastern U. S.</p>
+                                                <p class="info__location info__location_hidden">Native to Southeastern Unated States</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="slider__item">
-                                    <div class="slider__image">
-                                        <img src="../../assets/images/slider-img-6.jpg" alt="photo 6 for slider">
+                                <div class="slider__block slider__block-2">
+                                    <div class="block-one block-one-2">
+                                        <div class="slider__item slider__item_1">
+                                            <div class="slider__image">
+                                                <img src="../../assets/images/slider-img-5.jpg" alt="photo 5 for slider">
+                                            </div>
+                                            <div class="slider__info slider__info_eat-banana">
+                                                <h5 class="info__name">Two-toed Sloth</h5>
+                                                <p class="info__location">Mesoamerica, South America</p>
+                                            </div>
+                                        </div>
+                                        <div class="slider__item slider__item_2">
+                                            <div class="slider__image">
+                                                <img src="../../assets/images/slider-img-6.jpg" alt="photo 6 for slider">
+                                            </div>
+                                            <div class="slider__info slider__info_eat-meat">
+                                                <h5 class="info__name">cheetahs</h5>
+                                                <p class="info__location">Native to Africa</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="slider__info slider__info_eat-meat">
-                                        <h5 class="info__name">cheetahs</h5>
-                                        <p class="info__location">Native to Africa</p>
-                                    </div>
-                                </div>
-                                <div class="slider__item">
-                                    <div class="slider__image">
-                                        <img src="../../assets/images/slider-img-7.jpg" alt="photo 7 for slider">
-                                    </div>
-                                    <div class="slider__info slider__info_eat-meat">
-                                        <h5 class="info__name">Penguins</h5>
-                                        <p class="info__location">Native to Antarctica</p>
-                                    </div>
-                                </div>
-
-                                <div class="slider__item">
-                                    <div class="slider__image">
-                                        <img src="../../assets/images/slider-img-7.jpg" alt="photo 7 for slider">
-                                    </div>
-                                    <div class="slider__info slider__info_eat-meat">
-                                        <h5 class="info__name">Penguins</h5>
-                                        <p class="info__location">Native to Antarctica</p>
+                                    <div class="block-two block-two-2">
+                                        <div class="slider__item slider__item_3">
+                                            <div class="slider__image">
+                                                <img src="../../assets/images/slider-img-7.jpg" alt="photo 7 for slider">
+                                            </div>
+                                            <div class="slider__info slider__info_eat-meat">
+                                                <h5 class="info__name">Penguins</h5>
+                                                <p class="info__location">Native to Antarctica</p>
+                                            </div>
+                                        </div>
+                                        <div class="slider__item slider__item_4">
+                                            <div class="slider__image">
+                                                <img src="../../assets/images/slider-img-8.jpg" alt="photo 8 for slider">
+                                            </div>
+                                            <div class="slider__info slider__info_eat-banana">
+                                                <h5 class="info__name">Two-toed Sloth</h5>
+                                                <p class="info__location">Mesoamerica, South America</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -156,6 +173,7 @@
                 </div>
             </div>
         </section>
+       
         <section class="peek-feed">
             <div class="container">
                 <div class="peek-feed__content">
@@ -163,7 +181,7 @@
                         <h2 class="peek-feed__title">Pick and feed a friend</h2>
                         <h4 class="peek-feed__subtitle">We know the animals bring you joy, and in these extraordinary times, we&#39;re glad.</h4>
                         <p class="peek-feed__text-bold">During a time when the COVID-19 epidemic is touching all of our lives, we’re proud and glad that people around the world find joy in PetStory.</p>
-                        <p class="peek-feed__text">Even though the zoo has reopened, we need you now more than ever to help us deal with these problems. Please consider <br> a gift to our <a class="" href="../donate/index.html" target="_blank">Emergency Support Fund</a> .</p>
+                        <p class="peek-feed__text">Even though the zoo has reopened, we need you now more than ever to help us deal with these problems. Please consider a gift to our <a class="" href="../donate/index.html" target="_blank">Emergency Support Fund</a> .</p>
                         <div class="payment">
                             <h3 class="payment__title">How it works</h3>
                             <div class="payment__content">
@@ -246,7 +264,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="feedbacks__column">
+                            <div class="feedbacks__column feedbacks__column_last">
                                 <div class="feedbacks__item">
                                     <div class="feedbacks__user feedbacks__user_4">
                                         <p class="user__name">Mila Riksha</p>
@@ -268,12 +286,14 @@
                 </div>
             </div>
         </section>
+   
     </main>
+   
     <footer class="footer">
         <div class="container">
             <div class="footer__upblock">
                 <div class="up-block">
-                    <a href="../../pages/main/index.html" class="logo header-link">PetStory<br>online</a>
+                    <a href="../../pages/main/index.html" class="logo header-link">PetStory online</a>
                     <div class="block-form">
                         <h4 class="block-form__title">Subscribe to our news</h4>
                         <div class="form__content">
@@ -281,13 +301,29 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="middle-block">
+                    <div class="footer__button">
+                        <form action="../donate/index.html" target="_blank">
+                            <button class="button">donate for volunteers</button>
+                        </form>
+                    </div>
+                    <div class="social">
+                        <a href="https://www.facebook.com/" target="_blank"><span class="icon-circle icon-circle_gray"><span class="icon icon_facebook"></span></span><span class="social-text">facebook</span></a>
+                        <a href="https://twitter.com/" target="_blank"><span class="icon-circle icon-circle_gray"><span class="icon icon_twitter"></span></span><span class="social-text">twitter</span></a>
+                        <a href="https://www.instagram.com/" target="_blank"><span class="icon-circle icon-circle_gray"><span class="icon icon_instagram"></span></span><span class="social-text">instagram</span></a>
+                        <a href="https://www.youtube.com/" target="_blank"><span class="icon-circle icon-circle_gray"><span class="icon icon_youtube"></span></span><span class="social-text">YouTube</span></a>
+                    </div>
+                </div>
+                <!--
                 <div class="footer__button">
                     <form action="../donate/index.html" target="_blank">
                         <button class="button">donate for volunteers</button>
                     </form>
                 </div>
+                -->
                 <div class="down-block">
-                    <div class="down-block__row">
+                   
                         <div class="down-block__column down-block__column_first">
                             <div class="social">
                                 <a href="https://www.facebook.com/" target="_blank"><span class="icon-circle icon-circle_gray"><span class="icon icon_facebook"></span></span>facebook</a>
@@ -310,11 +346,12 @@
                             <p>Designed by Alisa Samborskaya</p>
                             <p>&copy;RSSchool & &copy;Yem Digital 2021</p>
                         </div>
-                    </div>
+                   
                 </div>
             </div>
             
         </div>
     </footer>
+ <script src="script.js"></script>
 </body>
 </html>

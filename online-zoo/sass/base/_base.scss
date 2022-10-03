@@ -34,14 +34,22 @@ h1 {
     line-height: 22.82px;
     text-align: center;
     font-weight: 300; 
+    @media (max-width: $tablet-width) {
+        font-size: 12.29px;
+        line-height: 14.75px;
+		font-weight: 400;
+	}
 }
 
 h2 {
     font-size: 48px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%;
+    line-height: 57.6px;
     color: $color-black-light;
+    @media (max-width: $small-width) {
+		margin-top: -10px;
+	}
 }
 
 h3 {
@@ -66,6 +74,14 @@ h5 {
     line-height: 20px;
     color: $color-black;
     text-transform: uppercase;
+    @media (max-width: $small-width) {
+		font-size: calc(12.5px + (16 - 12.5) * ((100vw - 640px) / (1000 - 640)));
+        line-height: calc(17.5px + (20 - 17.5) * ((100vw - 640px) / (1000 - 640)));
+	}
+    @media (max-width: $mobile-width) {
+		font-size: 12.5px;
+        line-height: 17.5px;
+	}
 }
 
 .smallParagraph {

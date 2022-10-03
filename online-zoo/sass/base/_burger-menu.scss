@@ -1,0 +1,45 @@
+
+.header__burger {
+    display: none;
+    @media (max-width: $tablet-width) {
+		display: block;
+	}
+}
+
+.burger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    @media (max-width: $tablet-width) {
+		row-gap: 2px;
+	}
+
+    &::after {
+        content: '';
+        width: 18px;
+        height: 2px;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        border-radius: 2px;
+        background-color: $color-white;
+    }
+
+    &::before {
+        content: '';
+        width: 18px;
+        height: 2px;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        border-radius: 2px;
+        background-color: $color-white;
+    }
+}
+
+.burger span {
+    width: 18px;
+    height: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background-color: $color-white;
+}

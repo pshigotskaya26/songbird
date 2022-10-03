@@ -3,6 +3,7 @@
 @import "base/buttons";
 @import "base/icons";
 @import "base/logo";
+@import "base/burger-menu";
 
 @import "layouts/container";
 @import "layouts/header";
@@ -23,6 +24,9 @@
 
 .main {
     margin-top: -80px;
+    @media (max-width: $tablet-width) {
+		margin-top: -46px;
+	}
 }
 
 .main-donate {

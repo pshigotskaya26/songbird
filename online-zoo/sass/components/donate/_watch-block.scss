@@ -1,5 +1,26 @@
 .main-donate .watch-block {
-    padding-top: 24.09%;
-    background-size: cover;
-    background-position: center;
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: calc(0.241 * 100%);
+    background-image: url(../../assets/images/giant-panda-donate.jpg);
+    background-repeat: no-repeat;
+	background-size: cover;
+    @media (max-width: $small-width) {
+        padding-top: 39%;
+        background-position: left -171px center;
+    }
+    @media (max-width: $tablet-width) {
+        padding-top: 57.6%;
+        background-position: left -295px top 31px;
+        background-size: 223%;
+    }
+    @media (max-width: 639px) {
+        background-position: left calc(-151px + (-295 - (-151)) * ((100vw - 321px) / (639 - 321))) top 31px;
+    }
+    @media (max-width: $mobile-width) {
+        padding-top: 68.7%;
+        background-position: left -144px top 34px;
+        background-size: 238%;
+    }
 }
