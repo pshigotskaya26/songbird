@@ -47,10 +47,10 @@
     color: $color-white;
     @media (max-width: $small-width) {
         padding-right: 6px;
-        padding-bottom: 24px;
+        padding-bottom: 46px;
     }
     @media (max-width: $tablet-width) {
-        padding-bottom: 6px;
+        padding-bottom: 28px;
     }
 }
 
@@ -633,13 +633,13 @@ input[type="radio"].choice-group__input:checked {
 
 .amout__text_last {
     padding-left: 5px;
-    font-size: 13px;
+    font-size: 16px;
     line-height: 22.4px;
     @media (max-width: 375px) {
         padding-right: 5px;
     }
     @media (max-width: $mobile-width) {
-        font-size: 15px;
+        font-size: 15.8px;
         line-height: 22.4px;
         padding-right: 0;
         padding-left: 0;
