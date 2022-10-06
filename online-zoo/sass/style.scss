@@ -19,8 +19,9 @@
 @import "components/donate/watch-block";
 @import "components/donate/pick-feed";
 
-
-
+body.lock {
+    overflow: hidden;
+}
 
 .main {
     margin-top: -80px;
