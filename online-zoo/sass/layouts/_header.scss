@@ -91,17 +91,17 @@
         gap: calc(25px + (48 - 25) * ((100vw - 641px) / (1000 - 641)));
 	}
     @media (max-width: $tablet-width) {
-		display: block;
+		//display: block;
 	}
 }
 
 .navigation > li > a {
     @media (max-width: $tablet-width) {
-		color: $color-black-light;
+		//color: $color-black-light;
 	}
     &::hover {
         @media (max-width: $tablet-width) {
-            color: $color-primery;
+            //color: $color-primery;
         }
     }
     
@@ -109,11 +109,11 @@
 
 .navigation__item {
     @media (max-width: $tablet-width) {
-		margin-bottom: 15px;
+		//margin-bottom: 15px;
 	}
     &:last-child {
         @media (max-width: $tablet-width) {
-            margin-bottom: 0;
+            //margin-bottom: 0;
         }
     }
 }
