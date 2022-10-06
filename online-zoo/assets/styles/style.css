@@ -672,34 +672,6 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
     gap: calc(25px + 23 * (100vw - 641px) / 359);
   }
 }
-@media (max-width: 640px) {
-  .navigation {
-    display: block;
-  }
-}
-
-@media (max-width: 640px) {
-  .navigation > li > a {
-    color: #333B41;
-  }
-}
-@media (max-width: 640px) {
-  .navigation > li > a::hover {
-    color: #F9804B;
-  }
-}
-
-@media (max-width: 640px) {
-  .navigation__item {
-    margin-bottom: 15px;
-  }
-}
-@media (max-width: 640px) {
-  .navigation__item:last-child {
-    margin-bottom: 0;
-  }
-}
-
 .header-link {
   color: #FFFFFF;
 }
