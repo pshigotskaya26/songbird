@@ -1834,6 +1834,10 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   }
 }
 
+.feedbacks {
+  overflow: hidden;
+}
+
 .feedbacks__row {
   display: flex;
   margin: 0 -15px;
