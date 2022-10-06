@@ -40,4 +40,30 @@
             left: 3px;
         }
     }
+    &_burger {
+        display: none;
+        @media (max-width: $tablet-width) {
+            display: block;
+            position: relative;
+            padding:  2.84px 3.8px;
+            margin-bottom: 30px;
+            width: 65.6px;
+            height: 41.6px;
+
+            color: $color-primery;
+            border: 1px solid $color-primery;
+        }
+    }
+}
+
+.logo.logo_burger::after {
+    content: url(../../assets/icons/bamboo-menu.svg);
+    position: absolute;
+    bottom: -2px;
+    left: 9px;
+}
+
+.logo_burger h1 {
+    font-size: 15.21px;
+    line-height: 18px;
 }
