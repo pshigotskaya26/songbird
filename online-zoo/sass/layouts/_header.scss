@@ -95,25 +95,31 @@
 	}
 }
 
-.navigation > li > a {
+.header__navigation .navigation {
     @media (max-width: $tablet-width) {
-		//color: $color-black-light;
+		display: block;
+	}
+}
+
+.header__navigation .navigation > li > a {
+    @media (max-width: $tablet-width) {
+		color: $color-black-light;
 	}
     &::hover {
         @media (max-width: $tablet-width) {
-            //color: $color-primery;
+            color: $color-primery;
         }
     }
     
 }
 
-.navigation__item {
+.header__navigation .navigation__item {
     @media (max-width: $tablet-width) {
-		//margin-bottom: 15px;
+		margin-bottom: 15px;
 	}
     &:last-child {
         @media (max-width: $tablet-width) {
-            //margin-bottom: 0;
+            margin-bottom: 0;
         }
     }
 }
