@@ -1964,6 +1964,12 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 .feedbacks__text.smallParagraph {
   color: #767474;
 }
+@media (max-width: 640px) {
+  .feedbacks__text.smallParagraph {
+    height: 33px;
+    overflow: hidden;
+  }
+}
 
 .feedbacks__range {
   max-width: 599px;
