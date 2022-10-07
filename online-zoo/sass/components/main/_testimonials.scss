@@ -48,6 +48,12 @@
 
 .feedbacks {
     overflow: hidden;
+    @media (max-width: $tablet-width) {
+        margin-bottom: 40px;
+	}
+    @media (max-width: $mobile-width) {
+        margin-bottom: 0;
+    }
 }
 
 .feedbacks__row {
@@ -206,10 +212,11 @@
         padding-bottom: 45px;
     }
     @media (max-width: $tablet-width) {
-        padding-bottom: 5px;
+        display: none;
+        //padding-bottom: 5px;
 	}
     @media (max-width: $mobile-width) {
-        display: none;
+        
     }
 }
 
