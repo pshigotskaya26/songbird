@@ -1118,6 +1118,7 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   justify-content: center;
   width: 62px;
   height: 100%;
+  z-index: 9999;
 }
 @media (max-width: 640px) {
   .slider__nav {
@@ -1205,6 +1206,24 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
 .slider__content {
   position: relative;
   left: 0;
+  display: flex;
+  column-gap: 20px;
+  width: 2340px;
+}
+@media (max-width: 1160px) {
+  .slider__content {
+    width: 1900px;
+  }
+}
+@media (max-width: 999px) {
+  .slider__content {
+    width: 1220px;
+  }
+}
+@media (max-width: 599px) {
+  .slider__content {
+    width: 300px;
+  }
 }
 
 .slider__block {
@@ -1212,6 +1231,7 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   row-gap: 20px;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 1160px;
 }
 @media (max-width: 1356px) {
   .slider__block {
@@ -1220,9 +1240,25 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
     row-gap: 92px;
   }
 }
+@media (max-width: 1160px) {
+  .slider__block {
+    width: 940px;
+  }
+}
+@media (max-width: 999px) {
+  .slider__block {
+    width: 600px;
+  }
+}
 @media (max-width: 599px) {
   .slider__block {
     row-gap: 20px;
+    width: 300px;
+  }
+}
+@media (max-width: 599px) {
+  .slider__block:nth-child(2) {
+    display: none;
   }
 }
 
@@ -1236,17 +1272,19 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   cursor: pointer;
 }
 .slider__item:hover .slider__image::after {
-  opacity: 1;
-  transition: all 0.3s ease-out;
+  animation-name: opacityImage;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
 .slider__item:hover .slider__image img {
-  transform: scale(1.05);
-  transition: all 0.5s ease-out;
+  animation-name: transformScale;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
 .slider__item:hover .info__name, .slider__item:hover .info__location {
-  top: -80px;
-  color: #FFFFFF;
-  transition: all 0.5s ease-out;
+  animation-name: animateTopColor;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
 @media (max-width: 999px) {
   .slider__item:nth-child(5) {
@@ -1259,6 +1297,32 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   }
 }
 
+@keyframes opacityImage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes transformScale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+@keyframes animateTopColor {
+  0% {
+    top: 0;
+    color: #000000;
+  }
+  100% {
+    top: -80px;
+    color: #FFFFFF;
+  }
+}
 .slider__image {
   position: relative;
   width: 366px;

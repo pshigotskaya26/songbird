@@ -60,6 +60,7 @@
     justify-content: center;
     width: 62px;
     height: 100%;
+    z-index: 9999;
     @media (max-width: $tablet-width) {
         top: -2px;
     }
@@ -125,6 +126,18 @@
 .slider__content {
     position: relative;
     left: 0;
+    display: flex;
+    column-gap: 20px;
+    width: 2340px;
+    @media (max-width: 1160px) {
+        width: 1900px;
+	}
+    @media (max-width: 999px) {
+        width: 1220px;
+	}
+    @media (max-width: 599px) {
+        width: 300px;
+	}
 }
 
 .slider__block {
@@ -132,15 +145,29 @@
     row-gap: 20px;
     flex-wrap: wrap;
     justify-content: space-between;
+    width: 1160px;
 
     @media (max-width: 1356px) {
         justify-content: center;
         column-gap: 25px;
         row-gap: 92px;
 	}
+
+    @media (max-width: 1160px) {
+        width: 940px;
+	}
+    @media (max-width: 999px) {
+        width: 600px;
+	}
     @media (max-width: 599px) {
         row-gap: 20px;
+        width: 300px;
 	}
+    &:nth-child(2) {
+        @media (max-width: 599px) {
+            display: none;
+        }  
+    }
 }
 
 .slider__item {
@@ -152,18 +179,21 @@
         cursor: pointer;
     }
     &:hover .slider__image::after {
-        opacity: 1;
-        transition: all 0.3s ease-out;
+        animation-name: opacityImage;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
     }
 
     &:hover .slider__image img {
-        transform: scale(1.05);
-        transition: all 0.5s ease-out;
+        animation-name: transformScale;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
     }
+
     &:hover .info__name, &:hover .info__location {
-        top: -80px;
-        color: $color-white;
-        transition: all 0.5s ease-out;
+        animation-name: animateTopColor;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
     }
     &:nth-child(5) {
         @media (max-width: 999px) {
@@ -176,6 +206,21 @@
             display: none;
         }
     }
+}
+
+@keyframes opacityImage {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes transformScale {
+    0%   {transform: scale(1);}
+    100% {transform: scale(1.05);}
+}
+
+@keyframes animateTopColor {
+    0%   {top: 0; color: $color-black;}
+    100% {top: -80px; color: $color-white;}
 }
 
 .slider__image {
