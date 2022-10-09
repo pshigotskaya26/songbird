@@ -8,7 +8,7 @@ elemRange.addEventListener('input', () => {
     let newValueRange = elemRange.value;
     let widthWindow = window.innerWidth;
 
-    if (widthWindow <= 1600 && widthWindow > 1160) {
+    if (widthWindow > 1160) {
         feedbackContent.style.left = valueStartLeftFeedbackContent - (newValueRange * widthFeedbackColumn) + 'px';
     }
     else if (widthWindow <= 1160 && widthWindow > 941) {
