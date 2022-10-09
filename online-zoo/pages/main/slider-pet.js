@@ -25,7 +25,6 @@ const createArrayOfNumbers = (inputArray) => {
 //shuffle array of orders
 const shuffleArrayOfOrders = (arr) => {
     let arrayOfOrders = createArrayOfNumbers(arr);
-    console.log('arrayOfOrders: ', arrayOfOrders);
 
     for (let i = arrayOfOrders.length - 1; i > 0; i--) {
         let randomIndex = Math.floor(Math.random() * (i + 1));
@@ -33,19 +32,16 @@ const shuffleArrayOfOrders = (arr) => {
         arrayOfOrders[i] = arrayOfOrders[randomIndex];
         arrayOfOrders[randomIndex] = lastElement;
     }
-    console.log('arrayOfOrders: ', arrayOfOrders);
     return arrayOfOrders; 
 };
 
 //set new oders to all items of clone
 const setNewOrdersToItems = (arrItems) => {
     let newArrayOfOders = shuffleArrayOfOrders(arrItems);
-    console.log('newArrayOfOders: ', newArrayOfOders);
 
     for (let i = 0; i < arrItems.length; i++) {
         arrItems[i].style.order = newArrayOfOders[i];
     }
-    console.log('arrItems after: ', arrItems);
 };
 
 
@@ -77,8 +73,7 @@ const deleteElem = () => {
     }
     else {
         elemSliderContent.removeChild(arrSliderBlocks[arrSliderBlocks.length - 1]);
-    }
-   
+    }  
 };
 
 //replace .slider__content on 1 step
