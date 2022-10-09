@@ -45,6 +45,7 @@
     -webkit-border-radius: 20px;
     border-radius: 20px;
     text-align: center;
+    
 }
 
 .peek-feed__title {
@@ -150,6 +151,9 @@
 .payment__title {
     padding-right: 42px;
     padding-bottom: 40px;
+    @media (max-width: $small-width) {
+        padding-bottom: 35px;
+    }
     @media (max-width: $tablet-width) {
         padding-right: 22px;
         padding-bottom: 19px;
@@ -168,7 +172,7 @@
     padding-bottom: 61px;
     @media (max-width: $small-width) {
         padding-right: 25px;
-        padding-bottom: 72px;
+        padding-bottom: 73px;
     }
     @media (max-width: $tablet-width) {
         padding-right: 13px;
