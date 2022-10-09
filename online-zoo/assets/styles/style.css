@@ -3401,7 +3401,7 @@ input[type=radio].progress-bar__input:hover::after {
 
 .progress-bar__price {
   position: absolute;
-  left: -8px;
+  left: 6px;
   top: 53px;
   display: block;
   font-style: normal;
@@ -3412,12 +3412,12 @@ input[type=radio].progress-bar__input:hover::after {
 }
 @media (max-width: 1000px) {
   .progress-bar__price {
-    left: 7px;
+    left: 22px;
   }
 }
 @media (max-width: 640px) {
   .progress-bar__price {
-    left: -1px;
+    left: 13px;
   }
 }
 @media (max-width: 430px) {
@@ -3428,12 +3428,28 @@ input[type=radio].progress-bar__input:hover::after {
 }
 @media (max-width: 320px) {
   .progress-bar__price {
-    top: 40px;
-    left: 11px;
+    top: 39px;
+    left: 20px;
+  }
+}
+.progress-bar__price::after {
+  position: absolute;
+  content: "$";
+  top: 0;
+  left: -15px;
+  color: #333B41;
+}
+@media (max-width: 430px) {
+  .progress-bar__price::after {
+    left: -8px;
   }
 }
 
 input[type=radio].progress-bar__input:checked ~ label[for=amount-5000] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+input[type=radio].progress-bar__input:checked ~ label[for=amount-5000]::after {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
@@ -3442,8 +3458,16 @@ input[type=radio].progress-bar__input:hover ~ label[for=amount-5000] {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
+input[type=radio].progress-bar__input:hover ~ label[for=amount-5000]::after {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
 
 input[type=radio].progress-bar__input:checked ~ label[for=amount-2000] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+input[type=radio].progress-bar__input:checked ~ label[for=amount-2000]::after {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
@@ -3452,8 +3476,16 @@ input[type=radio].progress-bar__input:hover ~ label[for=amount-2000] {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
+input[type=radio].progress-bar__input:hover ~ label[for=amount-2000]::after {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
 
 input[type=radio].progress-bar__input:checked ~ label[for=amount-1000] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+input[type=radio].progress-bar__input:checked ~ label[for=amount-1000]::after {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
@@ -3462,8 +3494,16 @@ input[type=radio].progress-bar__input:hover ~ label[for=amount-1000] {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
+input[type=radio].progress-bar__input:hover ~ label[for=amount-1000]::after {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
 
 input[type=radio].progress-bar__input:checked ~ label[for=amount-500] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+input[type=radio].progress-bar__input:checked ~ label[for=amount-500]::after {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
@@ -3472,8 +3512,16 @@ input[type=radio].progress-bar__input:hover ~ label[for=amount-500] {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
+input[type=radio].progress-bar__input:hover ~ label[for=amount-500]::after {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
 
 input[type=radio].progress-bar__input:checked ~ label[for=amount-250] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+input[type=radio].progress-bar__input:checked ~ label[for=amount-250]::after {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
@@ -3482,8 +3530,16 @@ input[type=radio].progress-bar__input:hover ~ label[for=amount-250] {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
+input[type=radio].progress-bar__input:hover ~ label[for=amount-250]::after {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
 
 input[type=radio].progress-bar__input:checked ~ label[for=amount-100] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+input[type=radio].progress-bar__input:checked ~ label[for=amount-100]::after {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
@@ -3492,8 +3548,16 @@ input[type=radio].progress-bar__input:hover ~ label[for=amount-100] {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
+input[type=radio].progress-bar__input:hover ~ label[for=amount-100]::after {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
 
 input[type=radio].progress-bar__input:checked ~ label[for=amount-50] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+input[type=radio].progress-bar__input:checked ~ label[for=amount-50]::after {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
@@ -3502,13 +3566,25 @@ input[type=radio].progress-bar__input:hover ~ label[for=amount-50] {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
+input[type=radio].progress-bar__input:hover ~ label[for=amount-50]::after {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
 
 input[type=radio].progress-bar__input:checked ~ label[for=amount-25] {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
+input[type=radio].progress-bar__input:checked ~ label[for=amount-25]::after {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
 
 input[type=radio].progress-bar__input:hover ~ label[for=amount-25] {
+  transition: all 0.3s ease-out;
+  color: #FE9013;
+}
+input[type=radio].progress-bar__input:hover ~ label[for=amount-25]::after {
   transition: all 0.3s ease-out;
   color: #FE9013;
 }
