@@ -2473,7 +2473,7 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
     top: 50%;
     left: 50%;
     display: flex;
-    transform: translate(-50%, -200%);
+    transform: translate(-50%, -300%);
     background: #F5F7F6;
     transition: transform 0.5s ease-out;
     z-index: 9991;
