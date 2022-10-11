@@ -574,7 +574,7 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   position: relative;
   background-color: #000000;
   color: #FFFFFF;
-  z-index: 100;
+  z-index: 9999;
 }
 @media (max-width: 640px) {
   .header {
@@ -1118,7 +1118,7 @@ input[type=email]:not(:focus):not(:placeholder-shown):valid + button {
   justify-content: center;
   width: 62px;
   height: 100%;
-  z-index: 9999;
+  z-index: 9998;
 }
 @media (max-width: 640px) {
   .slider__nav {
