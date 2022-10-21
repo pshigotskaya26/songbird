@@ -1,0 +1,136 @@
+@font-face {
+    font-family: 'Magra';
+    src: url('../assets/fonts/magra/Magra-Bold.eot');
+    src: local('Magra Bold'), local('Magra-Bold'),
+        url('../assets/fonts/magra/Magra-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/magra/Magra-Bold.woff2') format('woff2'),
+        url('../assets/fonts/magra/Magra-Bold.woff') format('woff'),
+        url('../assets/fonts/magra/Magra-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Magra';
+    src: url('../assets/fonts/magra/Magra.eot');
+    src: local('Magra'),
+        url('../assets/fonts/magra/Magra.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/magra/Magra.woff2') format('woff2'),
+        url('../assets/fonts/magra/Magra.woff') format('woff'),
+        url('../assets/fonts/magra/Magra.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Red Hat Text';
+    src: url('../assets/fonts/redhattext/RedHatText-Medium.eot');
+    src: local('Red Hat Text Medium'), local('RedHatText-Medium'),
+        url('../assets/fonts/redhattext/RedHatText-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/redhattext/RedHatText-Medium.woff2') format('woff2'),
+        url('../assets/fonts/redhattext/RedHatText-Medium.woff') format('woff'),
+        url('../assets/fonts/redhattext/RedHatText-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Red Hat Text';
+    src: url('../assets/fonts/redhattext/RedHatText-MediumItalic.eot');
+    src: local('Red Hat Text Medium It'), local('RedHatText-MediumItalic'),
+        url('../assets/fonts/redhattext/RedHatText-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/redhattext/RedHatText-MediumItalic.woff2') format('woff2'),
+        url('../assets/fonts/redhattext/RedHatText-MediumItalic.woff') format('woff'),
+        url('../assets/fonts/redhattext/RedHatText-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Red Hat Text';
+    src: url('../assets/fonts/redhattext/RedHatText-Bold.eot');
+    src: local('Red Hat Text Bold'), local('RedHatText-Bold'),
+        url('../assets/fonts/redhattext/RedHatText-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/redhattext/RedHatText-Bold.woff2') format('woff2'),
+        url('../assets/fonts/redhattext/RedHatText-Bold.woff') format('woff'),
+        url('../assets/fonts/redhattext/RedHatText-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Red Hat Text';
+    src: url('../assets/fonts/redhattext/RedHatText-BoldItalic.eot');
+    src: local('Red Hat Text Bold It'), local('RedHatText-BoldItalic'),
+        url('../assets/fonts/redhattext/RedHatText-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/redhattext/RedHatText-BoldItalic.woff2') format('woff2'),
+        url('../assets/fonts/redhattext/RedHatText-BoldItalic.woff') format('woff'),
+        url('../assets/fonts/redhattext/RedHatText-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Red Hat Text';
+    src: url('../assets/fonts/redhattext/RedHatText-Italic.eot');
+    src: local('Red Hat Text It'), local('RedHatText-Italic'),
+        url('../assets/fonts/redhattext/RedHatText-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/redhattext/RedHatText-Italic.woff2') format('woff2'),
+        url('../assets/fonts/redhattext/RedHatText-Italic.woff') format('woff'),
+        url('../assets/fonts/redhattext/RedHatText-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Red Hat Text';
+    src: url('../assets/fonts/redhattext/RedHatText-Regular.eot');
+    src: local('Red Hat Text'), local('RedHatText-Regular'),
+        url('../assets/fonts/redhattext/RedHatText-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/redhattext/RedHatText-Regular.woff2') format('woff2'),
+        url('../assets/fonts/redhattext/RedHatText-Regular.woff') format('woff'),
+        url('../assets/fonts/redhattext/RedHatText-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aleo';
+    src: local('Aleo Light'), local('Aleo-Light'), url('../assets/fonts/aleo/aleolight.woff2') format('woff2'), url('../assets/fonts/aleo/aleolight.woff') format('woff'), url('../assets/fonts/aleo/aleolight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aleo';
+    src: local('Aleo Light Italic'), local('Aleo-LightItalic'), url('../assets/fonts/aleo/aleolightitalic.woff2') format('woff2'), url('../assets/fonts/aleo/aleolightitalic.woff') format('woff'), url('../assets/fonts/aleo/aleolightitalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Aleo';
+    src: local('Aleo Regular'), local('Aleo-Regular'), url('../assets/fonts/aleo/aleoregular.woff2') format('woff2'), url('../assets/fonts/aleo/aleoregular.woff') format('woff'), url('../assets/fonts/aleo/aleoregular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aleo';
+    src: local('Aleo Italic'), local('Aleo-Italic'), url('../assets/fonts/aleo/aleoitalic.woff2') format('woff2'), url('../assets/fonts/aleo/aleoitalic.woff') format('woff'), url('../assets/fonts/aleo/aleoitalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Aleo';
+    src: local('Aleo Bold'), local('Aleo-Bold'), url('../assets/fonts/aleo/aleobold.woff2') format('woff2'), url('../assets/fonts/aleo/aleobold.woff') format('woff'), url('../assets/fonts/aleo/aleobold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aleo';
+    src: local('Aleo Bold Italic'), local('Aleo-BoldItalic'), url('../assets/fonts/aleo/aleobolditalic.woff2') format('woff2'), url('../assets/fonts/aleo/aleobolditalic.woff') format('woff'), url('../assets/fonts/aleo/aleobolditalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+
+
