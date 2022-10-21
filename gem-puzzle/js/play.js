@@ -4,6 +4,8 @@ console.log(arrayInputsRadio);
 
 let sizeOfPlayItem;
 let sizeOfPuzzle;
+let baseArrayOfNumbers;
+let shuffleArrayOfNumbers;
 
 //coordinaty of an empty item
 const empty = {
@@ -26,10 +28,43 @@ const getSizeOfPuzzle = () => {
     }
 }
 
+//create array Of numbers depending on the size of puzzle
+const createArrayOfNumbers = (gotSizeOfPuzzle) => {
+    let numberGotSizeOfPuzzle = +gotSizeOfPuzzle;
+    baseArrayOfNumbers = [];
+    
+    let lengthArrayOfNumbers = numberGotSizeOfPuzzle * numberGotSizeOfPuzzle;
+
+    for (let i = 1; i < lengthArrayOfNumbers; i++) {
+        baseArrayOfNumbers.push(i);
+    }
+    console.log('baseArrayOfNumbers: ', baseArrayOfNumbers);
+}
+
+//shuffle array of numbers
+
+const shuffleArray = (baseArray) => {
+    for (let i = baseArray.length - 1; i >= 0; i--) {
+        let randomIndex = Math.floor(Math.random() * (i + 1));
+        let current = baseArray[i];
+        baseArray[i] = baseArray[randomIndex];
+        baseArray[randomIndex] = current;
+    }
+    console.log('baseArray: ', baseArray);
+    return baseArray;
+}
+
 //create method MovePlayItem
 
 const movePlayItem = (index) => {
     const playItem = playItems[index];
+    const diffLeft = Math.abs(playItem.left - empty.left);
+    const diffTop = Math.abs(playItem.top - empty.top);
+
+    //if sum > 1 , this means that playitem and emptyitem are not neighboring
+    if (diffTop + diffLeft > 1) {
+        return;
+    }
 
     playItem.element.style.left = `${empty.left * sizeOfPlayItem}px`;
     playItem.element.style.top = `${empty.top * sizeOfPlayItem}px`;
@@ -57,7 +92,7 @@ const createPuzzle = (size) => {
 
     console.log('playItems: ', playItems);
 
-    for (let i = 1; i < (size*size); i ++) {
+    for (let i = 1; i < (size*size); i++) {
         const playItem = document.createElement('div');
 
         if (size === '3') {
@@ -97,7 +132,7 @@ const createPuzzle = (size) => {
             sizeOfPlayItem = 37;
         }
 
-        playItem.innerHTML = i;
+        playItem.innerHTML = shuffleArrayOfNumbers[i - 1];
 
         const left = i % (+size);
         const top = (i - left) / (+size);
@@ -125,11 +160,15 @@ const createPuzzle = (size) => {
 for (let i = 0; i < arrayInputsRadio.length; i++) {
     arrayInputsRadio[i].addEventListener('change', () => {
         sizeOfPuzzle = getSizeOfPuzzle();
+        createArrayOfNumbers(sizeOfPuzzle);
+        shuffleArrayOfNumbers = shuffleArray(baseArrayOfNumbers);
         createPuzzle(sizeOfPuzzle);
     });
 }
 
 sizeOfPuzzle = getSizeOfPuzzle();
+createArrayOfNumbers(sizeOfPuzzle);
+shuffleArrayOfNumbers = shuffleArray(baseArrayOfNumbers);
 createPuzzle(sizeOfPuzzle);
 
 console.log('sizeOfPuzzle: ', sizeOfPuzzle);

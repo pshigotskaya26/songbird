@@ -107,6 +107,7 @@ h1 {
   border: 2px solid #666666;
   border-radius: 5px;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .play-item-4 {
@@ -120,6 +121,7 @@ h1 {
   border: 2px solid #666666;
   border-radius: 5px;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .play-item-5 {
@@ -133,6 +135,7 @@ h1 {
   border: 2px solid #666666;
   border-radius: 5px;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .play-item-6 {
@@ -146,6 +149,7 @@ h1 {
   border: 2px solid #666666;
   border-radius: 5px;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .play-item-7 {
@@ -159,6 +163,7 @@ h1 {
   border: 2px solid #666666;
   border-radius: 5px;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .play-item-8 {
@@ -172,6 +177,7 @@ h1 {
   border: 2px solid #666666;
   border-radius: 5px;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .sizes {
