@@ -1,0 +1,19 @@
+@import "abstract/constants";
+
+@import "base/base";
+@import "base/buttons";
+
+@import "layouts/container";
+@import "layouts/header";
+@import "layouts/footer";
+
+@import "components/buttons-block";
+@import "components/info";
+@import "components/play";
+@import "components//sizes";
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -31,9 +31,7 @@ htmlCode= `
                 </div>
             </div>
         </div>
-        <div class="play">
-            <canvas id="canvas" class="canvas_noactive" width ="300" height="300"></canvas>
-        </div>
+        <div class="play"></div>
         <div class="sizes">
             <div class="sizes__current">
                 <span class="current__text">Size of puzzle: </span>
