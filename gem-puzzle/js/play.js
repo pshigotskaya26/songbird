@@ -2,6 +2,9 @@ const arrayInputsRadio = document.querySelectorAll('.other__input');
 const playNode = document.querySelector('.play');
 const spanNodeCurrentValue = document.querySelector('.current__value');
 const spanNodeMoveValue = document.querySelector('.move__value');
+const spanNodeTimeMinute = document.querySelector('.time__minute');
+const spanNodeTimeSecond = document.querySelector('.time__second');
+
 console.log(arrayInputsRadio);
 
 let sizeOfPlayItem;
@@ -11,6 +14,13 @@ let correctArray;
 let shuffleArrayOfNumbers;
 let isWin;
 let countTheMoves;
+
+let minutes;
+let seconds;
+let idSetInterval;
+
+minutes = 0;
+seconds = 0;
 
 countTheMoves = 0;
 
@@ -119,7 +129,11 @@ const movePlayItem = (index) => {
 
     isWin = isPuzzlesCorrect(playItems, correctArray);
     if (isWin) {
-        alert('You are winner!');
+        pauseTimer();
+        setTimeout(()=>{
+            alert(`Hooray! You solved the puzzle in ${minutes} : ${seconds} and ${countTheMoves} moves!`);
+        }, 1000);
+        
         playNode.classList.add('play_noactive');
         buttonStop.classList.add('button_noactive');
         buttonSave.classList.remove('button_noactive');
@@ -168,9 +182,53 @@ const displayCountOfMoves = (countMoves) => {
     spanNodeMoveValue.innerHTML = countMoves;
 }
 
-//count the moves
-const countMoves = () => {
-    
+//display minutes and seconds on the page
+const displayTime = (minutes, seconds) => {
+    if (minutes >= 10) {
+        spanNodeTimeMinute.innerHTML = minutes;
+    }
+    else if (minutes < 10){
+        spanNodeTimeMinute.innerHTML = `0${minutes}`;
+    }
+
+    if (seconds >= 10) {
+        spanNodeTimeSecond.innerHTML = seconds;
+    }
+    else if (seconds < 10){
+        spanNodeTimeSecond.innerHTML = `0${seconds}`;
+    }
+}
+
+//start timer
+const startTimer = () => {
+    pauseTimer();
+    idSetInterval = setInterval(() => {
+        timer();
+    }, 1000);
+}
+
+//pause timer
+const pauseTimer = () => {
+    clearInterval(idSetInterval);
+}
+
+//const reset timer
+const resetTimer = () => {
+    pauseTimer();
+    minutes = 0;
+    seconds = 0;
+    displayTime(minutes, seconds);
+}
+
+// taimer
+const timer = () => {
+    seconds++;
+    if (seconds == 60) {
+        seconds = 0;
+        minutes++;
+    }
+
+    displayTime(minutes, seconds);
 }
 
 //function of creating elements depending on size of puzzle
@@ -272,6 +330,7 @@ for (let i = 0; i < arrayInputsRadio.length; i++) {
 
         countTheMoves = 0;
         displayCountOfMoves(countTheMoves);
+        resetTimer();
 
         playNode.classList.add('play_noactive');
         buttonStart.classList.remove('button_noactive');
@@ -287,6 +346,7 @@ shuffleArrayOfNumbers = shuffleArray(baseArrayOfNumbers);
 createPuzzle(sizeOfPuzzle);
 displaySizeOfPuzzle(sizeOfPuzzle);
 displayCountOfMoves(countTheMoves);
+displayTime(minutes, seconds);
 
 console.log('sizeOfPuzzle: ', sizeOfPuzzle);
 

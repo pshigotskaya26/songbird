@@ -25,9 +25,9 @@ htmlCode= `
             <div class="info-time">
                 <span class="time__text">Time:</span>
                 <div class="time__value">
-                    <span class="time__minute">00</span>
+                    <span class="time__minute"></span>
                     <span class="time__separator">:</span>
-                    <span class="time__second">00</span>
+                    <span class="time__second"></span>
                 </div>
             </div>
         </div>

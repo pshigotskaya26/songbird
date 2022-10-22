@@ -5,6 +5,7 @@ const buttonSave = document.querySelector('.button-save');
 
 
 buttonShiffle.addEventListener('click', () => {
+    resetTimer();
     createArrayOfNumbers(sizeOfPuzzle);
     shuffleArrayOfNumbers = shuffleArray(baseArrayOfNumbers);
     createPuzzle(sizeOfPuzzle);
@@ -24,12 +25,14 @@ buttonStart.addEventListener('click', () => {
     //buttonSave.classList.remove('button_noactive');
     playNode.classList.remove('play_noactive');
     buttonStart.classList.add('button_noactive');
+    startTimer();
 });
 
 buttonStop.addEventListener('click', () => {
     playNode.classList.add('play_noactive');
     buttonStop.classList.add('button_noactive');
     buttonStart.classList.remove('button_noactive');
+    pauseTimer();
 });
 
 buttonSave.addEventListener('click', () => {
