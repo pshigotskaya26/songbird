@@ -1,5 +1,7 @@
 const arrayInputsRadio = document.querySelectorAll('.other__input');
 const playNode = document.querySelector('.play');
+const spanNodeCurrentValue = document.querySelector('.current__value');
+const spanNodeMoveValue = document.querySelector('.move__value');
 console.log(arrayInputsRadio);
 
 let sizeOfPlayItem;
@@ -8,6 +10,10 @@ let baseArrayOfNumbers;
 let correctArray;
 let shuffleArrayOfNumbers;
 let isWin;
+let countTheMoves;
+
+countTheMoves = 0;
+
 
 //coordinaty of an empty item
 const empty = {
@@ -17,10 +23,7 @@ const empty = {
 };
 
 //array of objects play-items with own coordinates
-
 let playItems;
-
-
 
 //function of checking what size of puzzle is choosen
 const getSizeOfPuzzle = () => {
@@ -111,9 +114,15 @@ const movePlayItem = (index) => {
     playItem.left = emptyLeft;
     playItem.top = emptyTop;
 
+    countTheMoves++;
+    displayCountOfMoves(countTheMoves);
+
     isWin = isPuzzlesCorrect(playItems, correctArray);
     if (isWin) {
         alert('You are winner!');
+        playNode.classList.add('play_noactive');
+        buttonStop.classList.add('button_noactive');
+        buttonSave.classList.remove('button_noactive');
     }  
 }
 
@@ -151,6 +160,17 @@ const isPuzzlesCorrect = (arrayPlayItems, correctArray) => {
         });
         return true;
     }
+}
+
+
+//display the Count of the moves
+const displayCountOfMoves = (countMoves) => {
+    spanNodeMoveValue.innerHTML = countMoves;
+}
+
+//count the moves
+const countMoves = () => {
+    
 }
 
 //function of creating elements depending on size of puzzle
@@ -229,45 +249,15 @@ const createPuzzle = (size) => {
         playItem.addEventListener('click', () => {
             movePlayItem(i);
             console.log('playItems after move: ', playItems);
-/*
-            playItem.addEventListener('transitionend', function() {
-                console.log('playItems after transit: ', playItems);
-                setTimeout(function() {
-                    isWin = isPuzzlesCorrect(playItems, correctArray);
-                    if (isWin) {
-                        alert('You are winner!');
-                        return;
-                    }
-                });
-            });
-            */
-           
         });
         
     }
 }
 
-/*
-let arrayOfChildrenPlayNode = playNode.children;
-console.log('playNode children: ------- ', playNode.children);
-console.log('arrayOfChildrenPlayNode : ------- ', arrayOfChildrenPlayNode);
-
-for (let i = 0; i < arrayOfChildrenPlayNode.length; i++) {
-    arrayOfChildrenPlayNode[i].addEventListener('click', () => {
-        movePlayItem(i);
-        console.log('playItems after move: ', playItems);
-        setTimeout(function() {
-            isWin = isPuzzlesCorrect(playItems, correctArray);
-            if (isWin) {
-                alert('You are winner!');
-                return;
-            }
-        });
-    });
+//display sizeOfPuzzle
+const displaySizeOfPuzzle = (sizeOfPuzzle) => {
+    spanNodeCurrentValue.innerHTML = `${(+sizeOfPuzzle) + 'x' + (+sizeOfPuzzle)}`;
 }
-
-
-*/
 
 for (let i = 0; i < arrayInputsRadio.length; i++) {
     arrayInputsRadio[i].addEventListener('change', () => {
@@ -278,6 +268,10 @@ for (let i = 0; i < arrayInputsRadio.length; i++) {
 
         shuffleArrayOfNumbers = shuffleArray(baseArrayOfNumbers);
         createPuzzle(sizeOfPuzzle);
+        displaySizeOfPuzzle(sizeOfPuzzle);
+
+        countTheMoves = 0;
+        displayCountOfMoves(countTheMoves);
 
         playNode.classList.add('play_noactive');
         buttonStart.classList.remove('button_noactive');
@@ -291,6 +285,8 @@ createCorrectArray(baseArrayOfNumbers, sizeOfPuzzle)
 
 shuffleArrayOfNumbers = shuffleArray(baseArrayOfNumbers);
 createPuzzle(sizeOfPuzzle);
+displaySizeOfPuzzle(sizeOfPuzzle);
+displayCountOfMoves(countTheMoves);
 
 console.log('sizeOfPuzzle: ', sizeOfPuzzle);
 

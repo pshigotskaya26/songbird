@@ -8,9 +8,12 @@ buttonShiffle.addEventListener('click', () => {
     createArrayOfNumbers(sizeOfPuzzle);
     shuffleArrayOfNumbers = shuffleArray(baseArrayOfNumbers);
     createPuzzle(sizeOfPuzzle);
+    countTheMoves = 0;
+    displayCountOfMoves(countTheMoves);
     playNode.classList.add('play_noactive');
     buttonStart.classList.remove('button_noactive');
     buttonStop.classList.add('button_noactive');
+    buttonSave.classList.add('button_noactive');
 
     //buttonStart.classList.remove('button_noactive');
 });
@@ -18,7 +21,7 @@ buttonShiffle.addEventListener('click', () => {
 
 buttonStart.addEventListener('click', () => {
     buttonStop.classList.remove('button_noactive');
-    buttonSave.classList.remove('button_noactive');
+    //buttonSave.classList.remove('button_noactive');
     playNode.classList.remove('play_noactive');
     buttonStart.classList.add('button_noactive');
 });
@@ -27,5 +30,9 @@ buttonStop.addEventListener('click', () => {
     playNode.classList.add('play_noactive');
     buttonStop.classList.add('button_noactive');
     buttonStart.classList.remove('button_noactive');
+});
+
+buttonSave.addEventListener('click', () => {
+    alert('You saved the result in the table. To watch this click the button "Results".');
 });
 

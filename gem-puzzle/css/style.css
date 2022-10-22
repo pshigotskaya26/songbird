@@ -190,10 +190,16 @@ h1 {
   align-items: center;
   column-gap: 30px;
   row-gap: 10px;
+  padding-top: 10px;
 }
 
 .sizes__current {
   display: flex;
+  column-gap: 10px;
+}
+
+.current__text {
+  font-weight: bold;
 }
 
 .sizes__other {

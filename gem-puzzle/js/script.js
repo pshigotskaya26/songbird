@@ -20,7 +20,7 @@ htmlCode= `
         <div class="info">
             <div class="info-moves">
                 <span class="move__text">Moves:</span>
-                <span class="move__value">0</span>
+                <span class="move__value"></span>
             </div>
             <div class="info-time">
                 <span class="time__text">Time:</span>
