@@ -5,10 +5,13 @@ console.log(arrayInputsRadio);
 let sizeOfPlayItem;
 let sizeOfPuzzle;
 let baseArrayOfNumbers;
+let correctArray;
 let shuffleArrayOfNumbers;
+let isWin;
 
 //coordinaty of an empty item
 const empty = {
+    value: 0,
     top: 0,
     left: 0
 };
@@ -41,6 +44,37 @@ const createArrayOfNumbers = (gotSizeOfPuzzle) => {
     console.log('baseArrayOfNumbers: ', baseArrayOfNumbers);
 }
 
+//create correct array for checking of finish puzzle
+const createCorrectArray = (baseArrayOfNumbers, sizeOfPuzzle) => {
+    sizeOfPuzzle = +sizeOfPuzzle;
+    correctArray = [];
+    let correctLeft;
+    let correctTop;
+    let iIndex = 0;
+    let jIndex = 0;
+    
+    for (let i = 0; i < baseArrayOfNumbers.length; i++) {
+        if (iIndex < sizeOfPuzzle) {
+            correctLeft = iIndex;
+            correctTop = jIndex;
+
+            correctArray.push({
+                value: baseArrayOfNumbers[i],
+                left: correctLeft,
+                top: correctTop
+            });
+
+            iIndex++;
+        }
+        
+        if (iIndex >= sizeOfPuzzle) {
+            iIndex = 0;
+            jIndex++;
+        }
+    }
+    console.log('correctArray: ', correctArray);
+}
+
 //shuffle array of numbers
 
 const shuffleArray = (baseArray) => {
@@ -50,12 +84,11 @@ const shuffleArray = (baseArray) => {
         baseArray[i] = baseArray[randomIndex];
         baseArray[randomIndex] = current;
     }
-    console.log('baseArray: ', baseArray);
+    console.log('baseArray shuffle: ', baseArray);
     return baseArray;
 }
 
-//create method MovePlayItem
-
+//create function MovePlayItem
 const movePlayItem = (index) => {
     const playItem = playItems[index];
     const diffLeft = Math.abs(playItem.left - empty.left);
@@ -77,6 +110,47 @@ const movePlayItem = (index) => {
 
     playItem.left = emptyLeft;
     playItem.top = emptyTop;
+
+    isWin = isPuzzlesCorrect(playItems, correctArray);
+    if (isWin) {
+        alert('You are winner!');
+    }  
+}
+
+//check if the puzzles are correctly collected
+
+const isPuzzlesCorrect = (arrayPlayItems, correctArray) => {
+    let result = [];
+
+    for (let i = 0; i < correctArray.length; i++) {
+        let valueInCorrect = correctArray[i].value;
+        console.log('valueInCorrect: ', valueInCorrect);
+  
+        for (let j = 1; j < arrayPlayItems.length; j++) {
+            let valueplayItems = arrayPlayItems[j].value;
+  
+            console.log('valueplayItems: ', valueplayItems);
+            if (valueplayItems === valueInCorrect) {
+                console.log('correct[i].left: ', correctArray[i].left);
+                console.log('playItems[j].left: ', arrayPlayItems[j].left);
+                console.log('correct[i].top: ', correctArray[i].top);
+                console.log('playItems[j].top: ', arrayPlayItems[j].top);
+                if (correctArray[i].left === arrayPlayItems[j].left && correctArray[i].top === arrayPlayItems[j].top) {
+                    result.push(true);
+                }
+            }
+        }
+    }
+    console.log('result: ', result);
+
+    if (result.length === correctArray.length) {
+        result.forEach(item => {
+            if (item === false) {
+                return false;
+            }
+        });
+        return true;
+    }
 }
 
 //function of creating elements depending on size of puzzle
@@ -132,13 +206,15 @@ const createPuzzle = (size) => {
             sizeOfPlayItem = 37;
         }
 
-        playItem.innerHTML = shuffleArrayOfNumbers[i - 1];
+        const value = shuffleArrayOfNumbers[i - 1];
+        playItem.innerHTML = value;
 
         const left = i % (+size);
         const top = (i - left) / (+size);
 
         //add object (play-item with its left and top coordinates)
         playItems.push({
+            value: value,
             left: left,
             top: top,
             element: playItem
@@ -152,22 +228,67 @@ const createPuzzle = (size) => {
 
         playItem.addEventListener('click', () => {
             movePlayItem(i);
+            console.log('playItems after move: ', playItems);
+/*
+            playItem.addEventListener('transitionend', function() {
+                console.log('playItems after transit: ', playItems);
+                setTimeout(function() {
+                    isWin = isPuzzlesCorrect(playItems, correctArray);
+                    if (isWin) {
+                        alert('You are winner!');
+                        return;
+                    }
+                });
+            });
+            */
+           
         });
+        
     }
 }
 
+/*
+let arrayOfChildrenPlayNode = playNode.children;
+console.log('playNode children: ------- ', playNode.children);
+console.log('arrayOfChildrenPlayNode : ------- ', arrayOfChildrenPlayNode);
+
+for (let i = 0; i < arrayOfChildrenPlayNode.length; i++) {
+    arrayOfChildrenPlayNode[i].addEventListener('click', () => {
+        movePlayItem(i);
+        console.log('playItems after move: ', playItems);
+        setTimeout(function() {
+            isWin = isPuzzlesCorrect(playItems, correctArray);
+            if (isWin) {
+                alert('You are winner!');
+                return;
+            }
+        });
+    });
+}
+
+
+*/
 
 for (let i = 0; i < arrayInputsRadio.length; i++) {
     arrayInputsRadio[i].addEventListener('change', () => {
         sizeOfPuzzle = getSizeOfPuzzle();
         createArrayOfNumbers(sizeOfPuzzle);
+
+        createCorrectArray(baseArrayOfNumbers, sizeOfPuzzle);
+
         shuffleArrayOfNumbers = shuffleArray(baseArrayOfNumbers);
         createPuzzle(sizeOfPuzzle);
+
+        playNode.classList.add('play_noactive');
+        buttonStart.classList.remove('button_noactive');
+        buttonStop.classList.add('button_noactive');
     });
 }
 
 sizeOfPuzzle = getSizeOfPuzzle();
 createArrayOfNumbers(sizeOfPuzzle);
+createCorrectArray(baseArrayOfNumbers, sizeOfPuzzle)
+
 shuffleArrayOfNumbers = shuffleArray(baseArrayOfNumbers);
 createPuzzle(sizeOfPuzzle);
 

@@ -13,7 +13,7 @@ htmlCode= `
             <button class="button button-shiffle">Shuffle</button>
             <button class="button button-start">Start</button>
             <button class="button button-stop button_noactive">Stop</button>
-            <button class="button button-save">Save</button>
+            <button class="button button-save button_noactive">Save</button>
             <button class="button button-result">Results</button>
         </div>
 
@@ -31,7 +31,7 @@ htmlCode= `
                 </div>
             </div>
         </div>
-        <div class="play"></div>
+        <div class="play play_noactive"></div>
         <div class="sizes">
             <div class="sizes__current">
                 <span class="current__text">Size of puzzle: </span>

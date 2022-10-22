@@ -96,6 +96,10 @@ h1 {
   border: 1px solid #666666;
 }
 
+.play_noactive {
+  pointer-events: none;
+}
+
 .play-item-3 {
   position: absolute;
   display: flex;
