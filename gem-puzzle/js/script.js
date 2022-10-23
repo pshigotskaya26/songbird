@@ -9,6 +9,29 @@ htmlCode= `
     </header>
 
     <main class="main">
+        <div class="pop-hidden"></div>
+        <div class="pop">
+            <div class="pop__burger">
+                <div class="burger-close">
+                    <span></span>
+                </div>
+            </div>
+            <div class="pop__button">
+                <button class="button button-reset">Reset table</button>
+            </div>
+            <h2 class="pop__title">TOP results</h2>
+            <div class="pop-table">
+                <div class="table__header">
+                    <div class="header__number">№</div>
+                    <div class="header__size">Size of puzzle</div>
+                    <div class="header__time">Time</div>
+                    <div class="header__seconds">All seconds</div>
+                    <div class="header__move">Moves</div>
+                </div>
+                <div class="table__content">
+                </div>
+            </div>
+        </div>
         <div class="buttons-block">
             <button class="button button-shiffle">Shuffle</button>
             <button class="button button-start">Start</button>

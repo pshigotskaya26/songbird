@@ -2,7 +2,68 @@ const buttonShiffle = document.querySelector('.button-shiffle');
 const buttonStart = document.querySelector('.button-start');
 const buttonStop = document.querySelector('.button-stop');
 const buttonSave = document.querySelector('.button-save');
+const buttonResult = document.querySelector('.button-result');
+const buttonReset = document.querySelector('.button-reset');
+const popNode = document.querySelector('.pop');
+const popNodeHidden = document.querySelector('.pop-hidden');
+const popBurger = document.querySelector('.pop__burger');
 
+const tableContentNode = document.querySelector('.table__content');
+
+let arrayOfResults;
+
+arrayOfResults = [];
+
+//add result of play to array
+const addResultsInArray = (sizeOfPuzzle) => {
+    arrayOfResults.push({
+        sizeOfPuzzle: `${sizeOfPuzzle}x${sizeOfPuzzle}`,
+        time: `${minutes} : ${seconds}`,
+        allseconds: minutes * 60 + seconds,
+        moves: countTheMoves,
+        //speed: (countTheMoves / (minutes * 60 + seconds)).toFixed(2)
+        //speed: +((minutes * 60 + seconds) / countTheMoves).toFixed(2)
+    });
+}
+
+//sort array
+const sortArray = (arr) => {
+    return arr.sort((a, b) => a.allseconds - b.allseconds);
+}
+
+//create element Item for table__content
+const createItemsForTable = (arr) => {
+    console.log('arr aftre sort: ', arr);
+    if (arr.length !== 0) {
+        tableContentNode.innerHTML = '';
+        let htmlCodeForTable = '';
+        let count = 1;
+
+        for (let i = 0; i < arr.length; i++) {
+            if (count <= 10) {
+                const itemForTable = `
+                    <div class="table-item">
+                        <div class="item__number">${i + 1}</div>
+                        <div class="item__size">${arr[i].sizeOfPuzzle}</div>
+                        <div class="item__time">${arr[i].time}</div>
+                        <div class="item__seconds">${arr[i].allseconds}</div>
+                        <div class="item__move">${arr[i].moves}</div>
+                    </div>
+                `;
+                htmlCodeForTable += itemForTable;
+                count++;
+            }
+        }
+        tableContentNode.innerHTML = htmlCodeForTable;
+    }
+}
+
+//save results in table
+const saveResultsInTable = (sizeOfPuzzle) => {
+    addResultsInArray(sizeOfPuzzle);
+    sortArray(arrayOfResults);
+    createItemsForTable(arrayOfResults);
+}
 
 buttonShiffle.addEventListener('click', () => {
     resetTimer();
@@ -18,7 +79,6 @@ buttonShiffle.addEventListener('click', () => {
 
     //buttonStart.classList.remove('button_noactive');
 });
-
 
 buttonStart.addEventListener('click', () => {
     buttonStop.classList.remove('button_noactive');
@@ -37,5 +97,23 @@ buttonStop.addEventListener('click', () => {
 
 buttonSave.addEventListener('click', () => {
     alert('You saved the result in the table. To watch this click the button "Results".');
+    saveResultsInTable(sizeOfPuzzle);
+});
+
+buttonResult.addEventListener('click', () => {
+    popNode.classList.toggle('active');
+    popNodeHidden.classList.toggle('active');
+    bodyNode.classList.toggle('lock');
+});
+
+buttonReset.addEventListener('click', () => {
+    tableContentNode.innerHTML = '';
+    arrayOfResults = [];
+});
+
+popBurger.addEventListener('click', () => {
+    popNode.classList.toggle('active');
+    popNodeHidden.classList.toggle('active');
+    bodyNode.classList.toggle('lock');
 });
 

@@ -10,7 +10,12 @@
 @import "components/buttons-block";
 @import "components/info";
 @import "components/play";
-@import "components//sizes";
+@import "components/sizes";
+@import "components/pop";
+
+body.lock {
+    overflow: hidden;
+}
 
 .main {
     display: flex;

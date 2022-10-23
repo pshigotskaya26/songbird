@@ -26,6 +26,10 @@ h1 {
   color: #0d9095;
 }
 
+h2 {
+  color: #0d9095;
+}
+
 .button {
   padding: 10px 30px;
   font-family: "Red Hat Text";
@@ -207,6 +211,117 @@ h1 {
 .sizes__other {
   display: flex;
   column-gap: 10px;
+}
+
+.pop-hidden {
+  display: none;
+}
+
+.pop-hidden.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9990;
+}
+
+.pop {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 395px;
+  padding: 55px 20px 20px 20px;
+  transform: translate(-50%, -300%);
+  background: #F5F7F6;
+  transition: transform 0.5s ease-out;
+  z-index: 9991;
+}
+
+.pop.active {
+  transform: translate(-50%, -50%);
+}
+
+.pop__title {
+  text-align: center;
+}
+
+.pop-table {
+  padding: 20px 0;
+}
+
+.table__header {
+  display: flex;
+  column-gap: 20px;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #666666;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.table__content {
+  overflow: auto;
+}
+
+.table-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pop__burger {
+  position: absolute;
+  top: 0;
+  right: 4px;
+  display: block;
+  cursor: pointer;
+}
+
+.burger-close {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.burger-close span {
+  position: absolute;
+  top: 15px;
+  left: 7.5px;
+  width: 18px;
+  height: 2px;
+  background-color: #0d9095;
+  opacity: 0.7;
+  transform: rotate(45deg);
+}
+
+.burger-close::after {
+  content: "";
+  position: absolute;
+  bottom: 13px;
+  left: 7.5px;
+  width: 18px;
+  height: 2px;
+  background-color: #0d9095;
+  opacity: 0.7;
+  transform: rotate(-45deg);
+}
+
+.pop__button {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  cursor: pointer;
+}
+
+.pop__button .button {
+  padding: 5px 10px;
+}
+
+body.lock {
+  overflow: hidden;
 }
 
 .main {

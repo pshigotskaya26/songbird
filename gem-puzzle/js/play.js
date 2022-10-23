@@ -308,7 +308,6 @@ const createPuzzle = (size) => {
             movePlayItem(i);
             console.log('playItems after move: ', playItems);
         });
-        
     }
 }
 
@@ -320,6 +319,7 @@ const displaySizeOfPuzzle = (sizeOfPuzzle) => {
 for (let i = 0; i < arrayInputsRadio.length; i++) {
     arrayInputsRadio[i].addEventListener('change', () => {
         sizeOfPuzzle = getSizeOfPuzzle();
+        console.log('sizeOfPuzzle: ', sizeOfPuzzle);
         createArrayOfNumbers(sizeOfPuzzle);
 
         createCorrectArray(baseArrayOfNumbers, sizeOfPuzzle);
