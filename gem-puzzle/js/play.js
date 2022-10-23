@@ -5,6 +5,8 @@ const spanNodeMoveValue = document.querySelector('.move__value');
 const spanNodeTimeMinute = document.querySelector('.time__minute');
 const spanNodeTimeSecond = document.querySelector('.time__second');
 
+const audio = new Audio();
+
 console.log(arrayInputsRadio);
 
 let sizeOfPlayItem;
@@ -21,9 +23,13 @@ let idSetInterval;
 
 minutes = 0;
 seconds = 0;
-
 countTheMoves = 0;
 
+//play audiotrack when one puzzle is moving
+const playAudio = () => {
+    audio.src = 'assets/sounds/puzzle.mp3';
+    audio.play();
+}
 
 //coordinaty of an empty item
 const empty = {
@@ -123,6 +129,7 @@ const movePlayItem = (index) => {
 
     playItem.left = emptyLeft;
     playItem.top = emptyTop;
+    playAudio();
 
     countTheMoves++;
     displayCountOfMoves(countTheMoves);
