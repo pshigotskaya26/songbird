@@ -54,6 +54,9 @@ htmlCode= `
                 </div>
             </div>
         </div>
+        <div class="sound">
+            <button class="sound-volume-button sound-icon sound-volume_on"></button>
+        </div>
         <div class="play play_noactive"></div>
         <div class="sizes">
             <div class="sizes__current">

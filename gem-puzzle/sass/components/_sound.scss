@@ -1,0 +1,25 @@
+.sound-icon {
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sound-icon:hover {
+    opacity: 1;
+}
+
+.sound-volume_on {
+    background-image: url(../assets/svg/volume-on.svg);
+}
+
+.sound-volume_off {
+    background-image: url(../assets/svg/volume-off.svg);
+}

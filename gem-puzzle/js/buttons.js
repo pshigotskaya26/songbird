@@ -7,11 +7,11 @@ const buttonReset = document.querySelector('.button-reset');
 const popNode = document.querySelector('.pop');
 const popNodeHidden = document.querySelector('.pop-hidden');
 const popBurger = document.querySelector('.pop__burger');
-
 const tableContentNode = document.querySelector('.table__content');
+const soundVolumeButton = document.querySelector('.sound-volume-button');
 
+let isVolume = true;
 let arrayOfResults;
-
 arrayOfResults = [];
 
 //add result of play to array
@@ -65,6 +65,22 @@ const saveResultsInTable = (sizeOfPuzzle) => {
     createItemsForTable(arrayOfResults);
 }
 
+//toggle volume
+const toggleVolume = () => {
+    if (isVolume) {
+        isVolume = false;
+        audio.volume = 0;
+        soundVolumeButton.classList.remove('sound-volume_on');
+        soundVolumeButton.classList.add('sound-volume_off');
+    }
+    else {
+        isVolume = true;
+        audio.volume = 1;
+        soundVolumeButton.classList.add('sound-volume_on');
+        soundVolumeButton.classList.remove('sound-volume_off');
+    }
+}
+
 buttonShiffle.addEventListener('click', () => {
     resetTimer();
     createArrayOfNumbers(sizeOfPuzzle);
@@ -116,4 +132,6 @@ popBurger.addEventListener('click', () => {
     popNodeHidden.classList.toggle('active');
     bodyNode.classList.toggle('lock');
 });
+
+soundVolumeButton.addEventListener('click', toggleVolume);
 

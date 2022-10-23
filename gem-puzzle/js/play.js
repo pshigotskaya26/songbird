@@ -356,6 +356,36 @@ displayCountOfMoves(countTheMoves);
 displayTime(minutes, seconds);
 
 console.log('sizeOfPuzzle: ', sizeOfPuzzle);
+console.log('type sizeOfPuzzle: ', typeof(sizeOfPuzzle));
+
+
+//save sizeOfPuzzle in local storage
+const setLocalStorageSizeOfPuzzle = () => {
+    let jsonSizeOfPuzzle = JSON.stringify(sizeOfPuzzle);
+    localStorage.setItem('sizeOfPuzzle', jsonSizeOfPuzzle); 
+}
+
+//get sizeOfPuzzle from local storage and display it on the page
+const getLocalStorageSizeOfPuzzle = () => {
+    if (localStorage.getItem('sizeOfPuzzle')) {
+        sizeOfPuzzle = JSON.parse(localStorage.getItem('sizeOfPuzzle'));
+        console.log('sizeOfPuzzle from local: ', sizeOfPuzzle);
+        for (let i = 0; i < arrayInputsRadio.length; i++) {
+            if (arrayInputsRadio[i].value === sizeOfPuzzle) {
+                arrayInputsRadio[i].checked = true;
+            }
+        }
+        displaySizeOfPuzzle(sizeOfPuzzle);
+    }
+}
+
+
+//before unloading or closing the page execute setLocalStorage
+window.addEventListener('beforeunload', setLocalStorageSizeOfPuzzle);
+
+
+//before loading the page the input value needs to be displayed
+window.addEventListener('load', getLocalStorageSizeOfPuzzle);
 
 
 
