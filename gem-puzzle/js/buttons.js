@@ -135,3 +135,25 @@ popBurger.addEventListener('click', () => {
 
 soundVolumeButton.addEventListener('click', toggleVolume);
 
+
+//save TimeSeconds in local storage
+const setLocalStorageArrayOfResults = () => {
+    let jsonArrayOfResults = JSON.stringify(arrayOfResults);
+    localStorage.setItem('arrayOfResults', jsonArrayOfResults);
+}
+
+//get TimeSeconds from local storage
+const getLocalStorageArrayOfResults = () => {
+    if (localStorage.getItem('arrayOfResults')) {
+        arrayOfResults = JSON.parse(localStorage.getItem('arrayOfResults'));
+        createItemsForTable(arrayOfResults);
+    }
+}
+
+//before unloading or closing the page execute setLocalStorage
+window.addEventListener('beforeunload', setLocalStorageArrayOfResults);
+
+//before loading the page we get seconds from local storage
+window.addEventListener('load', getLocalStorageArrayOfResults);
+
+
