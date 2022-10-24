@@ -7,8 +7,6 @@ const spanNodeTimeSecond = document.querySelector('.time__second');
 
 const audio = new Audio();
 
-console.log(arrayInputsRadio);
-
 let sizeOfPlayItem;
 let sizeOfPuzzle;
 let baseArrayOfNumbers;
@@ -60,7 +58,6 @@ const createArrayOfNumbers = (gotSizeOfPuzzle) => {
     for (let i = 1; i < lengthArrayOfNumbers; i++) {
         baseArrayOfNumbers.push(i);
     }
-    console.log('baseArrayOfNumbers: ', baseArrayOfNumbers);
 }
 
 //create correct array for checking of finish puzzle
@@ -82,16 +79,13 @@ const createCorrectArray = (baseArrayOfNumbers, sizeOfPuzzle) => {
                 left: correctLeft,
                 top: correctTop
             });
-
             iIndex++;
         }
-        
         if (iIndex >= sizeOfPuzzle) {
             iIndex = 0;
             jIndex++;
         }
     }
-    console.log('correctArray: ', correctArray);
 }
 
 //shuffle array of numbers
@@ -102,7 +96,6 @@ const shuffleArray = (baseArray) => {
         baseArray[i] = baseArray[randomIndex];
         baseArray[randomIndex] = current;
     }
-    console.log('baseArray shuffle: ', baseArray);
     return baseArray;
 }
 
@@ -116,7 +109,6 @@ const movePlayItem = (index) => {
     if (diffTop + diffLeft > 1) {
         return;
     }
-
     playItem.element.style.left = `${empty.left * sizeOfPlayItem}px`;
     playItem.element.style.top = `${empty.top * sizeOfPlayItem}px`;
 
@@ -129,10 +121,7 @@ const movePlayItem = (index) => {
     playItem.left = emptyLeft;
     playItem.top = emptyTop;
 
-    
-
     playAudio();
-
     countTheMoves++;
     displayCountOfMoves(countTheMoves);
 
@@ -156,25 +145,16 @@ const isPuzzlesCorrect = (arrayPlayItems, correctArray) => {
 
     for (let i = 0; i < correctArray.length; i++) {
         let valueInCorrect = correctArray[i].value;
-        console.log('valueInCorrect: ', valueInCorrect);
   
         for (let j = 1; j < arrayPlayItems.length; j++) {
             let valueplayItems = arrayPlayItems[j].value;
-  
-            console.log('valueplayItems: ', valueplayItems);
             if (valueplayItems === valueInCorrect) {
-                console.log('correct[i].left: ', correctArray[i].left);
-                console.log('playItems[j].left: ', arrayPlayItems[j].left);
-                console.log('correct[i].top: ', correctArray[i].top);
-                console.log('playItems[j].top: ', arrayPlayItems[j].top);
                 if (correctArray[i].left === arrayPlayItems[j].left && correctArray[i].top === arrayPlayItems[j].top) {
                     result.push(true);
                 }
             }
         }
     }
-    console.log('result: ', result);
-
     if (result.length === correctArray.length) {
         result.forEach(item => {
             if (item === false) {
@@ -199,7 +179,6 @@ const displayTime = (minutes, seconds) => {
     else if (minutes < 10){
         spanNodeTimeMinute.innerHTML = `0${minutes}`;
     }
-
     if (seconds >= 10) {
         spanNodeTimeSecond.innerHTML = seconds;
     }
@@ -236,22 +215,17 @@ const timer = () => {
         seconds = 0;
         minutes++;
     }
-
     displayTime(minutes, seconds);
 }
 
 //function of creating elements depending on size of puzzle
 const createPuzzle = (size) => {
     playNode.innerHTML = '';
-
     playItems = [];
 
     empty.top = 0;
     empty.left = 0;
-
     playItems.push(empty);
-
-    console.log('playItems: ', playItems);
 
     for (let i = 1; i < (size*size); i++) {
         const playItem = document.createElement('div');
@@ -306,7 +280,6 @@ const createPuzzle = (size) => {
             top: top,
             element: playItem
         });
-        console.log('playItems: ', playItems);
 
         playItem.style.left = `${left * sizeOfPlayItem}px`;
         playItem.style.top = `${top * sizeOfPlayItem}px`;
@@ -316,17 +289,14 @@ const createPuzzle = (size) => {
         playItem.addEventListener('click', () => {
             movePlayItem(i);
             setLocalStoragePlayItems();
-            console.log('playItems after move: ', playItems);
         });
     }
 }
 
 //function of creating elements depending on size of puzzle from local
 const createPuzzleLocal = (size) => {
-
     empty.top = playItems[0].top;
     empty.left = playItems[0].left;
-
     playNode.innerHTML = '';
 
     for (let i = 1; i < (size*size); i++) {
@@ -376,7 +346,6 @@ const createPuzzleLocal = (size) => {
 
         playItem.style.left = `${playItems[i].left * sizeOfPlayItem}px`;
         playItem.style.top = `${playItems[i].top * sizeOfPlayItem}px`;
-        
         playNode.append(playItem);
 
         playItem.addEventListener('click', () => {
@@ -394,9 +363,7 @@ const displaySizeOfPuzzle = (sizeOfPuzzle) => {
 for (let i = 0; i < arrayInputsRadio.length; i++) {
     arrayInputsRadio[i].addEventListener('change', () => {
         sizeOfPuzzle = getSizeOfPuzzle();
-        console.log('sizeOfPuzzle: ', sizeOfPuzzle);
         createArrayOfNumbers(sizeOfPuzzle);
-
         createCorrectArray(baseArrayOfNumbers, sizeOfPuzzle);
 
         shuffleArrayOfNumbers = shuffleArray(baseArrayOfNumbers);
@@ -424,13 +391,6 @@ displaySizeOfPuzzle(sizeOfPuzzle);
 displayCountOfMoves(countTheMoves);
 displayTime(minutes, seconds);
 
-console.log('sizeOfPuzzle: ', sizeOfPuzzle);
-console.log('type sizeOfPuzzle: ', typeof(sizeOfPuzzle));
-
-
-
-
-
 //save sizeOfPuzzle in local storage
 const setLocalStorageSizeOfPuzzle = () => {
     let jsonSizeOfPuzzle = JSON.stringify(sizeOfPuzzle);
@@ -454,9 +414,7 @@ const setLocalStoragePlayItems = () => {
 
 //save moveValue in local storage
 const setLocalStorageMoveValue = () => {
-
     countTheMoves = spanNodeMoveValue.innerHTML;
-
     let jsonCountMoves = JSON.stringify(countTheMoves);
     localStorage.setItem('countTheMoves', jsonCountMoves);
 }
@@ -481,8 +439,6 @@ const setLocalStorageBaseShuffleArrayOfNumbers = () => {
     localStorage.setItem('shuffleArrayOfNumbers', jsonBaseShuffleArrayOfNumbers);
 }
 
-
-
 //get sizeOfPuzzle from local storage and display it on the page
 const getLocalStorageSizeOfPuzzle = () => {
     if (localStorage.getItem('sizeOfPuzzle')) {
@@ -497,13 +453,10 @@ const getLocalStorageSizeOfPuzzle = () => {
     }
 }
 
-
-
 //get sizeOfPuzzle from local storage and display it on the page
 const getLocalStorageCorrectArray = () => {
     if (localStorage.getItem('correctArray')) {
         correctArray = JSON.parse(localStorage.getItem('correctArray'));
-        console.log('correctArray from local: ', correctArray);
     }
 }
 
@@ -511,8 +464,6 @@ const getLocalStorageCorrectArray = () => {
 const getLocalStoragePlayItems = () => {
     if (localStorage.getItem('playItems')) {
         playItems = JSON.parse(localStorage.getItem('playItems'));
-        console.log('playItems from local: ', playItems);
-        
     }
     createPuzzleLocal(sizeOfPuzzle);
 }
@@ -529,9 +480,7 @@ const getLocalStorageMoveValue = () => {
 const getLocalStorageTimeMinute = () => {
     if (localStorage.getItem('minutes')) {
         minutes = JSON.parse(localStorage.getItem('minutes'));
-        
         minutes = Number(minutes);
-        console.log('minutes from local: ', minutes);
         if (minutes >= 10) {
             spanNodeTimeMinute.innerHTML = minutes;
         }
@@ -541,14 +490,11 @@ const getLocalStorageTimeMinute = () => {
     } 
 }
 
-
 //get TimeSeconds from local storage
 const getLocalStorageTimeSeconds = () => {
     if (localStorage.getItem('seconds')) {
         seconds = JSON.parse(localStorage.getItem('seconds'));
-        
         seconds = Number(seconds);
-        console.log('seconds from local: ', seconds);
         if (seconds >= 10) {
             spanNodeTimeSecond.innerHTML = seconds;
         }
@@ -564,9 +510,6 @@ const getLocalStorageBaseShuffleArrayOfNumbers = () => {
         shuffleArrayOfNumbers = JSON.parse(localStorage.getItem('shuffleArrayOfNumbers'));
     }
 }
-
-
-
 
 //before unloading or closing the page execute setLocalStorage
 window.addEventListener('beforeunload', setLocalStorageSizeOfPuzzle);
@@ -588,10 +531,6 @@ window.addEventListener('beforeunload', setLocalStorageTimeSeconds);
 
 //before unloading or closing the page execute setLocalStorage
 window.addEventListener('beforeunload', setLocalStorageBaseShuffleArrayOfNumbers);
-
-
-
-
 
 //before loading the page we get sizeOfPuzzle from local storage and display it on the page
 window.addEventListener('load', getLocalStorageSizeOfPuzzle);

@@ -22,8 +22,6 @@ const addResultsInArray = (sizeOfPuzzle) => {
         time: `${minutes} : ${seconds}`,
         allseconds: minutes * 60 + seconds,
         moves: countTheMoves,
-        //speed: (countTheMoves / (minutes * 60 + seconds)).toFixed(2)
-        //speed: +((minutes * 60 + seconds) / countTheMoves).toFixed(2)
     });
 }
 
@@ -34,7 +32,6 @@ const sortArray = (arr) => {
 
 //create element Item for table__content
 const createItemsForTable = (arr) => {
-    console.log('arr aftre sort: ', arr);
     if (arr.length !== 0) {
         tableContentNode.innerHTML = '';
         let htmlCodeForTable = '';
@@ -94,8 +91,6 @@ buttonShiffle.addEventListener('click', () => {
     buttonStop.classList.add('button_noactive');
     buttonSave.classList.add('button_noactive');
     setLocalStorageBaseShuffleArrayOfNumbers();
-
-    //buttonStart.classList.remove('button_noactive');
 });
 
 buttonLoad.addEventListener('click', () => {
@@ -111,7 +106,6 @@ buttonLoad.addEventListener('click', () => {
 
 buttonStart.addEventListener('click', () => {
     buttonStop.classList.remove('button_noactive');
-    //buttonSave.classList.remove('button_noactive');
     playNode.classList.remove('play_noactive');
     buttonStart.classList.add('button_noactive');
     startTimer();
@@ -148,14 +142,11 @@ popBurger.addEventListener('click', () => {
 
 soundVolumeButton.addEventListener('click', toggleVolume);
 
-
 //save TimeSeconds in local storage
 const setLocalStorageArrayOfResults = () => {
     let jsonArrayOfResults = JSON.stringify(arrayOfResults);
     localStorage.setItem('arrayOfResults', jsonArrayOfResults);
 }
-
-
 
 //get TimeSeconds from local storage
 const getLocalStorageArrayOfResults = () => {
@@ -167,7 +158,6 @@ const getLocalStorageArrayOfResults = () => {
 
 //before unloading or closing the page execute setLocalStorage
 window.addEventListener('beforeunload', setLocalStorageArrayOfResults);
-
 
 //before loading the page we get seconds from local storage
 window.addEventListener('load', getLocalStorageArrayOfResults);
