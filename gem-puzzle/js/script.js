@@ -34,6 +34,7 @@ htmlCode= `
         </div>
         <div class="buttons-block">
             <button class="button button-shiffle">Shuffle</button>
+            <button class="button button-load">Load play</button>
             <button class="button button-start">Start</button>
             <button class="button button-stop button_noactive">Stop</button>
             <button class="button button-save button_noactive">Save</button>

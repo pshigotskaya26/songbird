@@ -1,4 +1,5 @@
 const buttonShiffle = document.querySelector('.button-shiffle');
+const buttonLoad = document.querySelector('.button-load');
 const buttonStart = document.querySelector('.button-start');
 const buttonStop = document.querySelector('.button-stop');
 const buttonSave = document.querySelector('.button-save');
@@ -92,8 +93,20 @@ buttonShiffle.addEventListener('click', () => {
     buttonStart.classList.remove('button_noactive');
     buttonStop.classList.add('button_noactive');
     buttonSave.classList.add('button_noactive');
+    setLocalStorageBaseShuffleArrayOfNumbers();
 
     //buttonStart.classList.remove('button_noactive');
+});
+
+buttonLoad.addEventListener('click', () => {
+    getLocalStorageBaseShuffleArrayOfNumbers();
+    createPuzzle(sizeOfPuzzle);
+    displaySizeOfPuzzle(sizeOfPuzzle);
+    countTheMoves = 0;
+    displayCountOfMoves(countTheMoves);
+    resetTimer();
+    buttonStart.classList.remove('button_noactive');
+    buttonStop.classList.add('button_noactive');
 });
 
 buttonStart.addEventListener('click', () => {
@@ -142,6 +155,8 @@ const setLocalStorageArrayOfResults = () => {
     localStorage.setItem('arrayOfResults', jsonArrayOfResults);
 }
 
+
+
 //get TimeSeconds from local storage
 const getLocalStorageArrayOfResults = () => {
     if (localStorage.getItem('arrayOfResults')) {
@@ -152,6 +167,7 @@ const getLocalStorageArrayOfResults = () => {
 
 //before unloading or closing the page execute setLocalStorage
 window.addEventListener('beforeunload', setLocalStorageArrayOfResults);
+
 
 //before loading the page we get seconds from local storage
 window.addEventListener('load', getLocalStorageArrayOfResults);

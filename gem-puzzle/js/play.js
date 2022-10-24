@@ -400,6 +400,7 @@ for (let i = 0; i < arrayInputsRadio.length; i++) {
         createCorrectArray(baseArrayOfNumbers, sizeOfPuzzle);
 
         shuffleArrayOfNumbers = shuffleArray(baseArrayOfNumbers);
+        setLocalStorageBaseShuffleArrayOfNumbers();
         createPuzzle(sizeOfPuzzle);
         displaySizeOfPuzzle(sizeOfPuzzle);
 
@@ -473,6 +474,14 @@ const setLocalStorageTimeSeconds = () => {
     let jsonSeconds = JSON.stringify(seconds);
     localStorage.setItem('seconds', jsonSeconds);
 }
+
+//save primery PlayItems in local storage
+const setLocalStorageBaseShuffleArrayOfNumbers = () => {
+    let jsonBaseShuffleArrayOfNumbers = JSON.stringify(shuffleArrayOfNumbers);
+    localStorage.setItem('shuffleArrayOfNumbers', jsonBaseShuffleArrayOfNumbers);
+}
+
+
 
 //get sizeOfPuzzle from local storage and display it on the page
 const getLocalStorageSizeOfPuzzle = () => {
@@ -549,6 +558,13 @@ const getLocalStorageTimeSeconds = () => {
     }
 }
 
+//get primery shuffleArrayOfNumbers from local storage
+const getLocalStorageBaseShuffleArrayOfNumbers = () => {
+    if (localStorage.getItem('shuffleArrayOfNumbers')) {
+        shuffleArrayOfNumbers = JSON.parse(localStorage.getItem('shuffleArrayOfNumbers'));
+    }
+}
+
 
 
 
@@ -570,6 +586,10 @@ window.addEventListener('beforeunload', setLocalStorageTimeMinute);
 //before unloading or closing the page execute setLocalStorage
 window.addEventListener('beforeunload', setLocalStorageTimeSeconds);
 
+//before unloading or closing the page execute setLocalStorage
+window.addEventListener('beforeunload', setLocalStorageBaseShuffleArrayOfNumbers);
+
+
 
 
 
@@ -590,6 +610,9 @@ window.addEventListener('load', getLocalStorageTimeMinute);
 
 //before loading the page we get seconds from local storage
 window.addEventListener('load', getLocalStorageTimeSeconds);
+
+//before loading the page we get base ShuffleArrayOfNumbers from local storage
+window.addEventListener('load', getLocalStorageBaseShuffleArrayOfNumbers);
 
 
 
