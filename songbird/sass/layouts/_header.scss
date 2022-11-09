@@ -1,0 +1,29 @@
+.header {
+	background-color: $color-black;
+}
+
+.header__container {
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.navigation {
+	display: flex;
+	column-gap: 50px;
+}
+
+.navigation-link {
+	color: $color-white;
+	&:hover {
+		color: $color-primery;
+		transition: all 0.3s ease-out;
+	}
+}
+
+.navigation-link_activ {
+	color: $color-primery;
+}
+
+
