@@ -9,6 +9,14 @@
 	justify-content: space-between;
 }
 
+.logo__image {
+
+	@media (max-width: 480px) {
+		width: 120px;
+		height: auto;
+	}
+
+}
 .navigation {
 	display: flex;
 	column-gap: 50px;
@@ -19,6 +27,10 @@
 	&:hover {
 		color: $color-primery;
 		transition: all 0.3s ease-out;
+	}
+
+	@media (max-width: 480px) {
+		font-size: 17px;
 	}
 }
 

@@ -6,6 +6,11 @@
 	background-repeat: no-repeat;
 	background-position: 0 center;
 	background-size: cover;
+
+	@media (max-width: 1160px) {
+		//min-height: calc(600px + (800 - 600) * ((100vw - 1000px) / (1160 - 1000)));
+	}
+	
 }
 
 .preview__container {
@@ -21,9 +26,22 @@
 	padding-top: 160px;
 	width: 680px;
 	text-align: center;
+/*
+	@media (max-width: 1160px) {
+		width: calc(500px + (680 - 500) * ((100vw - 1000px) / (1160 - 1000)));
+	}
+	*/
 }
 
 .preview__title,
 .preview__subtitle {
 	text-shadow: 1px 4px 10px $color-black;
+}
+
+.preview .button {
+	/*
+	@media (max-width: 1160px) {
+		width: 270px;
+	}
+	*/
 }
