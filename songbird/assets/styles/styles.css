@@ -115,20 +115,15 @@ h3 {
 .container {
   max-width: 1160px;
   margin: 0 auto;
-  /*
-     @media (max-width: $mobile-width) {
-  	margin: 0 10px 0 10.07px;
-  }
-  */
 }
 @media (max-width: 1160px) {
   .container {
-    margin: 0 30px;
+    margin: 0 3rem;
   }
 }
 @media (max-width: 640px) {
   .container {
-    margin: 0 20px;
+    margin: 0 2rem;
   }
 }
 
