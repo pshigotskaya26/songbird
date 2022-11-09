@@ -1,13 +1,13 @@
 .rules {
-	padding-top: 40px;
+	padding-top: 4rem;
 }
 
 .rules__title {
-	padding-bottom: 30px;
+	padding-bottom: 3rem;
 }
 
 .rules__text {
-	padding-bottom: 20px;
+	padding-bottom: 2rem;
 	font-weight: bold;
 }
 
@@ -18,13 +18,18 @@
 }
 
 .rules-list__item {
-	padding-bottom: 30px;
+	padding-bottom: 3rem;
+
 	&:before {
 		content: counter(num) ". ";
 		counter-increment: num;
-		padding-right: 5px;
-		font-size: 25px;
+		padding-right: 0.5rem;
+		font-size: 2.5rem;
 		color: $color-primery;
 		font-weight: bold;
-	}	
+	}
+
+	@media (max-width: 480px) {
+		padding-bottom: 2rem;
+	}
 }

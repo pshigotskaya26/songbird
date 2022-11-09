@@ -1,7 +1,7 @@
 .button {
 	display: block;
-	width: 300px;
-	padding:  10px 20px;
+	//width: 300px;
+	padding:  10px 90px;
 	background-color: $color-primery;
 	color: $color-white;
 	-moz-border-radius: 5px;
@@ -13,5 +13,9 @@
 	&:hover {
 		background-color: $color-primery-dark;
 		transition: all 0.3s ease-out;
+	}
+
+	@media (max-width: 360px) {
+		padding:  10px 40px;
 	}
 }

@@ -31,6 +31,11 @@ body {
   font-style: normal;
   color: #333B41;
 }
+@media (max-width: 480px) {
+  body {
+    font-size: 1.7rem;
+  }
+}
 
 h1 {
   font-size: 13rem;
@@ -62,11 +67,15 @@ h3 {
   color: #fbbe03;
   text-align: center;
 }
+@media (max-width: 640px) {
+  h3 {
+    font-size: 3.2rem;
+  }
+}
 
 .button {
   display: block;
-  width: 300px;
-  padding: 10px 20px;
+  padding: 10px 90px;
   background-color: #fbbe03;
   color: #fff;
   -moz-border-radius: 5px;
@@ -78,6 +87,11 @@ h3 {
 .button:hover {
   background-color: #e8b005;
   transition: all 0.3s ease-out;
+}
+@media (max-width: 360px) {
+  .button {
+    padding: 10px 40px;
+  }
 }
 
 .icon {
@@ -189,9 +203,30 @@ h3 {
   background-position: 0 center;
   background-size: cover;
 }
+@media (max-width: 1160px) {
+  .preview {
+    min-height: calc(600px + 200 * (100vw - 1000px) / 160);
+  }
+}
+@media (max-width: 999px) {
+  .preview {
+    min-height: calc(450px + 150 * (100vw - 320px) / 679);
+  }
+}
+@media (max-width: 640px) {
+  .preview {
+    background-position: top 0 left -130px;
+  }
+}
+
 .preview__container {
   display: flex;
   justify-content: flex-end;
+}
+@media (max-width: 640px) {
+  .preview__container {
+    justify-content: center;
+  }
 }
 
 .preview__content {
@@ -208,6 +243,16 @@ h3 {
   	}
   	*/
 }
+@media (max-width: 999px) {
+  .preview__content {
+    padding-top: calc(90px + 70 * (100vw - 320px) / 679);
+  }
+}
+@media (max-width: 640px) {
+  .preview__content {
+    max-width: 680px;
+  }
+}
 
 .preview__title,
 .preview__subtitle {
@@ -223,15 +268,15 @@ h3 {
 }
 
 .rules {
-  padding-top: 40px;
+  padding-top: 4rem;
 }
 
 .rules__title {
-  padding-bottom: 30px;
+  padding-bottom: 3rem;
 }
 
 .rules__text {
-  padding-bottom: 20px;
+  padding-bottom: 2rem;
   font-weight: bold;
 }
 
@@ -242,15 +287,20 @@ h3 {
 }
 
 .rules-list__item {
-  padding-bottom: 30px;
+  padding-bottom: 3rem;
 }
 .rules-list__item:before {
   content: counter(num) ". ";
   counter-increment: num;
-  padding-right: 5px;
-  font-size: 25px;
+  padding-right: 0.5rem;
+  font-size: 2.5rem;
   color: #fbbe03;
   font-weight: bold;
+}
+@media (max-width: 480px) {
+  .rules-list__item {
+    padding-bottom: 2rem;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
