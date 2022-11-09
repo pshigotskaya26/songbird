@@ -137,7 +137,7 @@ h3 {
 }
 
 .header__container {
-  height: 80px;
+  height: 8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -145,14 +145,19 @@ h3 {
 
 @media (max-width: 480px) {
   .logo__image {
-    width: 120px;
+    width: 12rem;
     height: auto;
   }
 }
 
 .navigation {
   display: flex;
-  column-gap: 50px;
+  column-gap: 5rem;
+}
+@media (max-width: 320px) {
+  .navigation {
+    column-gap: 2.5rem;
+  }
 }
 
 .navigation-link {
@@ -164,7 +169,7 @@ h3 {
 }
 @media (max-width: 480px) {
   .navigation-link {
-    font-size: 17px;
+    font-size: 1.7rem;
   }
 }
 

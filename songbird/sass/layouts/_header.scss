@@ -3,7 +3,7 @@
 }
 
 .header__container {
-	height: 80px;
+	height: 8rem;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -12,14 +12,18 @@
 .logo__image {
 
 	@media (max-width: 480px) {
-		width: 120px;
+		width: 12rem;
 		height: auto;
 	}
 
 }
 .navigation {
 	display: flex;
-	column-gap: 50px;
+	column-gap: 5rem;
+
+	@media (max-width: 320px) {
+		column-gap: 2.5rem;
+	}
 }
 
 .navigation-link {
@@ -30,7 +34,7 @@
 	}
 
 	@media (max-width: 480px) {
-		font-size: 17px;
+		font-size: 1.7rem;
 	}
 }
 
