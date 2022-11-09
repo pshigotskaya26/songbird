@@ -56,6 +56,24 @@ h2 {
   transition: all 0.3s ease-out;
 }
 
+.icon {
+  display: inline-block;
+}
+.icon_github {
+  width: 100%;
+  height: 100%;
+  background-image: url(../../assets/icons/icon-github.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.icon_rsschool {
+  width: 100%;
+  height: 100%;
+  background-image: url(../../assets/icons/icon-rsschool.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .container {
   max-width: 1160px;
   margin: 0 auto;
@@ -98,6 +116,27 @@ h2 {
 
 .navigation-link_activ {
   color: #fbbe03;
+}
+
+.footer {
+  background-color: #000;
+}
+
+.footer__container {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-link_github {
+  width: 45px;
+  height: 45px;
+}
+
+.footer-link_rsschool {
+  width: 90px;
+  height: 30px;
 }
 
 .preview {

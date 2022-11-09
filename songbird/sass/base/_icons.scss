@@ -1,0 +1,19 @@
+.icon {
+	display: inline-block;
+
+	&_github {
+		width: 100%;
+    	height: 100%;
+		background-image: url(../../assets/icons/icon-github.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+
+	&_rsschool {
+		width: 100%;
+    	height: 100%;
+		background-image: url(../../assets/icons/icon-rsschool.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+}
