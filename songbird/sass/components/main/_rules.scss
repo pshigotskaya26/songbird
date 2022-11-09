@@ -1,0 +1,30 @@
+.rules {
+	padding-top: 40px;
+}
+
+.rules__title {
+	padding-bottom: 30px;
+}
+
+.rules__text {
+	padding-bottom: 20px;
+	font-weight: bold;
+}
+
+.rules-list {
+	list-style: none;
+    counter-reset: num;
+	text-align: justify;
+}
+
+.rules-list__item {
+	padding-bottom: 30px;
+	&:before {
+		content: counter(num) ". ";
+		counter-increment: num;
+		padding-right: 5px;
+		font-size: 25px;
+		color: $color-primery;
+		font-weight: bold;
+	}	
+}

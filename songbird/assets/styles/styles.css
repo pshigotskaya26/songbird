@@ -29,11 +29,12 @@ body {
   font-family: "Raleway", Arial, Verdana, sans-serif;
   font-weight: 400;
   font-style: normal;
-  color: #fff;
+  color: #333B41;
 }
 
 h1 {
   font-size: 13rem;
+  color: #fff;
 }
 @media (max-width: 1160px) {
   h1 {
@@ -48,6 +49,7 @@ h1 {
 
 h2 {
   font-size: 7.2rem;
+  color: #fff;
 }
 @media (max-width: 1160px) {
   h2 {
@@ -55,11 +57,18 @@ h2 {
   }
 }
 
+h3 {
+  font-size: 4rem;
+  color: #fbbe03;
+  text-align: center;
+}
+
 .button {
   display: block;
   width: 300px;
   padding: 10px 20px;
   background-color: #fbbe03;
+  color: #fff;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -210,6 +219,37 @@ h2 {
   	width: 270px;
   }
   */
+}
+
+.rules {
+  padding-top: 40px;
+}
+
+.rules__title {
+  padding-bottom: 30px;
+}
+
+.rules__text {
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+.rules-list {
+  list-style: none;
+  counter-reset: num;
+  text-align: justify;
+}
+
+.rules-list__item {
+  padding-bottom: 30px;
+}
+.rules-list__item:before {
+  content: counter(num) ". ";
+  counter-increment: num;
+  padding-right: 5px;
+  font-size: 25px;
+  color: #fbbe03;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=styles.css.map */
