@@ -37,6 +37,7 @@
 
 .questions__tabs {
 	position: relative;
+	padding-bottom: 5rem;
 }
 
 .tabs__input {
@@ -89,5 +90,11 @@
 	flex-direction: column;
 	row-gap: 2rem;
 	width: 100%;
+}
+
+.questions__button .button {
+	width: 100%;
+	font-family: 'Raleway', Arial, Verdana, sans-serif;
+	font-size: 2rem;
 }
 
