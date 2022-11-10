@@ -17,3 +17,44 @@
 		background-size: contain;
 	}
 }
+
+
+.play-icon {
+	width: 4rem;
+	height: 4rem;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	border: 0;
+	outline: 0;
+	opacity: 0.8;
+	cursor: pointer;
+	
+	&:hover {
+		opacity: 1;
+		transition: all 0.3s ease-out;
+	}
+}
+
+.play {
+    background-image: url(../../assets/icons/play.svg);
+}
+
+.pause {
+	background-image: url(../../assets/icons/pause.svg);
+}
+
+.play-volume_on,
+.play-volume_off {
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+.play-volume_on {
+	background-image: url(../../assets/icons/volume-on.svg);
+}
+
+.play-volume_off {
+	background-image: url(../../assets/icons/volume-off.svg);
+}

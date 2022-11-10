@@ -107,3 +107,19 @@
 .details__description {
 	text-align: justify;
 }
+
+.details .player-progress {
+	width: 80%;
+}
+
+.details .play,
+.details .pause {
+	width: 3rem;
+	height: 3rem;
+}
+
+.details .play-volume_on,
+.details .play-volume_off {
+	width: 2rem;
+	height: 2rem;
+}
