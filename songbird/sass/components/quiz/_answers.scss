@@ -3,6 +3,12 @@
 	column-gap: 20px;
 	justify-content: space-between;
 	padding-bottom: 3rem;
+
+	@media (max-width: 750px) {
+		flex-direction: column;
+		row-gap: 2.5rem;
+	}
+	
 }
 
 .answers__name,
@@ -14,6 +20,27 @@
   	-webkit-border-radius: 0.5rem;
   	border-radius: 0.5rem;
 }
+
+.answers__name {
+	@media (max-width: 1040px) {
+		max-width: 40%;
+	}
+
+	@media (max-width: 750px) {
+		max-width: 100%;
+	}
+}
+
+.details {
+	@media (max-width: 1040px) {
+		max-width: 70%;
+	}
+
+	@media (max-width: 750px) {
+		max-width: 100%;
+	}
+}
+
 
 .answers-list {
 	display: flex;
@@ -89,6 +116,23 @@
 .details__block {
 	display: flex;
 	column-gap: 5rem;
+
+	@media (max-width: 530px) {
+		column-gap: 2rem;
+	}
+
+	@media (max-width: 500px) {
+		flex-direction: column;
+		row-gap: 2rem;
+	}
+}
+
+.details__image {
+
+	@media (max-width: 500px) {
+		text-align: center;
+	}
+	
 }
 
 .details__body {

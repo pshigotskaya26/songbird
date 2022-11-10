@@ -54,6 +54,10 @@
 	-moz-border-radius: 0.3rem 0.3rem 0 0;
   	-webkit-border-radius: 0.3rem 0.3rem 0 0;
   	border-radius: 0.3rem 0.3rem 0 0;
+
+	  @media (max-width: 910px) {
+		margin-bottom: 1rem;
+	}
 }
 
 .questions__tabs > input:checked + .tabs__label {
@@ -83,6 +87,15 @@
 	display: flex;
 	column-gap: 5rem;
 	padding-bottom: 3rem;
+
+	@media (max-width: 850px) {
+		column-gap: 3rem;
+	}
+
+	@media (max-width: 480px) {
+		flex-direction: column;
+		row-gap: 2rem;
+	}
 }
 
 .random-question__body {
@@ -90,6 +103,12 @@
 	flex-direction: column;
 	row-gap: 2rem;
 	width: 100%;
+}
+
+.question-image {
+	@media (max-width: 480px) {
+		width: 100%;
+	}
 }
 
 .questions__button .button {
