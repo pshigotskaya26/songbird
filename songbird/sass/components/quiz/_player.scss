@@ -1,0 +1,21 @@
+.player-controls {
+	display: flex;
+	align-items: center;
+    column-gap: 1rem;
+}
+
+.player-progress {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1rem;
+	width: 100%;
+}
+
+.progress__bar {
+	width: 100%;
+}
+
+.progress__time {
+	display: flex;
+	justify-content: space-between;
+}
