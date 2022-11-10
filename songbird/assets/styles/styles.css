@@ -598,6 +598,10 @@ h5 {
   text-align: justify;
 }
 
+.description__text {
+  font-size: 1.8rem;
+}
+
 .details .player-progress {
   width: 80%;
 }
