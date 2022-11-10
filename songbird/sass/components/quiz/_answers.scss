@@ -5,7 +5,7 @@
 }
 
 .answers__name,
-.answers__description {
+.details {
 	flex: 0 1 50%;
 	max-width: 50%;
 	//border: 0.1rem solid $color-gray-dark;
@@ -20,7 +20,7 @@
 }
 
 .answers-list__item {
-	padding: 1rem 1.5rem;
+	padding: 1.5rem 1.5rem;
 	border: 0.1rem solid $color-gray-light2;
 	background-color: $color-gray-light;
 	cursor: pointer;
@@ -63,4 +63,46 @@
 
 .error .marker {
 	background-color: $color-red;
+}
+
+.details {
+	padding: 1.5rem;
+	background-color: $color-gray-light;
+	border: 0.1rem solid $color-gray-light2;
+	-moz-border-radius: 0.5rem;
+	-webkit-border-radius: 0.5rem;
+	border-radius: 0.5rem;
+}
+
+.instruction__text {
+	display: block;
+	padding-bottom: 1rem;
+}
+
+.details__content {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1.5rem;
+}
+
+.details__block {
+	display: flex;
+	column-gap: 5rem;
+}
+
+.details__body {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1.5rem;
+	width: 100%;
+}
+
+.details__title,
+.details__name {
+	padding-bottom: 0.7rem;
+	border-bottom: 0.1rem solid $color-gray-light2;
+}
+
+.details__description {
+	text-align: justify;
 }

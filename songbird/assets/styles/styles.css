@@ -78,6 +78,11 @@ h4 {
   color: #fbbe03;
 }
 
+h5 {
+  font-size: 2.5rem;
+  color: #fbbe03;
+}
+
 .button {
   display: block;
   padding: 1rem 9rem;
@@ -435,7 +440,7 @@ h4 {
 }
 
 .answers__name,
-.answers__description {
+.details {
   flex: 0 1 50%;
   max-width: 50%;
   -moz-border-radius: 0.5rem;
@@ -449,7 +454,7 @@ h4 {
 }
 
 .answers-list__item {
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 1.5rem;
   border: 0.1rem solid #d1d3d4;
   background-color: #f4f4f4;
   cursor: pointer;
@@ -491,6 +496,48 @@ h4 {
 
 .error .marker {
   background-color: #d62c1a;
+}
+
+.details {
+  padding: 1.5rem;
+  background-color: #f4f4f4;
+  border: 0.1rem solid #d1d3d4;
+  -moz-border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.instruction__text {
+  display: block;
+  padding-bottom: 1rem;
+}
+
+.details__content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+
+.details__block {
+  display: flex;
+  column-gap: 5rem;
+}
+
+.details__body {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+  width: 100%;
+}
+
+.details__title,
+.details__name {
+  padding-bottom: 0.7rem;
+  border-bottom: 0.1rem solid #d1d3d4;
+}
+
+.details__description {
+  text-align: justify;
 }
 
 /*# sourceMappingURL=styles.css.map */
