@@ -11,3 +11,10 @@ const shuffleArray = (arr) => {
     return arr;
 }
 
+//shuffle objects in array
+const shuffleObjectsInArray = (arr) => {
+	for (let i = arr.length - 1; i >= 0; i--) {
+		arr[i] = shuffleArray(arr[i]);
+    }
+    return arr;
+}
