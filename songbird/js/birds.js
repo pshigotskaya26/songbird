@@ -1,4 +1,4 @@
-const birdsData = [
+let birdsData = [
 	[       
 	  {
 		id: 1,
