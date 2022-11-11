@@ -23,3 +23,18 @@ const shuffleObjectsInArray = (arr) => {
 const getRandomIndex = () => {
 	return Math.floor(Math.random() * 6);
 }
+
+//set property isright with value true or false into object
+const setIsRight = (arr) => {
+	for (let i = 0; i < arr.length; i++) {
+		let randomIndex = getRandomIndex();
+		for (let j = 0; j < arr[i].length; j++) {
+			if (j === randomIndex) {
+				arr[i][j].isRight = true;
+			}
+			else if (j !== randomIndex) {
+				arr[i][j].isRight = false;
+			}
+		}
+	}
+}
