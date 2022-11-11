@@ -18,3 +18,8 @@ const shuffleObjectsInArray = (arr) => {
     }
     return arr;
 }
+
+//get random value from 0 to 5
+const getRandomIndex = () => {
+	return Math.floor(Math.random() * 6);
+}
