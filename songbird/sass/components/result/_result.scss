@@ -68,6 +68,32 @@
 	row-gap: 2rem;
 }
 
+.result__body_success {
+
+	position: relative;
+	display: none;
+	&::after {
+		content: '';
+		position: absolute;
+		top: 4rem;
+		right: 20rem;
+		width: 10rem;
+		height: 10rem;
+		background-image: url(../../assets/icons/icon-firework.png);
+		background-repeat: no-repeat;
+
+		@media (max-width: 650px) {
+			top: 5.5rem;
+			right: 0;
+		}
+
+		@media (max-width: 480px) {
+			background-image: url(../../assets/icons/icon-firework-50.png);
+			
+		}
+	}
+}
+
 .result__score {
 	display: flex;
 	justify-content: space-between;
@@ -119,7 +145,7 @@
 
 }
 
-.result__text_nosuccess {
+.result__text {
 	padding-bottom: 2rem;
 	text-align: center;
 }
