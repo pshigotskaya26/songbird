@@ -4,6 +4,15 @@ import birdsData from "./birds.js";
 const questionsTabsNode = document.querySelector('.questions__tabs');
 console.log('questionsTabsNode: ', questionsTabsNode);
 
+const arrOfSoundsForAnswer = ['../../assets/sounds/correct-answer.mp3', '../../assets/sounds/incorrect-answer.mp3'];
+
+const audio = new Audio();
+
+const playAudio = (pathOfSoundtrack) => {
+	audio.src = pathOfSoundtrack;
+    audio.play();
+}
+
 //shuffle values in array
 const shuffleArray = (arr) => {
 	for (let i = arr.length - 1; i >= 0; i--) {
@@ -81,15 +90,15 @@ const createBlockQuestionsBody = () => {
 										<ul class="answers-list" data-id-ul = "${i}">
 										</ul>
 									</div>
-									<div class="details">
+									<div class="details" data-id-details = "${i}">
 										<p class="instruction">
-											<span class="instruction__text">Послушайте плеер.${i+1}</span>
+											<span class="instruction__text">Послушайте плеер.</span>
 											<span class="instruction__text">Выберите птицу из списка.</span>
 										</p>
 										<div class="details__content hidden">
 											<div class="details__block">
 												<div class="details__image">
-													<img src="" alt="">
+													<img class= "details-image" src="" alt="">
 												</div>
 												<div class="details__body">
 													<h5 class="details__title"></h5>
@@ -177,9 +186,11 @@ const setMarkTochoosenLi = (indexOfUl, indexOfLi, choosenLi) => {
 
 	if (rightAnswer) {
 		choosenLi.classList.add('success');
+		playAudio(arrOfSoundsForAnswer[0]);
 	}
 	else {
 		choosenLi.classList.add('error');
+		playAudio(arrOfSoundsForAnswer[1]);
 	}
 }
 
@@ -198,6 +209,27 @@ const isRightAnswer = (indexOfUl, indexOfLi) => {
 const getAnswerName = (tagLi) => {
 	let answerName = tagLi.querySelector('.answer__name').innerHTML;
 	return answerName;
+}
+
+//hide offer to listen the audioplayer
+
+const hideOffer = (indexOfUl) => {
+	let arrOfInstructionNodes = document.querySelectorAll('.instruction');
+	//console.log('arrOfInstructionNodes: ', arrOfInstructionNodes);
+	arrOfInstructionNodes[indexOfUl].classList.add('hidden');
+}
+
+//display bird's description when choose answer
+const displayDescription = (indexOfUl, indexOfLi) => {
+	let arrOfDetailsNode = document.querySelectorAll('.details');
+	console.log('arrOfDetailsNode: ', arrOfDetailsNode);
+
+	arrOfDetailsNode[indexOfUl].querySelector('.details__content').classList.remove('hidden');
+
+	arrOfDetailsNode[indexOfUl].querySelector('.details-image').src = `${resultBirdsData[indexOfUl][indexOfLi].image}`;
+	arrOfDetailsNode[indexOfUl].querySelector('.details__title').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].name}`;
+	arrOfDetailsNode[indexOfUl].querySelector('.details__name').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].species}`;
+	arrOfDetailsNode[indexOfUl].querySelector('.description__text').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].description}`;
 }
 
 //create list of answers for every question
@@ -229,6 +261,10 @@ const createListOfAnswers = (arr) => {
 				let indexOfUl = findIndexOfUl(liNode);
 
 				setMarkTochoosenLi(indexOfUl, indexOfLi, liNode);
+
+				hideOffer(indexOfUl);
+
+				displayDescription(indexOfUl, indexOfLi);
 			});
 		}
 	}

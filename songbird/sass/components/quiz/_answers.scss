@@ -136,11 +136,20 @@
 }
 
 .details__image {
+	width: 20rem;
+	height: 15.5rem;
 
 	@media (max-width: 500px) {
-		text-align: center;
+		//text-align: center;
+		display: flex;
+		width: 100%;
+		height: auto;
 	}
 	
+}
+
+.details-image {
+	width: 100%;
 }
 
 .details__body {
