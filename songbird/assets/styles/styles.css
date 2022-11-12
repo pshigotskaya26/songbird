@@ -416,7 +416,6 @@ h5 {
   -moz-border-radius: 0.3rem 0.3rem 0 0;
   -webkit-border-radius: 0.3rem 0.3rem 0 0;
   border-radius: 0.3rem 0.3rem 0 0;
-  pointer-events: none;
 }
 @media (max-width: 910px) {
   .tabs__label {
@@ -481,6 +480,10 @@ h5 {
   width: 100%;
   font-family: "Raleway", Arial, Verdana, sans-serif;
   font-size: 2rem;
+}
+
+.button-next {
+  background-color: #00bc8c;
 }
 
 .no-active {
