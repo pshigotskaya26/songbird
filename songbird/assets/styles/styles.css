@@ -91,6 +91,7 @@ h5 {
   -moz-border-radius: 0.5rem;
   -webkit-border-radius: 0.5rem;
   border-radius: 0.5rem;
+  text-align: center;
   cursor: pointer;
   box-shadow: 0rem 0.4rem 0.4rem rgba(0, 0, 0, 0.25), 0rem 0.2rem 0.3rem rgba(13, 96, 111, 0.16);
 }
@@ -416,6 +417,7 @@ h5 {
   -moz-border-radius: 0.3rem 0.3rem 0 0;
   -webkit-border-radius: 0.3rem 0.3rem 0 0;
   border-radius: 0.3rem 0.3rem 0 0;
+  pointer-events: none;
 }
 @media (max-width: 910px) {
   .tabs__label {
@@ -437,12 +439,12 @@ h5 {
   display: none;
 }
 
+#tab0:checked ~ #content-tab0,
 #tab1:checked ~ #content-tab1,
 #tab2:checked ~ #content-tab2,
 #tab3:checked ~ #content-tab3,
 #tab4:checked ~ #content-tab4,
-#tab5:checked ~ #content-tab5,
-#tab6:checked ~ #content-tab6 {
+#tab5:checked ~ #content-tab5 {
   display: block;
 }
 
@@ -470,9 +472,15 @@ h5 {
   width: 100%;
 }
 
+.question-image {
+  width: 20rem;
+  height: 15.5rem;
+  object-fit: cover;
+}
 @media (max-width: 480px) {
   .question-image {
     width: 100%;
+    height: auto;
   }
 }
 
@@ -665,6 +673,7 @@ h5 {
 .details__block {
   display: flex;
   column-gap: 5rem;
+  justify-content: space-between;
 }
 @media (max-width: 530px) {
   .details__block {
@@ -678,27 +687,28 @@ h5 {
   }
 }
 
-.details__image {
+.details-image {
   width: 20rem;
   height: 15.5rem;
+  object-fit: cover;
 }
 @media (max-width: 500px) {
-  .details__image {
-    display: flex;
+  .details-image {
     width: 100%;
     height: auto;
   }
-}
-
-.details-image {
-  width: 100%;
 }
 
 .details__body {
   display: flex;
   flex-direction: column;
   row-gap: 1.5rem;
-  width: 100%;
+  width: 50%;
+}
+@media (max-width: 500px) {
+  .details__body {
+    width: 100%;
+  }
 }
 
 .details__title,
@@ -806,7 +816,6 @@ h5 {
 
 .result__body_success {
   position: relative;
-  display: none;
 }
 .result__body_success::after {
   content: "";
@@ -828,6 +837,11 @@ h5 {
   .result__body_success::after {
     background-image: url(../../assets/icons/icon-firework-50.png);
   }
+}
+
+.result__body_success.hidden,
+.result__body_nosuccess.hidden {
+  display: none;
 }
 
 .result__score {

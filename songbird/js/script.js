@@ -5,6 +5,8 @@ const questionsTabsNode = document.querySelector('.questions__tabs');
 console.log('questionsTabsNode: ', questionsTabsNode);
 
 const arrOfSoundsForAnswer = ['../../assets/sounds/correct-answer.mp3', '../../assets/sounds/incorrect-answer.mp3'];
+let count = 0;
+let countOfError = 0;
 
 const audio = new Audio();
 
@@ -57,7 +59,7 @@ const createBlockQuestionsBody = () => {
 	for (let i = 0; i < 6; i++) {
 		const questionBodyItem = document.createElement('div');
 		questionBodyItem.className = 'questions__body';
-		questionBodyItem.setAttribute('id', `content-tab${i + 1}`);
+		questionBodyItem.setAttribute('id', `content-tab${i}`);
 	
 		questionBodyItem.innerHTML = `
 		<div class="random-question">
@@ -129,12 +131,26 @@ const createBlockQuestionsBody = () => {
 									</div>
 								</div>
 								<div class="questions__button">
-									<button class="button button-next no-active">Следующий вопрос</button>
+									
+										<a class="button button-next no-active">Следующий вопрос</a>
+									
 								</div>
 		`;
 		questionsTabsNode.appendChild(questionBodyItem);
 	}
 }
+
+//add tag form as parent for button next
+const addTagForm = () => {
+	let arrOfButtonNextNodes = document.querySelectorAll('.button-next');
+	console.log('---arrOfButtonNextNodes--: ', arrOfButtonNextNodes);
+	let parent = arrOfButtonNextNodes[arrOfButtonNextNodes.length - 1].closest('.questions__button');
+	console.log('parent----5--: ', parent);
+	parent.innerHTML = `
+	<a href="../../pages/result/index.html" class="button button-next no-active">Следующий вопрос</a>
+	`;
+}
+
 
 //find index of choosen li in ul
 const findIndexOfli = (currentLi) => {
@@ -171,8 +187,47 @@ const doClickableButton = (inedxOfUl) => {
 	arrayOfButtonsNext[inedxOfUl].classList.remove('no-active');
 }
 
+//calculate points
+const calculateErrorPoints = (countofError, indexOfUl) => {
+	countOfError = 0;
+
+	let arrOfUlTag = document.querySelectorAll('.answers-list');
+	let arrOfLiTagsOfCurrentUl = arrOfUlTag[indexOfUl].querySelectorAll('.answers-list__item');
+	console.log('arrOfLiTagsOfCurrentUl:-----^: ', arrOfLiTagsOfCurrentUl);
+
+	for (let i = 0; i < arrOfLiTagsOfCurrentUl.length; i++) {
+		if (arrOfLiTagsOfCurrentUl[i].classList.contains('error')) {
+			console.log('--contains class ERROR');
+			countOfError++
+			console.log('countOfError: ', countOfError);
+		}
+	}
+}
+
+//calculate the count of the points
+const calculatePoints = (countOfError) => {
+	console.log('countOfError at start in calcilate: ', countOfError);
+
+	let pointsForRightFnswer = 5 - countOfError;
+	console.log('pointsForRightFnswer: ', pointsForRightFnswer);
+
+	count = count + pointsForRightFnswer;
+	console.log('count: ', count);
+
+	countOfError = 0;
+
+	console.log('countOfError at end in calcilate: ', countOfError);
+}
+
+//display count of points in score
+const displayScore = (count) => {
+	let scoreValueNode = document.querySelector('.score-value');
+	scoreValueNode.innerHTML = count;
+}
+
 //set mark to choosen answer 
 const setMarkTochoosenLi = (indexOfUl, indexOfLi, choosenLi) => {
+	console.log('----indexOfUl:---------- ', typeof(indexOfUl));
 	let booleanValOfSuccess = hasSuccess(choosenLi);
 	console.log('booleanValOfSuccess: ', booleanValOfSuccess);
 
@@ -187,10 +242,17 @@ const setMarkTochoosenLi = (indexOfUl, indexOfLi, choosenLi) => {
 	if (rightAnswer) {
 		choosenLi.classList.add('success');
 		playAudio(arrOfSoundsForAnswer[0]);
+		calculatePoints(countOfError);
+		displayScore(count);
+		if (indexOfUl === '5') {
+			setLocalStorageCount(count);
+		}
+	
 	}
 	else {
 		choosenLi.classList.add('error');
 		playAudio(arrOfSoundsForAnswer[1]);
+		calculateErrorPoints(countOfError, indexOfUl);
 	}
 }
 
@@ -198,6 +260,9 @@ const setMarkTochoosenLi = (indexOfUl, indexOfLi, choosenLi) => {
 const isRightAnswer = (indexOfUl, indexOfLi) => {
 	if (resultBirdsData[indexOfUl][indexOfLi].isRight === true) {
 		doClickableButton(indexOfUl);
+		replaceDefaultImage(indexOfUl, indexOfLi);
+		replaceDefaultName(indexOfUl, indexOfLi);
+		goToNextQuestion(indexOfUl);
 		return true;
 	}
 	else if (resultBirdsData[indexOfUl][indexOfLi].isRight === false) {
@@ -230,6 +295,48 @@ const displayDescription = (indexOfUl, indexOfLi) => {
 	arrOfDetailsNode[indexOfUl].querySelector('.details__title').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].name}`;
 	arrOfDetailsNode[indexOfUl].querySelector('.details__name').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].species}`;
 	arrOfDetailsNode[indexOfUl].querySelector('.description__text').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].description}`;
+}
+
+//replace default image
+const replaceDefaultImage = (indexOfUl, indexOfLi) => {
+	let arrayOfQuestionsBodyNodes = document.querySelectorAll('.questions__body');
+	console.log('arrayOfQuestionsBodyNodes: ', arrayOfQuestionsBodyNodes);
+	arrayOfQuestionsBodyNodes[indexOfUl].querySelector('.question-image').src = `${resultBirdsData[indexOfUl][indexOfLi].image}`;
+}
+
+//replace default bird's name
+const replaceDefaultName = (indexOfUl, indexOfLi) => {
+	let arrayOfQuestionsBodyNodes = document.querySelectorAll('.questions__body');
+	console.log('arrayOfQuestionsBodyNodes: ', arrayOfQuestionsBodyNodes);
+	arrayOfQuestionsBodyNodes[indexOfUl].querySelector('.random-question__title').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].name}`;
+}
+
+//set value checked for next input wheb clickon the next button
+const setCheckedForInput = (index)=> {
+	const tabInputNode = document.getElementById(`tab${+index+1}`);
+	tabInputNode.checked = true;
+	countOfError = 0;
+}
+
+//go to next question
+const goToNextQuestion = (indexOfUl) => {
+	indexOfUl = +indexOfUl;
+	console.log('indexOfUl: -----^- ', indexOfUl);
+	let arrayOfButtonsNext = document.querySelectorAll('.questions__button');
+	arrayOfButtonsNext[indexOfUl].addEventListener('click', () => {
+		if (indexOfUl === 5) {
+			//let parent = arrayOfButtonsNext[indexOfUl].closest('.questions__button');
+		}
+		else {
+			setCheckedForInput(indexOfUl);
+		}
+	});
+}
+
+//save value of variable count in local storage
+const setLocalStorageCount = (count) => {
+    let jsonCountOfPoints = count;
+    localStorage.setItem('jsonCountOfPoints', jsonCountOfPoints);
 }
 
 //create list of answers for every question
@@ -270,6 +377,15 @@ const createListOfAnswers = (arr) => {
 	}
 }
 
+/*
+const saveScore = () => {
+	let buttonsNext = document.querySelectorAll('.button-next');
+	buttonsNext[buttonsNext.length - 1].addEventListener('click', () => {
+		setLocalStorageCount(count);
+	});
+}
+
+*/
 let shuffleBirdsData = shuffleArray(birdsData);
 console.log('shuffleBirdsData: ', shuffleBirdsData);
 
@@ -280,4 +396,14 @@ setIsRight(resultBirdsData);
 
 createBlockQuestionsBody();
 
+addTagForm();
+
 createListOfAnswers(resultBirdsData);
+
+
+//setLocalStorageCount(count)
+
+//setLocalStorageCount(count);
+//window.addEventListener('beforeunload', setLocalStorageCount);
+
+

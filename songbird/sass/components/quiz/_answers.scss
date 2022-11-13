@@ -124,6 +124,7 @@
 .details__block {
 	display: flex;
 	column-gap: 5rem;
+	justify-content: space-between;
 
 	@media (max-width: 530px) {
 		column-gap: 2rem;
@@ -135,28 +136,25 @@
 	}
 }
 
-.details__image {
+.details-image {
 	width: 20rem;
 	height: 15.5rem;
+	object-fit: cover;
 
 	@media (max-width: 500px) {
-		//text-align: center;
-		display: flex;
 		width: 100%;
 		height: auto;
 	}
-	
-}
-
-.details-image {
-	width: 100%;
 }
 
 .details__body {
 	display: flex;
 	flex-direction: column;
 	row-gap: 1.5rem;
-	width: 100%;
+	width: 50%;
+	@media (max-width: 500px) {
+		width: 100%;
+	}
 }
 
 .details__title,
