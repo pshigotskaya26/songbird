@@ -1,19 +1,25 @@
 import birdsData from "./birds.js";
 
-
 const questionsTabsNode = document.querySelector('.questions__tabs');
-console.log('questionsTabsNode: ', questionsTabsNode);
 
-const arrOfSoundsForAnswer = ['../../assets/sounds/correct-answer.mp3', '../../assets/sounds/incorrect-answer.mp3'];
+const arrOfSoundsForAnswer = ['../../assets/sounds/correct-answer.mp3', '../../assets/sounds/incorrect-answer-2.mp3'];
 let count = 0;
 let countOfError = 0;
 
-const audio = new Audio();
+let indexOfLi;
+let indexOfUl;
+let detailsContentItem;
+let arrayOfIsRightPositions = [];
 
-const playAudio = (pathOfSoundtrack) => {
-	audio.src = pathOfSoundtrack;
-    audio.play();
-}
+let func;
+
+const audio = new Audio();
+const audioForBird = new Audio();
+const audioForBirdQuestion = new Audio();
+
+let isPlayForBird = false;
+let isPlayForBirdQuestion = false;
+let currentButtonPlayQuestion;
 
 //shuffle values in array
 const shuffleArray = (arr) => {
@@ -46,6 +52,8 @@ const setIsRight = (arr) => {
 		for (let j = 0; j < arr[i].length; j++) {
 			if (j === randomIndex) {
 				arr[i][j].isRight = true;
+				arrayOfIsRightPositions.push(j);
+				console.log('arrayOfIsRightPositions: ', arrayOfIsRightPositions);
 			}
 			else if (j !== randomIndex) {
 				arr[i][j].isRight = false;
@@ -71,18 +79,18 @@ const createBlockQuestionsBody = () => {
 										<div class="player">
 											<audio src=""></audio>
 											<div class="player-controls">
-												<button class="play play-icon"></button>
+												<button class="play play-icon play-icon-question"></button>
 												<div class="player-progress">
 													<input class="progress__bar" type="range" min="0" max="100" value="0">
 													<div class="progress__time">
-														<div class="time__current">0:00</div>
+														<div class="time__current">00:00</div>
 														<div class="time__total"></div>
 													</div>
 												</div>
 											</div>
 											<div class="player-volume">
 												<button class="player-volume-button play-icon play-volume_on"></button>
-												<input class="player-volume-range" type="range" min="0" max="100" value="70">
+												<input class="player-volume-range player-volume-range-question" type="range" min="0" max="100" value="70">
 											</div>
 										</div>
 									</div>
@@ -96,38 +104,7 @@ const createBlockQuestionsBody = () => {
 										<p class="instruction">
 											<span class="instruction__text">Послушайте плеер.</span>
 											<span class="instruction__text">Выберите птицу из списка.</span>
-										</p>
-										<div class="details__content hidden">
-											<div class="details__block">
-												<div class="details__image">
-													<img class= "details-image" src="" alt="">
-												</div>
-												<div class="details__body">
-													<h5 class="details__title"></h5>
-													<p class="details__name"></p>
-													<div class="player">
-														<audio src=""></audio>
-														<div class="player-controls">
-															<button class="play play-icon"></button>
-															<div class="player-progress">
-																<input class="progress__bar" type="range" min="0" max="100" value="0">
-																<div class="progress__time">
-																	<div class="time__current">0:00</div>
-																	<div class="time__total"></div>
-																</div>
-															</div>	
-														</div>
-														<div class="player-volume">
-															<button class="player-volume-button play-icon play-volume_on"></button>
-															<input class="player-volume-range" type="range" min="0" max="100" value="70">
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="details__description">
-												<p class="description__text"></p>
-											</div>
-										</div>
+										</p>	
 									</div>
 								</div>
 								<div class="questions__button">
@@ -143,9 +120,7 @@ const createBlockQuestionsBody = () => {
 //add tag form as parent for button next
 const addTagForm = () => {
 	let arrOfButtonNextNodes = document.querySelectorAll('.button-next');
-	console.log('---arrOfButtonNextNodes--: ', arrOfButtonNextNodes);
 	let parent = arrOfButtonNextNodes[arrOfButtonNextNodes.length - 1].closest('.questions__button');
-	console.log('parent----5--: ', parent);
 	parent.innerHTML = `
 	<a href="../../pages/result/index.html" class="button button-next no-active">Следующий вопрос</a>
 	`;
@@ -161,7 +136,7 @@ const findIndexOfli = (currentLi) => {
 
 //find parent (ul) of choosen li and find index of this ul
 const findIndexOfUl = (currentLi) => {
-	console.log('parent: ', currentLi.parentElement.getAttribute('data-id-ul'));
+	console.log('parent Ul: ', currentLi.parentElement.getAttribute('data-id-ul'));
 	return currentLi.parentElement.getAttribute('data-id-ul');
 }
 
@@ -169,12 +144,10 @@ const findIndexOfUl = (currentLi) => {
 const hasSuccess = (choosenLi) => {
 	let valOfSuccess;
 	let parent = choosenLi.parentElement;
-	//console.log('parent in hasSuccess: ', parent);
 
 	let arrOfli = parent.querySelectorAll('.answers-list__item');
 	arrOfli.forEach(item => {
 		if (item.classList.contains('success')) {
-			//console.log('----li consists class success');
 			valOfSuccess = true;
 		}
 	});
@@ -193,30 +166,19 @@ const calculateErrorPoints = (countofError, indexOfUl) => {
 
 	let arrOfUlTag = document.querySelectorAll('.answers-list');
 	let arrOfLiTagsOfCurrentUl = arrOfUlTag[indexOfUl].querySelectorAll('.answers-list__item');
-	console.log('arrOfLiTagsOfCurrentUl:-----^: ', arrOfLiTagsOfCurrentUl);
 
 	for (let i = 0; i < arrOfLiTagsOfCurrentUl.length; i++) {
 		if (arrOfLiTagsOfCurrentUl[i].classList.contains('error')) {
-			console.log('--contains class ERROR');
 			countOfError++
-			console.log('countOfError: ', countOfError);
 		}
 	}
 }
 
 //calculate the count of the points
 const calculatePoints = (countOfError) => {
-	console.log('countOfError at start in calcilate: ', countOfError);
-
 	let pointsForRightFnswer = 5 - countOfError;
-	console.log('pointsForRightFnswer: ', pointsForRightFnswer);
-
 	count = count + pointsForRightFnswer;
-	console.log('count: ', count);
-
 	countOfError = 0;
-
-	console.log('countOfError at end in calcilate: ', countOfError);
 }
 
 //display count of points in score
@@ -227,31 +189,31 @@ const displayScore = (count) => {
 
 //set mark to choosen answer 
 const setMarkTochoosenLi = (indexOfUl, indexOfLi, choosenLi) => {
-	console.log('----indexOfUl:---------- ', typeof(indexOfUl));
 	let booleanValOfSuccess = hasSuccess(choosenLi);
-	console.log('booleanValOfSuccess: ', booleanValOfSuccess);
-
 	let rightAnswer = isRightAnswer(indexOfUl, indexOfLi);
 
 	//if li doesn't contains class success
 	if (booleanValOfSuccess === true) {
-		//console.log('booleanValOfSuccess: ', booleanValOfSuccess);
 		return;
 	}
 
 	if (rightAnswer) {
 		choosenLi.classList.add('success');
-		playAudio(arrOfSoundsForAnswer[0]);
+		playAudio(audio, arrOfSoundsForAnswer[0]);
+
+		stopAudio(audioForBirdQuestion);
+		isPlayForBirdQuestion = false;
+		changePauseWithPlay(currentButtonPlayQuestion);
+
 		calculatePoints(countOfError);
 		displayScore(count);
 		if (indexOfUl === '5') {
 			setLocalStorageCount(count);
 		}
-	
 	}
 	else {
 		choosenLi.classList.add('error');
-		playAudio(arrOfSoundsForAnswer[1]);
+		playAudio(audio, arrOfSoundsForAnswer[1]);
 		calculateErrorPoints(countOfError, indexOfUl);
 	}
 }
@@ -262,7 +224,7 @@ const isRightAnswer = (indexOfUl, indexOfLi) => {
 		doClickableButton(indexOfUl);
 		replaceDefaultImage(indexOfUl, indexOfLi);
 		replaceDefaultName(indexOfUl, indexOfLi);
-		goToNextQuestion(indexOfUl);
+		goToNextQuestion(indexOfUl, indexOfLi);
 		return true;
 	}
 	else if (resultBirdsData[indexOfUl][indexOfLi].isRight === false) {
@@ -277,58 +239,69 @@ const getAnswerName = (tagLi) => {
 }
 
 //hide offer to listen the audioplayer
-
 const hideOffer = (indexOfUl) => {
 	let arrOfInstructionNodes = document.querySelectorAll('.instruction');
-	//console.log('arrOfInstructionNodes: ', arrOfInstructionNodes);
 	arrOfInstructionNodes[indexOfUl].classList.add('hidden');
 }
 
+
 //display bird's description when choose answer
 const displayDescription = (indexOfUl, indexOfLi) => {
+	//console.log('ul, li: ', indexOfUl, indexOfLi, typeof(indexOfUl));
 	let arrOfDetailsNode = document.querySelectorAll('.details');
-	console.log('arrOfDetailsNode: ', arrOfDetailsNode);
+	//console.log('arrOfDetailsNode---: ', arrOfDetailsNode);
 
-	arrOfDetailsNode[indexOfUl].querySelector('.details__content').classList.remove('hidden');
+	let arrOfDetailsContent = document.querySelectorAll('.details')[indexOfUl].querySelectorAll('.details__content');
 
-	arrOfDetailsNode[indexOfUl].querySelector('.details-image').src = `${resultBirdsData[indexOfUl][indexOfLi].image}`;
-	arrOfDetailsNode[indexOfUl].querySelector('.details__title').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].name}`;
-	arrOfDetailsNode[indexOfUl].querySelector('.details__name').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].species}`;
-	arrOfDetailsNode[indexOfUl].querySelector('.description__text').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].description}`;
+	for (let i = 0; i < 6; i++) {
+		arrOfDetailsContent[i].classList.add('hidden');
+	}
+
+	arrOfDetailsContent[indexOfLi].classList.remove('hidden');
+	arrOfDetailsContent[indexOfLi].querySelector('.details-image').src = `${resultBirdsData[indexOfUl][indexOfLi].image}`;
+	arrOfDetailsContent[indexOfLi].querySelector('.details__title').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].name}`;
+	arrOfDetailsContent[indexOfLi].querySelector('.details__name').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].species}`;
+	arrOfDetailsContent[indexOfLi].querySelector('.description__text').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].description}`;
+
+	//arrofDetailsContentNode[indexOfLi].classList.remove('hidden');
+	//arrOfDetailsNode[indexOfUl].querySelector('.details__content').classList.remove('hidden');
+	//arrOfDetailsNode[indexOfUl].querySelector('.details-image').src = `${resultBirdsData[indexOfUl][indexOfLi].image}`;
+	//arrOfDetailsNode[indexOfUl].querySelector('.details__title').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].name}`;
+	//arrOfDetailsNode[indexOfUl].querySelector('.details__name').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].species}`;
+	//arrOfDetailsNode[indexOfUl].querySelector('.description__text').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].description}`;
 }
 
 //replace default image
 const replaceDefaultImage = (indexOfUl, indexOfLi) => {
 	let arrayOfQuestionsBodyNodes = document.querySelectorAll('.questions__body');
-	console.log('arrayOfQuestionsBodyNodes: ', arrayOfQuestionsBodyNodes);
 	arrayOfQuestionsBodyNodes[indexOfUl].querySelector('.question-image').src = `${resultBirdsData[indexOfUl][indexOfLi].image}`;
 }
 
 //replace default bird's name
 const replaceDefaultName = (indexOfUl, indexOfLi) => {
 	let arrayOfQuestionsBodyNodes = document.querySelectorAll('.questions__body');
-	console.log('arrayOfQuestionsBodyNodes: ', arrayOfQuestionsBodyNodes);
 	arrayOfQuestionsBodyNodes[indexOfUl].querySelector('.random-question__title').innerHTML = `${resultBirdsData[indexOfUl][indexOfLi].name}`;
 }
 
 //set value checked for next input wheb clickon the next button
-const setCheckedForInput = (index)=> {
-	const tabInputNode = document.getElementById(`tab${+index+1}`);
+const setCheckedForInput = (indexOfUl,indexOfLi)=> {
+	const tabInputNode = document.getElementById(`tab${+indexOfUl+1}`);
 	tabInputNode.checked = true;
 	countOfError = 0;
 }
 
 //go to next question
-const goToNextQuestion = (indexOfUl) => {
+const goToNextQuestion = (indexOfUl, indexOfLi) => {
 	indexOfUl = +indexOfUl;
-	console.log('indexOfUl: -----^- ', indexOfUl);
 	let arrayOfButtonsNext = document.querySelectorAll('.questions__button');
 	arrayOfButtonsNext[indexOfUl].addEventListener('click', () => {
 		if (indexOfUl === 5) {
-			//let parent = arrayOfButtonsNext[indexOfUl].closest('.questions__button');
 		}
 		else {
-			setCheckedForInput(indexOfUl);
+			setCheckedForInput(indexOfUl, indexOfLi);
+			stopAudio(audioForBird);
+			isPlayForBirdQuestion = false;
+			stopAudio(audioForBirdQuestion);
 		}
 	});
 }
@@ -342,7 +315,7 @@ const setLocalStorageCount = (count) => {
 //create list of answers for every question
 const createListOfAnswers = (arr) => {
 	const arrOfUlNode = document.querySelectorAll('.answers-list');
-	console.log('arrOfUlNode: ', arrOfUlNode);
+	//console.log('arrOfUlNode: ', arrOfUlNode);
 
 	for (let i = 0; i < arrOfUlNode.length; i++) {
 		for (let j = 0; j < arr.length; j++) {
@@ -355,37 +328,254 @@ const createListOfAnswers = (arr) => {
 			`;
 			arrOfUlNode[i].appendChild(liNode);
 
+		
 			liNode.addEventListener('click', () => {
-				console.log(arrOfUlNode[i], liNode);
-				
+	
 				let answerName = getAnswerName(liNode);
-				console.log('answerName: ', answerName);
 
-				//let indexOfLi = findIndexOfli(arrOfUlNode[i], answerName);
+				indexOfLi = findIndexOfli(liNode);
 
-				let indexOfLi = findIndexOfli(liNode);
-
-				let indexOfUl = findIndexOfUl(liNode);
+				indexOfUl = findIndexOfUl(liNode);
 
 				setMarkTochoosenLi(indexOfUl, indexOfLi, liNode);
 
 				hideOffer(indexOfUl);
 
 				displayDescription(indexOfUl, indexOfLi);
+
+				isPlayForBird = false;
+
+				stopAudio(audioForBird);
+				
+
+				console.log('isPlayForBird when click li: ', isPlayForBird);
+				srcOfAudioForBird = getSrcAudioForBird(indexOfUl, indexOfLi);
+				console.log('srcOfAudioForBird: ', srcOfAudioForBird);
+
+				setEventListenerToButtonPlayAnswer(indexOfUl, indexOfLi);
+				setEventListenerToInputRangeAnswer(indexOfUl, indexOfLi);
 			});
 		}
 	}
 }
 
-/*
-const saveScore = () => {
-	let buttonsNext = document.querySelectorAll('.button-next');
-	buttonsNext[buttonsNext.length - 1].addEventListener('click', () => {
-		setLocalStorageCount(count);
+//create block details__content in block details for every qustion
+const createDetailsContentNodes = ()=> {
+	const arrayDetailsNodes = document.querySelectorAll('.details');
+	//console.log('arrayDetailsNodes: ', arrayDetailsNodes);
+
+	for (let i = 0; i < arrayDetailsNodes.length; i++) {
+		for (let j = 0; j < 6; j++) {
+			detailsContentItem = document.createElement('div');
+			detailsContentItem.className = 'details__content hidden';
+			detailsContentItem.setAttribute('data-id-details-content', `${j}`);
+		
+			detailsContentItem.innerHTML = `
+												<div class="details__block">
+													<div class="details__image">
+														<img class= "details-image" src="" alt="">
+													</div>
+													<div class="details__body">
+														<h5 class="details__title"></h5>
+														<p class="details__name"></p>
+														<div class="player">
+															<audio class="audio-player" data-id-audio="${j}" src=""></audio>
+															<div class="player-controls">
+																<button class="play play-icon play-icon-answer"></button>
+																<div class="player-progress">
+																	<input class="progress__bar" type="range" min="0" max="100" value="0">
+																	<div class="progress__time">
+																		<div class="time__current">00:00</div>
+																		<div class="time__total"></div>
+																	</div>
+																</div>	
+															</div>
+															<div class="player-volume">
+																<button class="player-volume-button play-icon play-volume_on"></button>
+																<input class="player-volume-range player-volume-range-answer" type="range" min="0" max="100" value="70">
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="details__description">
+													<p class="description__text"></p>
+												</div>	
+			`;
+			arrayDetailsNodes[i].appendChild(detailsContentItem);
+		}
+	}
+}
+
+//------------AudioPlayer-----------
+
+let currentTimeAtDteStartAnswer = 0;
+let timeCurrentAnswerNode;
+let progressTotalAnswerTime;
+let audioPlayAnswerId;
+let srcOfAudioForBird;
+let srcOfAudioForBirdQuestion;
+let currentButtonPlayAnswer;
+
+
+
+//get src of audio for choosen bird
+const getSrcAudioForBird = (indexOfUl, indexOfLi) => {
+	return resultBirdsData[indexOfUl][indexOfLi].audio;
+}
+
+//play audiotrack
+const playAudio = (objAudio, pathOfSoundtrack) => {
+	//objAudio.load();
+	objAudio.src = pathOfSoundtrack;
+	setTimeout(function() {
+		objAudio.play();
+	}, 0);
+}
+
+//stop audiotrack
+const stopAudio = (objAudio) => {
+	//objAudio.load();
+	objAudio.src = '';
+	objAudio.currentTime = 0;	
+}
+
+//pause audiotrack
+const pauseAudio = (objAudio) => {
+	setTimeout(function() {
+		objAudio.pause();
+	}, 0);
+}
+
+//change icon play with pause
+const changePlayWithPause = (buttonPlay) => {
+	buttonPlay.classList.add('pause');
+}
+
+//change icon pause with play
+const changePauseWithPlay = (buttonPlay) => {
+	buttonPlay.classList.remove('pause');
+}
+
+//play Audio For Bird
+const playAudioForBird = (currentButtonPlayAnswer) => {
+	if (isPlayForBird === false) {
+		isPlayForBird = true;
+		console.log('isPlayForBird false -> true: ', isPlayForBird);
+		playAudio(audioForBird, srcOfAudioForBird);
+		changePlayWithPause(currentButtonPlayAnswer);
+	}
+	else {
+		isPlayForBird = false;
+		pauseAudio(audioForBird);
+		changePauseWithPlay(currentButtonPlayAnswer);
+		console.log('isPlayForBird true -> false: ', isPlayForBird);
+	}
+}
+
+//play Audio For Bird
+const playAudioForBirdQuestion = (currentButtonPlayQuestion) => {
+	if (isPlayForBirdQuestion === false) {
+		isPlayForBirdQuestion = true;
+		console.log('isPlayForBirdQuestion false -> true: ', isPlayForBirdQuestion);
+		playAudio(audioForBirdQuestion, srcOfAudioForBirdQuestion);
+		changePlayWithPause(currentButtonPlayQuestion);
+	}
+	else {
+		isPlayForBirdQuestion = false;
+		pauseAudio(audioForBirdQuestion);
+		changePauseWithPlay(currentButtonPlayQuestion);
+		console.log('isPlayForBirdQuestion true -> false: ', isPlayForBirdQuestion);
+	}
+}
+
+//set event listener to button play for answer
+const setEventListenerToButtonPlayAnswer = (indexOfUl, indexOfLi) => {
+	let arrOfDetailsNodes = document.querySelectorAll('.details');
+
+	let currentDetailsNode = arrOfDetailsNodes[indexOfUl];
+
+	let arrayOfButtonsPlayAnswer = currentDetailsNode.querySelectorAll('.play-icon-answer');
+
+	for (let i = 0; i < arrayOfButtonsPlayAnswer.length; i++) {
+		arrayOfButtonsPlayAnswer[i].removeEventListener('click', func);
+	}
+
+	currentButtonPlayAnswer = arrayOfButtonsPlayAnswer[indexOfLi];
+
+	changePauseWithPlay(currentButtonPlayAnswer);
+
+	currentButtonPlayAnswer.addEventListener('click', func = function() {
+		playAudioForBird(currentButtonPlayAnswer);
 	});
 }
 
-*/
+
+//set event listener to button play for question
+const setEventListenerToButtonPlayQuestion = (arrayOfIsRightPositions) => {
+	let arrOfByttonsPlayQuestion = document.querySelectorAll('.play-icon-question');
+	console.log('arrOfByttonsPlayQuestion: - ', arrOfByttonsPlayQuestion);
+
+	for (let i = 0; i < 6; i++) {
+		arrOfByttonsPlayQuestion[i].addEventListener('click', () => {
+			console.log(`hello ${i}`);
+			currentButtonPlayQuestion = arrOfByttonsPlayQuestion[i];
+
+			//get src of audio Of right bird
+			srcOfAudioForBirdQuestion = getSrcAudioForBird(i, arrayOfIsRightPositions[i]);
+			console.log('srcOfAudioForBirdQuestion: ', srcOfAudioForBirdQuestion);
+
+			playAudioForBirdQuestion(currentButtonPlayQuestion);
+		});
+	}
+}
+
+//change audio volume
+const changeAudioVolume = (objectAudio, valueOfPlayerVolume) => {
+	let convertedValue = valueOfPlayerVolume / 100;
+    objectAudio.volume = convertedValue;
+}
+
+//set initial volume for audio
+const setBaseVolume = (objectAudio, currentInputRange) => {
+	console.log('currentInputRange.value: ', currentInputRange.value);
+    objectAudio.volume = currentInputRange.value / 100;
+	console.log('objectAudio.volume: ', objectAudio.volume);
+}
+
+//set event listener to input range for question
+const setEventListenerToInputRangeQuestion = () => {
+	let arrOfInputsRangeQuestion = document.querySelectorAll('.player-volume-range-question');
+	console.log('arrOfInputsRangeQuestion: - ', arrOfInputsRangeQuestion);
+
+	for (let i = 0; i < arrOfInputsRangeQuestion.length; i++) {
+		setBaseVolume(audioForBirdQuestion, arrOfInputsRangeQuestion[i]);
+		arrOfInputsRangeQuestion[i].addEventListener('input', () => {
+			console.log(`hello!`);
+			changeAudioVolume(audioForBirdQuestion, arrOfInputsRangeQuestion[i].value);
+		});
+	}
+}
+
+
+//set event listener to input range for answer
+const setEventListenerToInputRangeAnswer = (indexOfUl, indexOfLi) => {
+
+	let arrayOfInputsRangeAnswer = document.querySelectorAll('.details')[indexOfUl].querySelectorAll('.player-volume-range-answer');
+	console.log('arrayOfInputsRangeAnswer: - ', arrayOfInputsRangeAnswer);
+
+	//for (let i = 0; i < arrayOfInputsRangeAnswer.length; i++) {
+		setBaseVolume(audioForBird, arrayOfInputsRangeAnswer[indexOfLi]);
+		arrayOfInputsRangeAnswer[indexOfLi].addEventListener('input', () => {
+			console.log(`hello answer!`);
+			changeAudioVolume(audioForBird, arrayOfInputsRangeAnswer[indexOfLi].value);
+		});
+	//}
+}
+
+//------------End of Audio Player
+
+
+
 let shuffleBirdsData = shuffleArray(birdsData);
 console.log('shuffleBirdsData: ', shuffleBirdsData);
 
@@ -393,17 +583,21 @@ let resultBirdsData = shuffleObjectsInArray(shuffleBirdsData);
 console.log('resultBirdsData: ', resultBirdsData);
 
 setIsRight(resultBirdsData);
-
 createBlockQuestionsBody();
-
 addTagForm();
-
+createDetailsContentNodes();
 createListOfAnswers(resultBirdsData);
+
+setEventListenerToButtonPlayQuestion(arrayOfIsRightPositions);
+setEventListenerToInputRangeQuestion();
+
 
 
 //setLocalStorageCount(count)
 
 //setLocalStorageCount(count);
 //window.addEventListener('beforeunload', setLocalStorageCount);
+
+
 
 

@@ -153,6 +153,12 @@ h5 {
 .pause {
   background-image: url(../../assets/icons/pause.svg);
 }
+@media (max-width: 530px) {
+  .pause {
+    width: 3rem;
+    height: 3rem;
+  }
+}
 
 .play-volume_on,
 .play-volume_off {

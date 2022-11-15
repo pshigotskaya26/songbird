@@ -48,6 +48,11 @@
 
 .pause {
 	background-image: url(../../assets/icons/pause.svg);
+
+	@media (max-width: 530px) {
+		width: 3rem;
+		height: 3rem;
+	}
 }
 
 .play-volume_on,
