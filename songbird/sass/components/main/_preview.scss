@@ -45,22 +45,9 @@
 	@media (max-width: 640px) {
 		max-width: 68rem;
 	}
-/*
-	@media (max-width: 1160px) {
-		width: calc(500px + (680 - 500) * ((100vw - 1000px) / (1160 - 1000)));
-	}
-	*/
 }
 
 .preview__title,
 .preview__subtitle {
 	text-shadow: 0.1rem 0.4rem 1rem $color-black;
-}
-
-.preview .button {
-	/*
-	@media (max-width: 1160px) {
-		width: 270px;
-	}
-	*/
 }

@@ -439,7 +439,7 @@ const createDetailsContentNodes = ()=> {
 															<audio class="audio-player" data-id-audio="${j}" src=""></audio>
 															<div class="player-controls">
 																<button class="play play-icon play-icon-answer"></button>
-																<div class="player-progress">
+																<div class="player-progress answer-player-progress">
 																	<input class="progress__bar answer-progress__bar" type="range" min="0" max="100" value="0">
 																	<div class="progress__time">
 																		<div class="time__current answer-time__current">00:00</div>
