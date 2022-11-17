@@ -707,7 +707,7 @@ const setEventListenerToInputRangeQuestion = () => {
 const setEventListenerToInputRangeAnswer = (indexOfUl, indexOfLi) => {
 	let arrayOfInputsRangeAnswer = document.querySelectorAll('.details')[indexOfUl].querySelectorAll('.player-volume-range-answer');
 	setBaseVolume(audioForBird, arrayOfInputsRangeAnswer[indexOfLi]);
-	
+
 	arrayOfInputsRangeAnswer[indexOfLi].addEventListener('input', () => {
 		changeAudioVolume(audioForBird, arrayOfInputsRangeAnswer[indexOfLi].value);
 	});
@@ -743,3 +743,6 @@ getArrayOfCurrentTimeNodesQuestion();
 getArrayOfTotalTimeNodesQuestion();
 displayTotalTimeOfAudio(arrayOfTotalTimeNodesQuestion, arrayOfIsRightPositions, resultBirdsData);
 setEventListenerForQuestionBar(arrayOfInputsProgressBarQuestion);
+
+console.log('Оценка: 250 из 270');
+console.log('Не сделана галерея и перевод');
