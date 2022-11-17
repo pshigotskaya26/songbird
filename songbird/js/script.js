@@ -1,16 +1,14 @@
 import birdsData from "./birds.js";
 
 const questionsTabsNode = document.querySelector('.questions__tabs');
-
 const arrOfSoundsForAnswer = ['../../assets/sounds/correct-answer.mp3', '../../assets/sounds/incorrect-answer-2.mp3'];
+
 let count = 0;
 let countOfError = 0;
-
 let indexOfLi;
 let indexOfUl;
 let detailsContentItem;
 let arrayOfIsRightPositions = [];
-
 let func;
 let func2;
 let func3
@@ -22,35 +20,40 @@ const audioForBirdQuestion = new Audio();
 let isPlayForBird = false;
 let isPlayForBirdQuestion = false;
 let currentButtonPlayQuestion;
-
+let currentButtonPlayAnswer;
 
 let currentTimeAtTheStartAnswer = 0;
-let audioCurrentTimeAnswer;
-let audioLengthAnswer;
-let arrayOfInputsProgressBarAnswer;
-let arrayOfCurrentTimeNodesAnswer;
-let timeCurrentAnswerNode;
-let arrayOfTotalTimeNodesAnswer;
-let indexOfCurrentTimeNodeAnswer;
+let currentTimeAtTheStartQuestion = 0;
 
+let audioCurrentTimeAnswer;
+let audioCurrentTimeQuestion;
+
+let audioLengthAnswer;
+let audioLengthQuestion;
+
+let arrayOfInputsProgressBarAnswer;
+let arrayOfInputsProgressBarQuestion;
+
+let arrayOfCurrentTimeNodesAnswer;
+let arrayOfCurrentTimeNodesQuestion;
+
+let timeCurrentAnswerNode;
+let timeCurrentQuestionNode;
+
+let arrayOfTotalTimeNodesAnswer;
+let arrayOfTotalTimeNodesQuestion;
+
+let indexOfCurrentTimeNodeAnswer;
+let indexOfCurrentTimeNode;
 
 let progressTotalAnswerTime;
-let audioPlayAnswerId;
-
-let currentTimeAtTheStartQuestion = 0;
-let arrayOfInputsProgressBarQuestion;
-let arrayOfCurrentTimeNodesQuestion;
-let indexOfCurrentTimeNode;
-let arrayOfTotalTimeNodesQuestion;
-let timeCurrentQuestionNode;
 let progressTotalQuestionTime;
+
+let audioPlayAnswerId;
 let audioPlayQuestionId;
-let audioCurrentTimeQuestion;
-let audioLengthQuestion;
 
 let srcOfAudioForBird;
 let srcOfAudioForBirdQuestion;
-let currentButtonPlayAnswer;
 
 //shuffle values in array
 const shuffleArray = (arr) => {
@@ -84,13 +87,14 @@ const setIsRight = (arr) => {
 			if (j === randomIndex) {
 				arr[i][j].isRight = true;
 				arrayOfIsRightPositions.push(j);
-				console.log('arrayOfIsRightPositions: ', arrayOfIsRightPositions);
+				
 			}
 			else if (j !== randomIndex) {
 				arr[i][j].isRight = false;
 			}
 		}
 	}
+	console.log('Массив ответов arrayOfIsRightPositions: здесь расположены позиции правильных ответов в массиве resultBirdsData: ', arrayOfIsRightPositions);
 }
 
 //create blockquestions__body for every question
@@ -139,9 +143,7 @@ const createBlockQuestionsBody = () => {
 									</div>
 								</div>
 								<div class="questions__button">
-									
 										<a class="button button-next no-active">Следующий вопрос</a>
-									
 								</div>
 		`;
 		questionsTabsNode.appendChild(questionBodyItem);
@@ -161,13 +163,11 @@ const addTagForm = () => {
 //find index of choosen li in ul
 const findIndexOfli = (currentLi) => {
 	let indexOfChoosenLi = currentLi.getAttribute('data-id-li')
-	console.log('indexOfChoosenLi: ', indexOfChoosenLi);
 	return indexOfChoosenLi;
 }
 
 //find parent (ul) of choosen li and find index of this ul
 const findIndexOfUl = (currentLi) => {
-	console.log('parent Ul: ', currentLi.parentElement.getAttribute('data-id-ul'));
 	return currentLi.parentElement.getAttribute('data-id-ul');
 }
 
@@ -175,8 +175,8 @@ const findIndexOfUl = (currentLi) => {
 const hasSuccess = (choosenLi) => {
 	let valOfSuccess;
 	let parent = choosenLi.parentElement;
-
 	let arrOfli = parent.querySelectorAll('.answers-list__item');
+
 	arrOfli.forEach(item => {
 		if (item.classList.contains('success')) {
 			valOfSuccess = true;
@@ -194,7 +194,6 @@ const doClickableButton = (inedxOfUl) => {
 //calculate points
 const calculateErrorPoints = (countofError, indexOfUl) => {
 	countOfError = 0;
-
 	let arrOfUlTag = document.querySelectorAll('.answers-list');
 	let arrOfLiTagsOfCurrentUl = arrOfUlTag[indexOfUl].querySelectorAll('.answers-list__item');
 
@@ -227,28 +226,17 @@ const setMarkTochoosenLi = (indexOfUl, indexOfLi, choosenLi) => {
 	if (booleanValOfSuccess === true) {
 		return;
 	}
-
 	if (rightAnswer) {
 		choosenLi.classList.add('success');
 		playAudio(audio, arrOfSoundsForAnswer[0]);
-
 		stopAudio(audioForBirdQuestion);
 		clearInterval(audioPlayQuestionId);
 		currentTimeAtTheStartQuestion = 0;
 		isPlayForBirdQuestion = false;
-
-
-
-		
-
-		console.log('----------------------------------indexOfCurrentTimeNode: ', indexOfCurrentTimeNode);
-
 		if (indexOfCurrentTimeNode || indexOfCurrentTimeNode === 0) {
 			arrayOfCurrentTimeNodesQuestion[indexOfCurrentTimeNode].textContent = '00:00';
 			arrayOfInputsProgressBarQuestion[indexOfCurrentTimeNode].value = 0;
 		}
-		
-
 		calculatePoints(countOfError);
 		displayScore(count);
 		if (indexOfUl === '5') {
@@ -269,9 +257,7 @@ const isRightAnswer = (indexOfUl, indexOfLi) => {
 		doClickableButton(indexOfUl);
 		replaceDefaultImage(indexOfUl, indexOfLi);
 		replaceDefaultName(indexOfUl, indexOfLi);
-		
 		goToNextQuestion(indexOfUl, indexOfLi);
-
 		return true;
 	}
 	else if (resultBirdsData[indexOfUl][indexOfLi].isRight === false) {
@@ -291,13 +277,9 @@ const hideOffer = (indexOfUl) => {
 	arrOfInstructionNodes[indexOfUl].classList.add('hidden');
 }
 
-
 //display bird's description when choose answer
 const displayDescription = (indexOfUl, indexOfLi) => {
-	//console.log('ul, li: ', indexOfUl, indexOfLi, typeof(indexOfUl));
 	let arrOfDetailsNode = document.querySelectorAll('.details');
-	//console.log('arrOfDetailsNode---: ', arrOfDetailsNode);
-
 	let arrOfDetailsContent = document.querySelectorAll('.details')[indexOfUl].querySelectorAll('.details__content');
 
 	for (let i = 0; i < 6; i++) {
@@ -334,6 +316,7 @@ const setCheckedForInput = (indexOfUl,indexOfLi)=> {
 const goToNextQuestion = (indexOfUl, indexOfLi) => {
 	indexOfUl = +indexOfUl;
 	let arrayOfButtonsNext = document.querySelectorAll('.questions__button');
+
 	arrayOfButtonsNext[indexOfUl].addEventListener('click', () => {
 		if (indexOfUl === 5) {
 		}
@@ -341,12 +324,6 @@ const goToNextQuestion = (indexOfUl, indexOfLi) => {
 			setCheckedForInput(indexOfUl, indexOfLi);
 			stopAudio(audioForBird);
 			clearInterval(audioPlayAnswerId);
-
-			//stopAudio(audioForBird);
-				//clearInterval(audioPlayAnswerId);
-				//currentTimeAtTheStartAnswer = 0;
-
-
 			isPlayForBirdQuestion = false;
 			stopAudio(audioForBirdQuestion);
 			currentTimeAtTheStartQuestion = 0;	
@@ -369,50 +346,30 @@ const createListOfAnswers = (arr) => {
 			const liNode = document.createElement('li');
 			liNode.className = 'answers-list__item ';
 			liNode.setAttribute('data-id-li', `${j}`);
-
 			liNode.innerHTML = `
 			<span class="marker"></span><span class="answer__name">${arr[i][j].name}</span>
 			`;
 			arrOfUlNode[i].appendChild(liNode);
 
-		
 			liNode.addEventListener('click', () => {
-	
 				let answerName = getAnswerName(liNode);
-
 				indexOfLi = findIndexOfli(liNode);
-
 				indexOfUl = findIndexOfUl(liNode);
-
 				setMarkTochoosenLi(indexOfUl, indexOfLi, liNode);
-
 				hideOffer(indexOfUl);
-
 				displayDescription(indexOfUl, indexOfLi);
-
 				isPlayForBird = false;
-
 				stopAudio(audioForBird);
 				clearInterval(audioPlayAnswerId);
 				currentTimeAtTheStartAnswer = 0;
-
-				
-
-				
-				console.log('isPlayForBird when click li: ', isPlayForBird);
 				srcOfAudioForBird = getSrcAudioForBird(indexOfUl, indexOfLi);
-				console.log('srcOfAudioForBird: ', srcOfAudioForBird);
-
 				setEventListenerToButtonPlayAnswer(indexOfUl, indexOfLi);
 				setEventListenerToInputRangeAnswer(indexOfUl, indexOfLi);
 				setEventListenerToInputRangeOfTrackAnswer(indexOfUl, indexOfLi);
-
 				arrayOfInputsProgressBarAnswer[indexOfLi].value = 0;
 				arrayOfCurrentTimeNodesAnswer[indexOfLi].textContent = '00:00';
-
 				getArrayOfTotalTimeNodesAnswer(indexOfUl);
 				displayTotalTimeOfAudioAnswer(arrayOfTotalTimeNodesAnswer, indexOfUl, indexOfLi, resultBirdsData);
-				
 			});
 		}
 	}
@@ -421,12 +378,12 @@ const createListOfAnswers = (arr) => {
 //create block details__content in block details for every qustion
 const createDetailsContentNodes = ()=> {
 	const arrayDetailsNodes = document.querySelectorAll('.details');
+
 	for (let i = 0; i < arrayDetailsNodes.length; i++) {
 		for (let j = 0; j < 6; j++) {
 			detailsContentItem = document.createElement('div');
 			detailsContentItem.className = 'details__content hidden';
 			detailsContentItem.setAttribute('data-id-details-content', `${j}`);
-		
 			detailsContentItem.innerHTML = `
 												<div class="details__block">
 													<div class="details__image">
@@ -465,17 +422,6 @@ const createDetailsContentNodes = ()=> {
 
 //------------AudioPlayer-----------
 
-
-
-//const progressBar = document.querySelector('.progress-bar');
-//const progressCurrentTime = document.querySelector('.progress-current-time');
-//progressCurrentTime.textContent = '0:00';
-
-//const questionTimeCurrent = document.querySelectorAll('.question-time__current');
-//console.log('questionTimeCurrent: ', questionTimeCurrent);
-
-
-
 //get src of audio for choosen bird
 const getSrcAudioForBird = (indexOfUl, indexOfLi) => {
 	return resultBirdsData[indexOfUl][indexOfLi].audio;
@@ -512,7 +458,6 @@ const changePauseWithPlay = (buttonPlay) => {
 	if (buttonPlay) {
 		buttonPlay.classList.remove('pause');
 	}
-	
 }
 
 //get current time of audiotrack
@@ -555,10 +500,7 @@ const setBaseTime = (currentTimeOfTrack, elem) => {
 //get array of question-progress__bar nodes
 const getArrayOfProgressBarQuestionNode = () => {
 	arrayOfInputsProgressBarQuestion = document.querySelectorAll('.question-progress__bar');
-	//console.log('arrayOfInputsProgressBarQuestion: ', arrayOfInputsProgressBarQuestion);
 }
-
-
 
 //change value of progress bar for question
 const changeProgressBarQuestion = (currentProgressBar) => {
@@ -575,10 +517,7 @@ const changeProgressBarQuestion = (currentProgressBar) => {
 //change value of progress bar for answer
 const changeProgressBarAnswer = (currentProgressBar) => {
 	if (isPlayForBird === true) {
-
-		console.log(audioLengthAnswer, currentProgressBar);
         audioCurrentTimeAnswer = Math.floor(audioLengthAnswer * currentProgressBar / 100);
-		console.log('---------------audioCurrentTimeAnswer: ', audioCurrentTimeAnswer);
         audioForBird.currentTime = audioCurrentTimeAnswer;
     }
     else {
@@ -586,8 +525,6 @@ const changeProgressBarAnswer = (currentProgressBar) => {
         currentTimeAtTheStartAnswer = audioCurrentTimeAnswer;
     }
 }
-
-
 
 //set listener of input event for question-progress__bar
 const setEventListenerForQuestionBar = (arrOfProgressBar) => {
@@ -598,33 +535,20 @@ const setEventListenerForQuestionBar = (arrOfProgressBar) => {
 	}
 }
 
-
 //get current question-time node for question
 const getArrayOfCurrentTimeNodesQuestion = () => {
 	arrayOfCurrentTimeNodesQuestion = document.querySelectorAll('.question-time__current');
-	//console.log('arrayOfCurrentTimeNodesQuestion: ', arrayOfCurrentTimeNodesQuestion);
-}
-
-//get current question-time node for answer
-const getArrayOfCurrentTimeNodesAnswer = (currentUl) => {
-	//arrayOfCurrentTimeNodesAnswer = document.querySelectorAll('.answer-time__current');
-	//console.log('arrayOfCurrentTimeNodesQuestion: ', arrayOfCurrentTimeNodesQuestion);
 }
 
 //get array of total time nodes for question 
 const getArrayOfTotalTimeNodesQuestion = () => {
 	arrayOfTotalTimeNodesQuestion = document.querySelectorAll('.question-time__total');
-	//console.log('arrayOfTotalTimeNodesQuestion: ', arrayOfTotalTimeNodesQuestion);
 }
 
 //get array of total time nodefor answer
 const getArrayOfTotalTimeNodesAnswer = (indexOfUl) => {
 	arrayOfTotalTimeNodesAnswer = document.querySelectorAll('.details')[indexOfUl].querySelectorAll('.answer-time__total');
-
-	//arrayOfTotalTimeNodesAnswer = document.querySelectorAll('.answer-time__total');
-	console.log('arrayOfTotalTimeNodesAnswer: ', arrayOfTotalTimeNodesAnswer);
 }
-
 
 //display total time Of audio for every question
 const displayTotalTimeOfAudio = (arrayOfTotalTime, arrayOfRightPositions, arrayOfBirdsData)=> {
@@ -638,43 +562,24 @@ const displayTotalTimeOfAudioAnswer = (arr, indexOfUl, indexOfLi, resultBirdsDat
 	arr[indexOfLi].textContent = resultBirdsData[indexOfUl][indexOfLi].duration;
 }
 
-
-
-
-
-
-
 //play Audio For Bird
 const playAudioForBird = (currentButtonPlayAnswer, indexI) => {
 	indexOfCurrentTimeNodeAnswer = indexI;
-
 	if (isPlayForBird === false) {
-
-			console.log('==currentTimeAtTheStartAnswer before play: ', currentTimeAtTheStartAnswer);
-		
 		clearInterval(audioPlayAnswerId);
 		isPlayForBird = true;
-			console.log('isPlayForBird false -> true: ', isPlayForBird);
-
 		audioForBird.src = srcOfAudioForBird;
 		audioForBird.currentTime = currentTimeAtTheStartAnswer;
 		audioForBird.play();
 
-	//	playAudio(audioForBird, srcOfAudioForBird);
-
+		//playAudio(audioForBird, srcOfAudioForBird);
 		audioPlayAnswerId = setInterval(() => {
 			//get value on every second of the track
 			audioCurrentTimeAnswer = getCurrentTime(audioForBird);
-				console.log('==audioCurrentTimeAnswer: ', audioCurrentTimeAnswer);
-
 			currentTimeAtTheStartAnswer = audioCurrentTimeAnswer;
-
-				console.log('==currentTimeAtTheStartAnswer when is playing: ', currentTimeAtTheStartAnswer);
 
 			//get all time of the track
 			audioLengthAnswer = getAllTime(audioForBird);
-				console.log('==audioLengthAnswer when is playing: ', audioLengthAnswer);
-			
 			arrayOfInputsProgressBarAnswer[indexI].value = (audioCurrentTimeAnswer * 100) / audioLengthAnswer;
 			timeCurrentAnswerNode = arrayOfCurrentTimeNodesAnswer[indexI];
 
@@ -682,57 +587,37 @@ const playAudioForBird = (currentButtonPlayAnswer, indexI) => {
 			setBaseTime(audioCurrentTimeAnswer, timeCurrentAnswerNode);
 
 			if (audioCurrentTimeAnswer == audioLengthAnswer) {
-            	clearInterval(audioPlayAnswerId);
+				clearInterval(audioPlayAnswerId);
 				currentTimeAtTheStartAnswer = 0;
-            }
-
-
+			}
 		}, 1000);
-
 		changePlayWithPause(currentButtonPlayAnswer);
 	}
 	else {
 		clearInterval(audioPlayAnswerId);
 		isPlayForBird = false;
 		pauseAudio(audioForBird);
-			console.log('isPlayForBird true -> false: ', isPlayForBird);
-
 		currentTimeAtTheStartAnswer = audioCurrentTimeAnswer;
 		audioForBird.currentTime = currentTimeAtTheStartAnswer;
 		changePauseWithPlay(currentButtonPlayAnswer);
-
 		if (audioCurrentTimeAnswer == audioLengthAnswer) {
 			currentTimeAtTheStartAnswer = 0;
 		}
-		
 	}
 }
-
-
-
-
 
 //play Audio For Bird
 const playAudioForBirdQuestion = (currentButtonPlayQuestion, indexI) => {
 	indexOfCurrentTimeNode = indexI;
-	//console.log('1 ---------- currentTimeAtTheStartQuestion: ', currentTimeAtTheStartQuestion);
 	if (isPlayForBirdQuestion === false) {
-		//if (audioCurrentTimeQuestion == audioLengthQuestion) {
-			//arrayOfCurrentTimeNodesQuestion[indexI].textContent = '00:00';
-			//arrayOfInputsProgressBarQuestion[indexI].value = 0;	
-		//}
-
 		clearInterval(audioPlayQuestionId);
 		isPlayForBirdQuestion = true;
-
 		audioForBirdQuestion.src = srcOfAudioForBirdQuestion;
 		audioForBirdQuestion.currentTime = currentTimeAtTheStartQuestion;
 		audioForBirdQuestion.play();
-
 		audioPlayQuestionId = setInterval(() => {
 			//get value on every second of the track
 			audioCurrentTimeQuestion = getCurrentTime(audioForBirdQuestion);
-
 			currentTimeAtTheStartQuestion = audioCurrentTimeQuestion;
 
 			//get all time of the track
@@ -747,7 +632,6 @@ const playAudioForBirdQuestion = (currentButtonPlayQuestion, indexI) => {
             	clearInterval(audioPlayQuestionId);
 				currentTimeAtTheStartQuestion = 0;
             }
-
 		}, 1000);
 		changePlayWithPause(currentButtonPlayQuestion);
 	}
@@ -758,25 +642,21 @@ const playAudioForBirdQuestion = (currentButtonPlayQuestion, indexI) => {
 		currentTimeAtTheStartQuestion = audioCurrentTimeQuestion;
 		audioForBirdQuestion.currentTime = currentTimeAtTheStartQuestion;
 		changePauseWithPlay(currentButtonPlayQuestion);
-
 		if (audioCurrentTimeQuestion == audioLengthQuestion) {
 			currentTimeAtTheStartQuestion = 0;
 		}
 	}
 }
 
-
 //set event listener to button play for answer
 const setEventListenerToButtonPlayAnswer = (indexOfUl, indexOfLi) => {
 	let arrOfDetailsNodes = document.querySelectorAll('.details');
 	let currentDetailsNode = arrOfDetailsNodes[indexOfUl];
 	let arrayOfButtonsPlayAnswer = currentDetailsNode.querySelectorAll('.play-icon-answer');
-	console.log('====arrayOfButtonsPlayAnswer: ', arrayOfButtonsPlayAnswer);
 
 	for (let i = 0; i < arrayOfButtonsPlayAnswer.length; i++) {
 		arrayOfButtonsPlayAnswer[i].removeEventListener('click', func);
 	}
-
 	currentButtonPlayAnswer = arrayOfButtonsPlayAnswer[indexOfLi];
 	changePauseWithPlay(currentButtonPlayAnswer);
 
@@ -785,11 +665,9 @@ const setEventListenerToButtonPlayAnswer = (indexOfUl, indexOfLi) => {
 	});
 }
 
-
 //set event listener to button play for question
 const setEventListenerToButtonPlayQuestion = (arrayOfIsRightPositions) => {
 	let arrOfByttonsPlayQuestion = document.querySelectorAll('.play-icon-question');
-	//console.log('arrOfByttonsPlayQuestion: - ', arrOfByttonsPlayQuestion);
 
 	for (let i = 0; i < 6; i++) {
 		arrOfByttonsPlayQuestion[i].addEventListener('click', func2 = function() {
@@ -810,53 +688,36 @@ const changeAudioVolume = (objectAudio, valueOfPlayerVolume) => {
 
 //set initial volume for audio
 const setBaseVolume = (objectAudio, currentInputRange) => {
-	//console.log('currentInputRange.value: ', currentInputRange.value);
     objectAudio.volume = currentInputRange.value / 100;
-	//console.log('objectAudio.volume: ', objectAudio.volume);
 }
 
 //set event listener to input range for question (change volume)
 const setEventListenerToInputRangeQuestion = () => {
 	let arrOfInputsRangeQuestion = document.querySelectorAll('.player-volume-range-question');
-	//console.log('arrOfInputsRangeQuestion: - ', arrOfInputsRangeQuestion);
 
 	for (let i = 0; i < arrOfInputsRangeQuestion.length; i++) {
 		setBaseVolume(audioForBirdQuestion, arrOfInputsRangeQuestion[i]);
 		arrOfInputsRangeQuestion[i].addEventListener('input', () => {
-			//console.log(`hello!`);
 			changeAudioVolume(audioForBirdQuestion, arrOfInputsRangeQuestion[i].value);
 		});
 	}
 }
 
-
 //set event listener to input range for answer (change volume)
 const setEventListenerToInputRangeAnswer = (indexOfUl, indexOfLi) => {
-
 	let arrayOfInputsRangeAnswer = document.querySelectorAll('.details')[indexOfUl].querySelectorAll('.player-volume-range-answer');
-	console.log('arrayOfInputsRangeAnswer: - ', arrayOfInputsRangeAnswer);
-
-		setBaseVolume(audioForBird, arrayOfInputsRangeAnswer[indexOfLi]);
-		arrayOfInputsRangeAnswer[indexOfLi].addEventListener('input', () => {
-			console.log(`hello answer!`);
-			changeAudioVolume(audioForBird, arrayOfInputsRangeAnswer[indexOfLi].value);
-		});
+	setBaseVolume(audioForBird, arrayOfInputsRangeAnswer[indexOfLi]);
+	
+	arrayOfInputsRangeAnswer[indexOfLi].addEventListener('input', () => {
+		changeAudioVolume(audioForBird, arrayOfInputsRangeAnswer[indexOfLi].value);
+	});
 }
 
 //set event listener to input range for track for answer  (change value of progress bar)
 const setEventListenerToInputRangeOfTrackAnswer = (indexOfUl, indexOfLi) => {
-
 	arrayOfInputsProgressBarAnswer = document.querySelectorAll('.details')[indexOfUl].querySelectorAll('.answer-progress__bar');
-	console.log('arrayOfInputsProgressBarAnswer: - ', arrayOfInputsProgressBarAnswer);
-
 	arrayOfCurrentTimeNodesAnswer = document.querySelectorAll('.details')[indexOfUl].querySelectorAll('.answer-time__current');
-
-	console.log('arrayOfCurrentTimeNodesAnswer: - ', arrayOfCurrentTimeNodesAnswer);
-
-	//for (let i = 0; i < arrayOfCurrentTimeNodesAnswer.length; i++) {
-		//arrayOfCurrentTimeNodesAnswer[i].removeEventListener('input', func3);
-	//}
-
+	
 	for (let i = 0; i < arrayOfInputsProgressBarAnswer.length; i++) {
 		arrayOfInputsProgressBarAnswer[i].addEventListener('input', () => {
 			changeProgressBarAnswer(arrayOfInputsProgressBarAnswer[i].value);
@@ -864,31 +725,21 @@ const setEventListenerToInputRangeOfTrackAnswer = (indexOfUl, indexOfLi) => {
 	}
 }
 
-
 //------------End of Audio Player
 
 let shuffleBirdsData = shuffleArray(birdsData);
-//console.log('shuffleBirdsData: ', shuffleBirdsData);
-
 let resultBirdsData = shuffleObjectsInArray(shuffleBirdsData);
-console.log('resultBirdsData: ', resultBirdsData);
+console.log('Массив перемешенных птичек resultBirdsData: ', resultBirdsData);
 
 setIsRight(resultBirdsData);
 createBlockQuestionsBody();
 addTagForm();
 createDetailsContentNodes();
 createListOfAnswers(resultBirdsData);
-
 setEventListenerToButtonPlayQuestion(arrayOfIsRightPositions);
 setEventListenerToInputRangeQuestion();
-
 getArrayOfProgressBarQuestionNode();
 getArrayOfCurrentTimeNodesQuestion();
 getArrayOfTotalTimeNodesQuestion();
-//getArrayOfTotalTimeNodesAnswer();
-
 displayTotalTimeOfAudio(arrayOfTotalTimeNodesQuestion, arrayOfIsRightPositions, resultBirdsData);
-
 setEventListenerForQuestionBar(arrayOfInputsProgressBarQuestion);
-
-
