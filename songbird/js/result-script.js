@@ -1,4 +1,3 @@
-//const yourCountNode = document.querySelector('.your-count');
 let scoreCount;
 const resultBodySuccessNode = document.querySelector('.result__body_success');
 const resultBodyNosuccess = document.querySelector('.result__body_nosuccess');

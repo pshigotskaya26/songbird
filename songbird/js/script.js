@@ -94,7 +94,8 @@ const setIsRight = (arr) => {
 			}
 		}
 	}
-	console.log('Массив ответов arrayOfIsRightPositions: здесь расположены позиции правильных ответов в массиве resultBirdsData: ', arrayOfIsRightPositions);
+	console.log('Массив ответов arrayOfIsRightPositions: здесь расположены позиции правильных ответов в массиве resultBirdsData: ');
+	console.log(arrayOfIsRightPositions);
 }
 
 //create blockquestions__body for every question
@@ -199,7 +200,7 @@ const calculateErrorPoints = (countofError, indexOfUl) => {
 
 	for (let i = 0; i < arrOfLiTagsOfCurrentUl.length; i++) {
 		if (arrOfLiTagsOfCurrentUl[i].classList.contains('error')) {
-			countOfError++
+			countOfError++;
 		}
 	}
 }
@@ -502,35 +503,63 @@ const getArrayOfProgressBarQuestionNode = () => {
 	arrayOfInputsProgressBarQuestion = document.querySelectorAll('.question-progress__bar');
 }
 
+/*
 //change value of progress bar for question
 const changeProgressBarQuestion = (currentProgressBar) => {
 	if (isPlayForBirdQuestion === true) {
         audioCurrentTimeQuestion = Math.floor(audioLengthQuestion * currentProgressBar / 100);
+		//audioCurrentTimeQuestion = getCurrentTimeOfTrack(audioLengthQuestion, currentProgressBar);
         audioForBirdQuestion.currentTime = audioCurrentTimeQuestion;
     }
     else {
         audioCurrentTimeQuestion = Math.floor(audioLengthQuestion * currentProgressBar / 100);
+		//audioCurrentTimeQuestion = getCurrentTimeOfTrack(audioLengthQuestion, currentProgressBar);
         currentTimeAtTheStartQuestion = audioCurrentTimeQuestion;
     }
 }
-
+*/
+/*
 //change value of progress bar for answer
 const changeProgressBarAnswer = (currentProgressBar) => {
 	if (isPlayForBird === true) {
         audioCurrentTimeAnswer = Math.floor(audioLengthAnswer * currentProgressBar / 100);
+		//audioCurrentTimeAnswer = getCurrentTimeOfTrack(audioLengthAnswer, currentProgressBar);
         audioForBird.currentTime = audioCurrentTimeAnswer;
     }
     else {
         audioCurrentTimeAnswer = Math.floor(audioLengthAnswer * currentProgressBar / 100);
+		//audioCurrentTimeAnswer = getCurrentTimeOfTrack(audioLengthAnswer, currentProgressBar);
         currentTimeAtTheStartAnswer = audioCurrentTimeAnswer;
     }
+}
+*/
+
+//change value of progress bar (for question and answer)
+const changeProgressBar = (currentValue, isPlay, audioCurrentTime, audioLength, audioObject, currentTimeAtTheStart) => {
+	if (isPlay === true) {
+        //audioCurrentTimeAnswer = Math.floor(audioLengthAnswer * currentProgressBar / 100);
+		audioCurrentTime = getCurrentTimeOfTrack(audioLength, currentValue);
+        audioObject.currentTime = audioCurrentTime;
+    }
+    else {
+        //audioCurrentTimeAnswer = Math.floor(audioLengthAnswer * currentProgressBar / 100);
+		audioCurrentTime = getCurrentTimeOfTrack(audioLength, currentValue);
+        currentTimeAtTheStart = audioCurrentTime;
+    }
+}
+
+
+//const get current time of track
+const getCurrentTimeOfTrack = (lengthOfTrack, valueOfCurrentProgressBar) => {
+	return Math.floor(lengthOfTrack * valueOfCurrentProgressBar / 100);
 }
 
 //set listener of input event for question-progress__bar
 const setEventListenerForQuestionBar = (arrOfProgressBar) => {
 	for (let i = 0; i < arrOfProgressBar.length; i++) {
 		arrOfProgressBar[i].addEventListener('input', () => {
-			changeProgressBarQuestion(arrOfProgressBar[i].value);
+			//changeProgressBarQuestion(arrOfProgressBar[i].value);
+			changeProgressBar(arrOfProgressBar[i].value, isPlayForBirdQuestion, audioCurrentTimeQuestion, audioLengthQuestion, audioForBirdQuestion, currentTimeAtTheStartQuestion);
 		});
 	}
 }
@@ -720,7 +749,8 @@ const setEventListenerToInputRangeOfTrackAnswer = (indexOfUl, indexOfLi) => {
 	
 	for (let i = 0; i < arrayOfInputsProgressBarAnswer.length; i++) {
 		arrayOfInputsProgressBarAnswer[i].addEventListener('input', () => {
-			changeProgressBarAnswer(arrayOfInputsProgressBarAnswer[i].value);
+			//changeProgressBarAnswer(arrayOfInputsProgressBarAnswer[i].value);
+			changeProgressBar(arrayOfInputsProgressBarAnswer[i].value, isPlayForBird, audioCurrentTimeAnswer, audioLengthAnswer, audioForBird, currentTimeAtTheStartAnswer);
 		});
 	}
 }
@@ -729,7 +759,8 @@ const setEventListenerToInputRangeOfTrackAnswer = (indexOfUl, indexOfLi) => {
 
 let shuffleBirdsData = shuffleArray(birdsData);
 let resultBirdsData = shuffleObjectsInArray(shuffleBirdsData);
-console.log('Массив перемешенных птичек resultBirdsData: ', resultBirdsData);
+console.log('Массив перемешенных птичек resultBirdsData: ');
+console.log(resultBirdsData);
 
 setIsRight(resultBirdsData);
 createBlockQuestionsBody();
