@@ -1,5 +1,6 @@
 .questions,
-.result {
+.result,
+.gallery {
 	position: relative;
 	width: 100%;
 	background-image: url(../../assets/images/background-image-2.jpg);
@@ -28,7 +29,8 @@
 }
 
 .questions__container,
-.result__container {
+.result__container,
+.gallery__container {
 	position: relative;
 	z-index: 5;
 }

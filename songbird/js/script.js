@@ -156,7 +156,7 @@ const addTagForm = () => {
 	let arrOfButtonNextNodes = document.querySelectorAll('.button-next');
 	let parent = arrOfButtonNextNodes[arrOfButtonNextNodes.length - 1].closest('.questions__button');
 	parent.innerHTML = `
-	<a href="../../pages/result/index.html" class="button button-next no-active">Следующий вопрос</a>
+	<a href="../../pages/result/result.html" class="button button-next no-active">Следующий вопрос</a>
 	`;
 }
 
@@ -388,7 +388,7 @@ const createDetailsContentNodes = ()=> {
 			detailsContentItem.innerHTML = `
 												<div class="details__block">
 													<div class="details__image">
-														<img class= "details-image" src="" alt="">
+														<img class= "details-image" src="" alt="bird photo">
 													</div>
 													<div class="details__body">
 														<h5 class="details__title"></h5>
