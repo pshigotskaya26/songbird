@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../../assets/icons/favicon.ico" rel="shortcut icon" />
+	<title>Sognbird - quiz page</title>
+	<link rel="stylesheet" href="../../assets/styles/styles.css">
+	<link rel="stylesheet" href="../../assets/styles/fonts.css">
+</head>
+<body>
+	<header class="header">
+		<div class="container header__container">
+			<a class="logo" href="../../pages/main/index.html"><img class="logo__image" src="../../assets/images/logo.png" alt="logo"></a>
+			<nav class="header__navigation">
+				<ul class="navigation">
+					<li class="navigation__item"><a class="navigation-link" href="../../pages/main/index.html">Главная</a></li>
+					<li class="navigation__item"><a class="navigation-link navigation-link_activ" href="../../pages/quiz/quiz.html">Игра</a></li>
+					<li class="navigation__item"><a class="navigation-link" href="../../pages/gallery/gallery.html">Галерея</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main class="main">
+		<section class="questions">
+			<div class="container questions__container">
+				<div class="score">
+					<p class="score__text">Счет: <span class="score-value">0</span></p>
+				</div>
+				<h3 class="questions__title">Вопросы:</h3>
+				<div class="questions__content">
+					<div class="questions__tabs">
+						<input id="tab0" class="tabs__input" type="radio" name="tabs" checked>
+						<label class="tabs__label" for="tab0">Вопрос 1</label>
+						<input id="tab1" class="tabs__input" type="radio" name="tabs">
+						<label class="tabs__label" for="tab1">Вопрос 2</label>
+						<input id="tab2" class="tabs__input" type="radio" name="tabs">
+						<label class="tabs__label" for="tab2">Вопрос 3</label>
+						<input id="tab3" class="tabs__input" type="radio" name="tabs">
+						<label class="tabs__label" for="tab3">Вопрос 4</label>
+						<input id="tab4" class="tabs__input" type="radio" name="tabs">
+						<label class="tabs__label" for="tab4">Вопрос 5</label>
+						<input id="tab5" class="tabs__input" type="radio" name="tabs">
+						<label class="tabs__label" for="tab5">Вопрос 6</label>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer class="footer">
+		<div class="container footer__container">
+			<a class="footer-link footer-link_github" href="https://github.com/pshigotskaya26" target="_blank"><span class="icon icon_github"></span></a>
+			<p class="footer__text">2022</p>
+			<a class="footer-link footer-link_rsschool" href="https://rs.school/js/" target="_blank"><span class="icon icon_rsschool"></span></a>
+		</div>
+	</footer>
+	<script type="module" src="../../js/script.js"></script>
+</body>
+</html>
