@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../../assets/icons/favicon.ico" rel="shortcut icon" />
+	<title>Sognbird - result page</title>
+	<link rel="stylesheet" href="../../assets/styles/styles.css">
+	<link rel="stylesheet" href="../../assets/styles/fonts.css">
+	
+</head>
+<body>
+	<header class="header">
+		<div class="container header__container">
+			<a class="logo" href="../../pages/main/index.html"><img class="logo__image" src="../../assets/images/logo.png" alt="logo"></a>
+			<nav class="header__navigation">
+				<ul class="navigation">
+					<li class="navigation__item"><a class="navigation-link navigation-link_activ" href="../../pages/main/index.html">Главная</a></li>
+					<li class="navigation__item"><a class="navigation-link" href="../../pages/quiz/quiz.html">Игра</a></li>
+					<li class="navigation__item"><a class="navigation-link" href="../../pages/gallery/gallery.html">Галерея</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main class="main">
+		<section class="result">
+			<div class="container result__container">
+				<div class="result__content">
+					<h3 class="result__title">Результат викторины:</h3>
+					
+					<div class="result__body result__body_nosuccess">
+						<div class="result__score">
+							<p>Количество набранных баллов:</p>
+							<div class="line"></div>
+							<div class="points"><span class="your-count"></span><span>из</span><span class="max-count">30</span></div>
+						</div>
+						<p class="result__text">Хотите еще раз пройти викторину?</p>
+						<div class="result__button">
+							<a href="../../pages/quiz/quiz.html" class="button">Начать игру</a>
+						</div>
+					</div>
+				
+					<div class="result__body result__body_success hidden">
+						<div class="result__score">
+							<p>Количество набранных баллов:</p>
+							<div class="line"></div>
+							<div class="points"><span class="your-count"></span><span>из</span><span class="max-count">30</span></div>
+						</div>
+						<p class="result__text">Поздравляем!</p>
+						<p class="result__text">Вы успешно прошли викторину!!</p>
+						<div class="result__button">
+							<a href="../../pages/quiz/quiz.html" class="button">Начать игру</a>
+						</div>
+					</div>
+				
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer class="footer">
+		<div class="container footer__container">
+			<a class="footer-link footer-link_github" href="https://github.com/pshigotskaya26" target="_blank"><span class="icon icon_github"></span></a>
+			<p class="footer__text">2022</p>
+			<a class="footer-link footer-link_rsschool" href="https://rs.school/js/" target="_blank"><span class="icon icon_rsschool"></span></a>
+		</div>
+	</footer>
+	<script src="../../js/result-script.js"></script>
+</body>
+</html>

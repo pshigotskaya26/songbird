@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../../assets/icons/favicon.ico" rel="shortcut icon" />
+	<title>Sognbird - gallery page</title>
+	<link rel="stylesheet" href="../../assets/styles/styles.css">
+	<link rel="stylesheet" href="../../assets/styles/fonts.css">
+</head>
+<body class="">
+	<header class="header">
+		<div class="container header__container">
+			<a class="logo" href="../../pages/main/index.html"><img class="logo__image" src="../../assets/images/logo.png" alt="logo"></a>
+			<nav class="header__navigation">
+				<ul class="navigation">
+					<li class="navigation__item"><a class="navigation-link" href="../../pages/main/index.html">Главная</a></li>
+					<li class="navigation__item"><a class="navigation-link" href="../../pages/quiz/quiz.html">Игра</a></li>
+					<li class="navigation__item"><a class="navigation-link navigation-link_activ" href="../../pages/gallery/gallery.html">Галерея</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main class="main">
+		<section class="gallery">
+			<div class="container gallery__container">
+				<h1 class="gallery__title">Галерея птиц:</h1>
+				<div class="gallery__content">
+					<div class="gallery-block-hidden"></div>
+					
+					<div class="gallery-popup">
+						<div class="gallery-popup__burger">
+							<div class="burger-close">
+								<span></span>
+							</div>
+						</div>
+						<div class="gallery-popup-item">
+							<div class="gallery-popap__image">
+								<img class="popap-image" src="" alt="">
+							</div>
+							<h5 class="gallery-popap__title"></h5>
+							<p class="gallery-popap__name"></p>
+							<div class="player player-gallery">
+								<audio src=""></audio>
+								<div class="player-controls">
+									<button class="play play-icon play-icon-gallery"></button>
+									<div class="player-progress popap-player-progress">
+										<input class="progress__bar popap-progress__bar" type="range" min="0" max="100" value="0">
+										<div class="progress__time">
+											<div class="time__current popap-time__current">00:00</div>
+											<div class="time__total popap-time__total">00:00</div>
+										</div>
+									</div>
+								</div>
+								<div class="player-volume">
+									<button class="player-volume-button play-icon play-volume_on"></button>
+									<input class="player-volume-range player-volume-range-popap" type="range" min="0" max="100" value="70">
+								</div>
+							</div>
+							<div class="gallery-popap__description">
+								<p class="popap__text"></p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="gallery-row">
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer class="footer">
+		<div class="container footer__container">
+			<a class="footer-link footer-link_github" href="https://github.com/pshigotskaya26" target="_blank"><span class="icon icon_github"></span></a>
+			<p class="footer__text">2022</p>
+			<a class="footer-link footer-link_rsschool" href="https://rs.school/js/" target="_blank"><span class="icon icon_rsschool"></span></a>
+		</div>
+	</footer>
+	<script type="module" src="../../js/gallery.js"></script>
+</body>
+</html>

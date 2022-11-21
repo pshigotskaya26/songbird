@@ -1,0 +1,22 @@
+.button {
+	display: block;
+	//width: 300px;
+	padding:  1rem 9rem;
+	background-color: $color-primery;
+	color: $color-white;
+	-moz-border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    border-radius: 0.5rem;
+	text-align: center;
+	cursor: pointer;
+	box-shadow: 0rem 0.4rem 0.4rem rgb(0 0 0 / 25%), 0rem 0.2rem 0.3rem rgb(13 96 111 / 16%);
+
+	&:hover {
+		background-color: $color-primery-dark;
+		transition: all 0.3s ease-out;
+	}
+
+	@media (max-width: 360px) {
+		padding:  1rem 4rem;
+	}
+}

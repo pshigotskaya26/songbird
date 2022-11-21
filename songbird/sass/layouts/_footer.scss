@@ -1,0 +1,21 @@
+.footer {
+	color: $color-white;
+	background-color: $color-black;
+}
+
+.footer__container {
+	height: 10rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.footer-link_github {
+	width: 4.5rem;
+	height: 4.5rem;
+}
+
+.footer-link_rsschool {
+	width: 9rem;
+	height: 3rem;
+}
