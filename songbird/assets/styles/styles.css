@@ -1060,7 +1060,7 @@ h5 {
 
 .gallery-popup {
   position: fixed;
-  top: 50%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -300%);
   background: #F5F7F6;

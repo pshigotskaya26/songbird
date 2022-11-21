@@ -23,8 +23,8 @@ const getLocalStorageCount = () => {
 
 getLocalStorageCount();
 
-console.log('Оценка: 250 из 270');
-console.log('Не сделана галерея и перевод');
+console.log('Оценка: 260 из 270');
+console.log('Не сделан перевод');
 
 
 
