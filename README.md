@@ -12,10 +12,10 @@ Also you can view a bird's gallery, whose voices are used in the quiz.
 
 ### App structure
 
-The application consists of three pages \*:
+The application consists of three pages:
 
 - a start page
-- a quiz page ()
+- a quiz page
 - a gallery page
 
 ---
